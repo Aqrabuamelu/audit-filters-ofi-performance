@@ -1,7 +1,9 @@
 ---
-title: "Manuscript title here"
+title: "Performance of Individual Audit Filters in Predicting Opportunities for Improvement
+  in Adult Trauma Patients"
+subtitle: A single-center registry-based retrospective cohort
 output: html_document
-author: "Your name here"
+author: "Josef Al-Khalili"
 bibliography: bibliography.bib
 csl: vancouver.csl
 ---
@@ -10,40 +12,31 @@ csl: vancouver.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more
-details on using R Markdown see http://rmarkdown.rstudio.com -->
-
-<!-- This is a comment and will not be present in the compiled
-document. Try "knitting" this document by clicking the knit button up
-to the left, or by running `rmarkdown::render("manuscript.Rmd")` in
-the console and you should only see headings -->
-
-<!-- Structure and most comments are from the Strengthening the
-reporting of observational studies in epidemiology (STROBE) statement,
-see https://www.strobe-statement.org/. For more explanations see the
-paper Strengthening the Reporting of Observational Studies in
-Epidemiology (STROBE):explanation and elaboration.  -->
-
-<!-- Indicate the study’s design with a commonly used term in the
-title, for example: "Associations between resuscitation interventions
-and opportunities for improvement in adult trauma patients: A cohort
-study" -->
 
 Abstract
 ========
-
-This study investigates the efficacy of audit filters in identifying opportunities for improvement in trauma care, aiming to enhance the quality of healthcare delivery. Trauma care is a critical aspect of healthcare, and continuous quality assessment is imperative for optimizing patient outcomes. Audit filters, defined as systematic criteria applied to healthcare data to identify potential areas of improvement, have emerged as valuable tools in this endeavor.
-
-Using a the Swedish national trauma registry, SweTrau, this research assesses the performance of 10 individual audit filters in predicting opportunities for improvement. The study employs a multi-faceted approach, combining quantitative analysis of historical trauma care data with qualitative insights from healthcare professionals to provide a comprehensive evaluation.
-
-Preliminary findings suggest that audit filters exhibit promising performance in identifying key areas where enhancements in trauma care are warranted. The study evaluates the sensitivity, specificity, and overall accuracy of different audit filters, shedding light on their ability to pinpoint both systemic and case-specific opportunities for improvement. Moreover, the research explores the practical implications of implementing these filters in real-world healthcare settings.
-
-The results contribute valuable insights to the ongoing discourse on trauma care quality improvement, providing healthcare administrators and practitioners with evidence-based guidance on leveraging audit filters effectively. By identifying opportunities for enhancement, these filters empower healthcare providers to proactively address deficiencies, ultimately fostering a culture of continuous improvement in trauma care.
-
-In conclusion, this study not only advances our understanding of the applicability of audit filters in trauma care but also offers a foundation for future research and practical implementation. The integration of audit filters into routine quality assessment processes holds significant promise for elevating the standard of trauma care and, consequently, improving patient outcomes in diverse healthcare settings.
-<!-- Provide in the abstract an informative and balanced summary of
-what was done and what was found. Not more than 300 words. -->
+*Introduction:* Trauma is responsible for 9% of global deaths annually
+and has a significant impact on individuals and society. Quality
+Improvement (QI) programs seek to minimize these adverse outcomes using
+Audit Filters (AFs) and interdisciplinary Morbidity and Mortality
+Conferences (MMC). AFs are based on criteria for standard care and can
+function as a screening tool of eligible patient cases for discussion at
+MMCs. One of the goals with MMCs is to determine potential Opportunities
+for Improvement (OFI). *Aims:* This study aimed to evaluate the
+performance of individual AFs in predicting OFIs and to assess their
+relevance as a screening tool for Morbidity and Mortality Conferences
+(MMC). *Material and Methods:* Register data from 8,309 patient cases
+were collected for analysis. The sensitivity, specificity and Area Under
+the Receiver Operating Characteristics Curve (AUC) was calculated to
+assess performance. An empirical bootstrapping test of AUC values was
+conducted to compare the performance of each AF to coincidence (AUC =
+0.5) and minimum AUC for diagnostic tests (AUC = 0.8). *Results:* Four
+out of the 11 AFs assessed had an AUC of 0.5 (p \> 0.05). The remaining
+AFs demonstrated a correlation with OFI, with AUC ranging from 0.51 to
+0.63. The AF "\> 60 min until first intervention" exhibited the highest
+AUC (0.63, 95% CI [0.61-0.65]). *Conclusion:* No individual AF seemed to
+perform well in predicting OFI, which suggest rethinking the current
+screening method for MMCs.
 
 Background
 ----------
@@ -59,6 +52,121 @@ Conclusion
 
 Introduction
 ============
+Trauma, defined as a physical injury and
+the body's associated response, accounts for 8-9%
+of global deaths annually [@world2014injuries; @roth2018global], mainly affecting younger individuals in low- and middle-income countries attributed road traffic injuries [@vos2020global;
+@roth2018global; @SweTrau2022Arsrapport]. Furthermore, trauma is responsible for the top cause for disability-adjusted life-years
+(DALY) [@vos2020global] and associated with 36% not returning to work within one year
+[@david2022measuring] and a higher
+propensity towards depression, post-traumatic stress disorder (PTSD) and
+negative effects on cognitive function [@kessler1995posttraumatic;
+@north1999psychological; @muscatelli2017prevalence; @newnam2014impacts; @visser2017course]. Trauma is
+associated with . Attempts have been made to estimate the global
+cost of trauma, which is a complicated task due to its variability.
+However, it is estimated that the cost of road traffic injuries alone
+accounts for 2% of gross domestic product (GDP) in high-income countries
+[@world2014injuries].
+
+## Trauma Care Systems
+
+In order to reduce impact trauma care systems are in place. 
+Trauma care is a multidisciplinary, complex and time-critical health
+care service provided by hospitals
+[@American2022resources]. Trauma care is divided into three components:
+pre-hospital, in-hospital and post-hospital. The pre-hospital component
+constitutes first responders, basic life support and advanced life
+support [@world2005prehospital]. The in-hospital component is defined as
+the moment a trauma patient is admitted to a health care facility, often
+a trauma centre. The post-hospital component involves the rehabilitation
+and recovery of treated trauma patients.
+
+Trauma centres have a significantly lower mortality rate compared to
+non-trauma centres, and the maturity of a trauma centre correlates with
+lower mortality, demonstrating the importance of high-quality,
+specialised trauma care [@alharbi2021effectiveness; @mann1999systematic;
+@candefjord2020mortality]. Despite this, even established trauma care
+systems are prone to errors due to the complex nature of trauma and its
+susceptibility to delays [@nikouline2021errors; @vioque2014classifying;
+@o2013opportunities]. Studies between 1990 and 2014 have shown
+a pooled preventable death rate of 20%, with more recent studies showing
+a lower preventable death rate [@kwon2014pooled]. For example, a recent
+study in a Swedish Level I trauma centre found a preventable death rate
+of 4% [@ghorbani2018analysis].
+
+## Quality Improvement Programmes
+
+To minimise errors in trauma care, quality improvement (QI) programs
+have been established by the World Health Organization (WHO) and the
+International Association for Trauma Surgery and Intensive Care (IATSIC)
+[@world2009guidelines]. These programs form the core of current trauma
+care systems and their development around the world
+[@American2022resources]. QI programs consist of a series of recommended techniques aiming to
+facilitate discussion and analysis of the trauma process in order to
+take corrective action for future success. The following techniques are
+commonly used: a multidisciplinary mortality and morbidity conference
+(MMC), a preventable death review panel, and the use of AFs also known
+as quality indicators [@world2009guidelines].
+
+### Morbidity and Mortality Conferences
+
+The MMC is a central QI technique. It is a proven framework with the
+critical components of anonymity, focusing on specific adverse events,
+recognising flawed approaches, critical analysis, improvement proposals
+and implementing such [@gregor2016morbidity].
+
+The conference participants are healthcare professionals involved in
+trauma care and its processes, but not necessarily the specific patient
+case. The selection of patient cases varies, but common themes for
+discussion are unexpected mortality, unexpected morbidity and errors
+[@orlander2003morbidity].
+
+Implemented effectively, MMCs serve as an important tool for error
+reduction without being perceived as negative feedback for individual
+care providers, but rather as an incentive for reporting. These
+conferences promote a more comprehensive, systems-based approach that
+emphasises task analysis, teamwork and quality improvement
+[@lazzara2022morbidity]. The introduction of MMC has been shown to
+increase morbidity and mortality reporting [@kong2016analysis].
+
+### Audit Filters and Opportunities for Improvement
+
+AFs, also known as quality indicators are established criteria based on
+standardised care. Any deviation from the AFs should raise the attention
+of health care professionals with the purpose of improving the quality
+of care [@American2022resources]. An AF can involve outcomes such as
+"death" or criteria related to guidelines and gold standards such as
+"the placement of two large bore intravenous lines within 15 minutes
+from arrival to a health care facility" [@world2009guidelines].
+
+Previous studies have shown a reduction in trauma-related mortality
+after the implementation of AFs [@chadbunchachai2001comparative;
+@chadbunchachai2003study]. Per contra, newer studies seem to differ. In
+2009, an extensive review by Evans et al. [@evans2009audit] sought to
+determine if AFs could be used in improving processes in trauma care.
+They found no studies successfully providing evidence for the use of
+AFs. More than 1,500 AFs have been identified in a review by Stelfox et
+al. [@stelfox2010quality]. Notably, they did not find a common set of
+clearly defined, evidence-based, broadly accepted AFs for evaluating the
+quality of trauma care. The perceived usefulness of audit filters still
+remains high [@berg2022perceived]
+
+Opportunities for improvement (OFIs) are the endpoint of patient care.
+Following the review of individual patient cases there is a decision
+made regarding the existence of an OFI [@American2022resources]. It has
+been shown that such review processes are associated with high-quality
+trauma care [@santana2014development]. OFIs are typically associated
+with failures in initial care [@vioque2014classifying], specifically in
+airway management, fluid resuscitation, haemorrhage control and chest
+injury management [@sanddal2011analysis; @roy2017learning;
+@o2013opportunities].
+
+There is lacking evidence for the use of AFs for improving trauma care
+[@evans2009audit; @stelfox2010quality] and the focus has been on
+mortality as outcome measure [@chadbunchachai2001comparative;
+@chadbunchachai2003study]. Furthermore, the use of AFs has also been
+associated with high frequencies of false positive OFI predictions,
+ranging from 24% to 80% [@sanddal2011analysis; @roy2017learning], and
+some AFs do not appear to correlate with OFIs at all [@lewis2017delay].
 
 <!-- Explain the scientific background and rationale for the
 investigation being reported. End by stating the aim or specific
@@ -66,8 +174,6 @@ objectives, including any prespecified hypotheses. The introduction
 should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
 
-You can cite document here like this [@exampleKey9999]. Open the file
-bibliography.bib to learn more.
 
 Methods 
 =======
