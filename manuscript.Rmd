@@ -424,27 +424,7 @@ You can also mix text and code, so called inline code, like this: `r 2+5`.
 
 Discussion
 ==========
-This study showed that AFs do not perform well in predicting OFIs. No single AF presented with a performance of value in predicting OFI in trauma care patients. Some AF showed a correlation with OFI but not enough to be considered useful.
-
-Patient characteristics are similar to previous studier showing twofold prevalence of male trauma patients compared to females [@roth2018global;@SweTrau2022Arsrapport]. Previous studies have shown 
-
-A previous study conducted at Karolinska University Hospital by Albaaj
-et al. [@albaaj2023patient] sought to identify patient factors
-associated with OFIs and found that a higher ISS, longer times to CT,
-longer times to first intervention and higher levels of care was
-correlated with OFIs. These findings correspond with our analysis of
-patient characteristics and AFs linked to these factors.
-
-Higher ISS and higher levels of care in patients with OFIs as opposed to
-patients without OFIs could be explained by the greater complexity of
-such trauma cases. Greater complexity requires more interventions which
-could allow for more mistakes [@albaaj2023patient].
-
-Notably, GCS at ED showed a correlation with OFI even though the median
-GCS and its IQR was identical for individuals with OFI and without. Upon
-further analysis this could be explained by the difference in
-distribution outside the IQR.
-
+This study showed that AFs do not perform well in predicting OFIs. 
 AFs generally exhibited a high specificity relative to their sensitivity
 which may be attributed to the outcome being rather uncommon, whilst
 every individual AF misses the majority of OFIs. This could suggest that
@@ -452,53 +432,18 @@ the AFs are too rigid in their criteria. On the contrary, a too
 inclusive criteria might flag several patients, who do not necessarily
 have an OFI [@willis2008interpreting].
 
-In 2008, Willis et al. [@willis2008interpreting] assessed 14 audit
-filters, finding only three to be associated with an increased risk of
-poor outcomes. One AF, "GCS\<9 and not intubated", also used in this
-study, similarly showed no significant ability to predict OFIs. An
-explanation for this could be that an abnormal GCS as a result from
-intoxication is not comparable to an abnormal GCS due to head injury for
-example, suggesting that the AF might be more reflective of clinical
-decision rather than quality of care [@willis2008interpreting]. However,
-according to Sanddal et al. [@sanddal2011analysis] airway management is
-associated with OFI suggesting that an alternative audit filter related
-to airway management might potentially perform differently.
-
-Both AFs measuring delay: "\>60 until first intervention" and "\>30min
-until first CT", showed a correlation with OFI. This is comparable to
-what Teixeira et al. [@teixeira2007preventable] demonstrated, with delay
-correlating to preventable death. Furthermore, Ghorbani et al.
-[@ghorbani2018analysis] identified delay in treatment, delay to CT, and
-clinical judgement errors as common errors in trauma care. A more recent
-study in Japan by Yamamoto et. al [@yamamoto2023immediate] showed a
-significant reduction in mortality when patients received a whole-body
-CT within 10 minutes of arrival at the ED. It is important to note that
-OFI in this study was not only a reflection of mortality but a broader
-concept encompassing different aspects of care quality. If anything, it
-highlights the difference between hospitals, which AFs are in use, and
-how they are being assessed.
-
-AFs that present with a high risk of inevitable death showed poor"Dead
-at 30 days" and "CPR and thoracotomy", could be explained by inevitable
-mortality, thus presenting with a smaller time frame for mistakes to be
-made.
-
-##Interpretation
-
 AFs are static in their criteria, contrary to health care in general.
 Consequently, the utility of AFs may diminish if confronted with
 emerging challenges or upon resolution of the quality gaps they were
-designed for. The static nature of AFs highlight their need for
+designed for. This highlights their need for
 consistent and evidence-based review to determine current usefulness
-[@santana2014development]. However, it is worth pointing out that the
+[@santana2014development]. However, such
 review process might present with costs greater than the potential
 benefit from AFs.
 
-AFs face noteworthy challenges due to over-reliance, bias and
-confounders. Firstly, while AFs may help in determining the existence of
-OFI, they could overshadow other factors that may contribute to that
-analysis, leading to over-reliance. Secondly, devising AFs comes with an
-unintended bias. They might disproportionally affect certain groups of
+While AFs may help determining
+OFIs, they could overshadow other factors contributing to that
+analysis, resulting in over-reliance. AFs might disproportionally affect certain groups of
 people failing to recognise patient cases that fall outside the scope of
 AF criteria [@willis2008interpreting]. For example, AFs primarily focus
 on aspects of trauma care mostly relevant to medical doctors despite the
@@ -509,19 +454,54 @@ patients receiving the same interventions at different time points may
 do so as a function of injury severity not quality of care
 [@willis2008interpreting].
 
+Higher ISS, longer times to CT, longer times to first intervention and higher levels of care were correlated with OFIs, corresponding with a previous study conducted at Karolinska University Hospital by Albaaj
+et al. [@albaaj2023patient]. Greater severity and higher levels of care call for greater complexity, requiring more interventions, allowing for more mistakes. This could explain their correlation with OFI[@albaaj2023patient].
+
+Notably, GCS at ED showed a correlation with OFI even though the median
+GCS and its IQR was identical for individuals with OFI and without. Upon
+further analysis this could be explained by the difference in
+distribution outside the IQR.
+
+The AF "GCS<9 and not intubated" showed no significant ability to predict OFIs, similarly shown by Willis et al. [@willis2008interpreting] in 2008. An
+explanation for this could be that an abnormal GCS as a result from
+intoxication versus head injury for example are not comparable, suggesting that the AF might be more reflective of clinical
+decision rather than quality of care [@willis2008interpreting]. However, according to Sanddal et al. [@sanddal2011analysis] airway management was
+associated with OFI, suggesting that an alternative AF related
+to airway management might perform differently.
+
+Both AFs measuring delay: ">60 until first intervention" and ">30min
+until first CT", showed a correlation with OFI. This is comparable to
+what Teixeira et al. [@teixeira2007preventable] demonstrated, with delay
+correlating to preventable death. Furthermore, Ghorbani et al.
+[@ghorbani2018analysis] identified delay in treatment and delay to CT as common errors in trauma care. A more recent
+study in Japan by Yamamoto et. al [@yamamoto2023immediate] showed a
+significant reduction in mortality when patients received a whole-body
+CT within 10 minutes of arrival at the ED. Notably,
+OFI in this study was not soley a reflection of mortality but also morbidity. Rather, it
+highlights the difference between hospitals, which AFs are in use, and
+how they are assessed.
+
+AFs that present with a high risk of inevitable death: "Dead
+at 30 days" and "CPR and thoracotomy" showed no correlation with OFI. This could be explained by inevitable
+mortality, thus presenting with a smaller time frame for mistakes to be
+made.
+
+##Interpretation
+
+
+
 
 ## Limitations
 
-Opportunity for improvement, while dichotomously defined, includes a
+OFI, while dichotomously defined, includes a
 diverse set of outcomes. This convolutes the process of creating AFs
-that perform well in predicting OFIs. The current screening system for
-OFIs might also introduce bias since the AFs would favour the
+that perform well in predicting OFIs. AFs would favour the
 identification of some, but not all, errors.
 
-Each AF was individually related to OFI. Consequently, even if an AF
+Each AF was individually related to OFI. Consequently, if an AF
 demonstrated a true positive correlation with an OFI, instances where
-the same patient case had multiple AFs introduce a degree of uncertainty
-regarding which specific AF accurately predicted the outcome.
+the same patient case had multiple AFs introduce uncertainty
+regarding which specific AF truthfully predicted the OFI.
 
 The number of missing values varied greatly among the AFs. As stated
 above, missing values from each AF were coded as "not flagged" by an AF.
@@ -537,13 +517,13 @@ of common grounds on what they are, what purpose they serve and how they
 shall be used [@stelfox2010quality; @stelfox2011evidence;
 @berg2022perceived].
 
-Our findings suggest that AFs perform poorly in predicting OFIs. The AFs
+Our findings suggest that AFs perform poorly in predicting an OFI. The AFs
 with performance exceeding coincidence (AUC = 0.5) might be a beneficial
-addition to an already existing quality improvement programme or could
+addition to an already existing QI programme or
 be used to fine-tune AFs already in use to plug hospitals' quality gaps.
 Due to the study being conducted in a single, trauma level I centre in
 Stockholm it is unrealistic to assume applicability of these findings at
-other hospitals, in other countries, facing unique challenges
+other hospitals facing unique challenges
 [@world2009guidelines]. For example, Low and middle income countries
 seem to benefit from certain AFs that high income countries do not and
 vice versa [@berg2022perceived].
