@@ -6,87 +6,97 @@ output: html_document
 author: "Josef Al-Khalili"
 bibliography: bibliography.bib
 csl: vancouver.csl
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Abstract
 
-Abstract
-========
-*Introduction:* Trauma is responsible for 9% of global deaths annually
+## Background
+
+Trauma is responsible for 9% of global deaths annually
 and has a significant impact on individuals and society. Quality
 Improvement (QI) programs seek to minimize these adverse outcomes using
 Audit Filters (AFs) and interdisciplinary Morbidity and Mortality
 Conferences (MMC). AFs are based on criteria for standard care and can
 function as a screening tool of eligible patient cases for discussion at
 MMCs. One of the goals with MMCs is to determine potential Opportunities
-for Improvement (OFI). *Aims:* This study aimed to evaluate the
+for Improvement (OFI).This study aimed to evaluate the
 performance of individual AFs in predicting OFIs and to assess their
 relevance as a screening tool for Morbidity and Mortality Conferences
-(MMC). *Material and Methods:* Register data from 8,309 patient cases
+(MMC). 
+
+## Methods
+
+Register data from 8,309 patient cases
 were collected for analysis. The sensitivity, specificity and Area Under
 the Receiver Operating Characteristics Curve (AUC) was calculated to
 assess performance. An empirical bootstrapping test of AUC values was
 conducted to compare the performance of each AF to coincidence (AUC =
-0.5) and minimum AUC for diagnostic tests (AUC = 0.8). *Results:* Four
+0.5) and minimum AUC for diagnostic tests (AUC = 0.8). 
+
+## Results
+
+Four
 out of the 11 AFs assessed had an AUC of 0.5 (p \> 0.05). The remaining
 AFs demonstrated a correlation with OFI, with AUC ranging from 0.51 to
 0.63. The AF "\> 60 min until first intervention" exhibited the highest
-AUC (0.63, 95% CI [0.61-0.65]). *Conclusion:* No individual AF seemed to
+AUC (0.63, 95% CI [0.61-0.65]).
+
+## Conclusion
+
+No individual AF seemed to
 perform well in predicting OFI, which suggest rethinking the current
 screening method for MMCs.
 
-Background
-----------
+# Introduction
 
-Methods
--------
+Trauma, defined as a physical injury and the body's associated response,
+accounts for 8-9% of global deaths annually [@world2014injuries;
+@roth2018global], mainly affecting younger individuals in low- and
+middle-income countries attributed to mainly road traffic injuries
+[@vos2020global; @roth2018global; @SweTrau2022Arsrapport]. Furthermore,
+trauma is responsible for the top cause for disability-adjusted
+life-years (DALY) [@vos2020global] and a higher propensity towards
+mental disorders and cognitive decline [@kessler1995posttraumatic;
+@north1999psychological; @muscatelli2017prevalence; @newnam2014impacts;
+@visser2017course]. This negatively affects individuals, communities and
+society as a whole [@newnam2014impacts].It is estimated that the cost of
+road traffic injuries alone accounts for 2% of gross domestic product
+(GDP) in high-income countries [@world2014injuries].
 
-Results
--------
-
-Conclusion
-----------
-
-Introduction
-============
-Trauma, defined as a physical injury and
-the body's associated response, accounts for 8-9%
-of global deaths annually [@world2014injuries; @roth2018global], mainly affecting younger individuals in low- and middle-income countries attributed to mainly road traffic injuries [@vos2020global;
-@roth2018global; @SweTrau2022Arsrapport]. Furthermore, trauma is responsible for the top cause for disability-adjusted life-years (DALY) [@vos2020global] and a higher propensity towards mental disorders and cognitive decline [@kessler1995posttraumatic;
-@north1999psychological; @muscatelli2017prevalence; @newnam2014impacts; @visser2017course]. This negatively affects individuals, communities and society as a whole [@newnam2014impacts].It is estimated that the cost of road traffic injuries alone
-accounts for 2% of gross domestic product (GDP) in high-income countries
-[@world2014injuries].
-
-To reduce trauma burden, quality improvement (QI) programs
-have been established by the World Health Organization (WHO) and the
-International Association for Trauma Surgery and Intensive Care (IATSIC)
+To reduce trauma burden, quality improvement (QI) programs have been
+established by the World Health Organization (WHO) and the International
+Association for Trauma Surgery and Intensive Care (IATSIC)
 [@world2009guidelines]. These programs form the core of current trauma
 care systems and their development around the world
-[@American2022resources]. QI programs consist of a series of recommended techniques aiming to
-facilitate discussion and analysis of the trauma process in order to
-take corrective action for future success. The following techniques are
-commonly used: a multidisciplinary mortality and morbidity conference
-(MMC), a preventable death review panel, and the use of AFs also known
-as quality indicators [@world2009guidelines].
+[@American2022resources]. QI programs consist of a series of recommended
+techniques aiming to facilitate discussion and analysis of the trauma
+process in order to take corrective action for future success. The
+following techniques are commonly used: a multidisciplinary mortality
+and morbidity conference (MMC), a preventable death review panel, and
+the use of AFs also known as quality indicators [@world2009guidelines].
 
 Trauma care is a multidisciplinary, complex and time-critical health
 care service provided by hospitals, often trauma centres.
-[@American2022resources].
-Trauma centres have a significantly lower mortality rate compared to
-non-trauma centres, and the maturity of a trauma centre correlates with
-lower mortality, demonstrating the importance of high-quality,
-specialised trauma care [@alharbi2021effectiveness; @mann1999systematic;
+[@American2022resources]. Trauma centres have a significantly lower
+mortality rate compared to non-trauma centres, and the maturity of a
+trauma centre correlates with lower mortality, demonstrating the
+importance of high-quality, specialised trauma care
+[@alharbi2021effectiveness; @mann1999systematic;
 @candefjord2020mortality]. Despite this, even established trauma care
 systems are prone to errors due to the complex nature of trauma and its
 susceptibility to delays [@nikouline2021errors; @vioque2014classifying;
-@o2013opportunities]. Studies between 1990 and 2014 have shown
-a pooled preventable death rate of 20%, with more recent studies showing
-a lower preventable death rate [@kwon2014pooled]. For example, a recent
-study in a Swedish Level I trauma centre found a preventable death rate
-of 4% [@ghorbani2018analysis].
+@o2013opportunities]. Studies between 1990 and 2014 have shown a pooled
+preventable death rate of 20%, with more recent studies showing a lower
+preventable death rate [@kwon2014pooled]. For example, a recent study in
+a Swedish Level I trauma centre found a preventable death rate of 4%
+[@ghorbani2018analysis].
 
 ### Morbidity and Mortality Conferences
 
@@ -149,73 +159,71 @@ associated with high frequencies of false positive OFI predictions,
 ranging from 24% to 80% [@sanddal2011analysis; @roy2017learning], and
 some AFs do not appear to correlate with OFIs at all [@lewis2017delay].
 
+```{=html}
 <!-- Explain the scientific background and rationale for the
 investigation being reported. End by stating the aim or specific
 objectives, including any prespecified hypotheses. The introduction
 should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 6-8 lines long. Support every statement with a citation -->
+```
+# Methods
 
-
-Methods 
-=======
-
-Study design
-------------
+## Study design
 
 <!-- Present key elements of study design -->
 
-Setting
--------
+## Setting
 
+```{=html}
 <!-- Describe the setting, locations, and relevant dates, including
 periods of recruitment, exposure, follow-up, and data collection -->
+```
+## Participants
 
-Participants
-------------
-
+```{=html}
 <!-- Cohort study: Give the eligibility criteria, and the sources and
 methods of selection of participants. Describe methods of
 follow-up. For matched studies, give matching criteria and number of
 exposed and unexposed -->
-
+```
+```{=html}
 <!-- Case-control study: Give the eligibility criteria, and the
 sources and + methods of case ascertainment and control
 selection. Give the rationale for the choice of cases and
 controls. For matched studies, give matching criteria and the number
 of controls per case -->
-
+```
+```{=html}
 <!-- Cross-sectional study: Give the eligibility criteria, and the
 sources and methods of selection of participants -->
+```
+## Variables and data sources/measurements
 
-Variables and data sources/measurements
----------------------------------------
-
+```{=html}
 <!-- Clearly define all outcomes, exposures, predictors, potential
 confounders, and effect modifiers. Give diagnostic criteria, if
 applicable. For each variable of interest, give sources of data and
 details of methods of assessment (measurement). Describe comparability
 of assessment methods if there is more than one group -->
-
-Bias 
-----
+```
+## Bias
 
 <!-- Describe any efforts to address potential sources of bias -->
 
-Study size 
-----------
+## Study size
 
 <!-- Explain how the study size was arrived at -->
 
-Quantitative variables
-----------------------
+## Quantitative variables
 
+```{=html}
 <!-- Explain how quantitative variables were handled in the
 analyses. If applicable, describe which groupings were chosen and why
 -->
+```
+## Statistical methods
 
-Statistical methods
--------------------
-
+```{=html}
 <!-- 
 
 (a) Describe all statistical methods, including those used to control
@@ -237,25 +245,22 @@ taking account of sampling strategy
 
 (e) Describe any sensitivity analyses
 -->
+```
+# Results
 
-Results
-=======
-
-##Participants
-After excluding patients
-under 15 years old and patients not screened for OFIs, a total of 8,309
-individuals were included in the study. 7,797 out of 8,309 (93.8%)
-patient cases did not have an OFI and 512 out of 8,309 (6.2%) had an
-OFI. Figure 1 presents a flowchart showcasing the exclusion and inclusion of
-the patient cases from the trauma registry.
+##Participants After excluding patients under 15 years old and patients
+not screened for OFIs, a total of 8,309 individuals were included in the
+study. 7,797 out of 8,309 (93.8%) patient cases did not have an OFI and
+512 out of 8,309 (6.2%) had an OFI. Figure 1 presents a flowchart
+showcasing the exclusion and inclusion of the patient cases from the
+trauma registry.
 
 Most trauma patients were men (n = 5,755, 69%). Patient characteristics
 varied depending on whether patients had an OFI or not. Respectively,
 the mean age was significantly higher\
 `r inline_text(tableOne, variable = pt_age_yrs, column = stat_2)` vs
 `r inline_text(tableOne, variable = pt_age_yrs, column = stat_1)`,
-`r inline_text(tableOne, variable = pt_age_yrs, column = "p.value")`
-and
+`r inline_text(tableOne, variable = pt_age_yrs, column = "p.value")` and
 the ISS was significantly higher
 `r inline_text(tableOne, variable = ISS, column = stat_2)` vs
 `r inline_text(tableOne, variable = ISS, column = stat_1)`,
@@ -290,8 +295,8 @@ the mean systolic blood pressure
 death at 30 days
 `r inline_text(tableOne, variable = res_survival, column = "p.value")`
 and trauma team activation
-`r inline_text(tableOne, variable = Tr_Nivå, column = "p.value")` was not
-significantly correlated with OFI.
+`r inline_text(tableOne, variable = Tr_Nivå, column = "p.value")` was
+not significantly correlated with OFI.
 
 Notably, there was a statistical significant correlation between GCS at
 ED and OFI (p \< 0.001).
@@ -349,8 +354,7 @@ knitr::include_graphics("ofi-flowchart.pdf")
 ```
 
 Figure 1: Flowchart of the patient selection process. Shows the patients
-excluded and included in this study.
-<!-- 
+excluded and included in this study. <!-- 
 
 Participants
 ------------
@@ -420,88 +424,25 @@ You can also embed plots:
 plot(pressure)
 ```
 
-You can also mix text and code, so called inline code, like this: `r 2+5`.
+You can also mix text and code, so called inline code, like this:
+`r 2+5`.
 
-Discussion
-==========
-This study showed that AFs do not perform well in predicting OFIs. 
-AFs generally exhibited a high specificity relative to their sensitivity
-which may be attributed to the outcome being rather uncommon, whilst
-every individual AF misses the majority of OFIs. This could suggest that
-the AFs are too rigid in their criteria. On the contrary, a too
-inclusive criteria might flag several patients, who do not necessarily
-have an OFI [@willis2008interpreting].
+# Discussion
 
-AFs are static in their criteria, contrary to health care in general.
-Consequently, the utility of AFs may diminish if confronted with
-emerging challenges or upon resolution of the quality gaps they were
-designed for. This highlights their need for
-consistent and evidence-based review to determine current usefulness
-[@santana2014development]. However, such
-review process might present with costs greater than the potential
-benefit from AFs.
-
-While AFs may help determining
-OFIs, they could overshadow other factors contributing to that
-analysis, resulting in over-reliance. AFs might disproportionally affect certain groups of
-people failing to recognise patient cases that fall outside the scope of
-AF criteria [@willis2008interpreting]. For example, AFs primarily focus
-on aspects of trauma care mostly relevant to medical doctors despite the
-interdisciplinary nature of trauma care. This is especially
-counterintuitive given the broad definition of OFIs. Lastly, confounding
-variables adds to the uncertainty of AFs performance. For example,
-patients receiving the same interventions at different time points may
-do so as a function of injury severity not quality of care
-[@willis2008interpreting].
-
-Higher ISS, longer times to CT, longer times to first intervention and higher levels of care were correlated with OFIs, corresponding with a previous study conducted at Karolinska University Hospital by Albaaj
-et al. [@albaaj2023patient]. Greater severity and higher levels of care call for greater complexity, requiring more interventions, allowing for more mistakes. This could explain their correlation with OFI[@albaaj2023patient].
-
-Notably, GCS at ED showed a correlation with OFI even though the median
-GCS and its IQR was identical for individuals with OFI and without. Upon
-further analysis this could be explained by the difference in
-distribution outside the IQR.
-
-The AF "GCS<9 and not intubated" showed no significant ability to predict OFIs, similarly shown by Willis et al. [@willis2008interpreting] in 2008. An
-explanation for this could be that an abnormal GCS as a result from
-intoxication versus head injury for example are not comparable, suggesting that the AF might be more reflective of clinical
-decision rather than quality of care [@willis2008interpreting]. However, according to Sanddal et al. [@sanddal2011analysis] airway management was
-associated with OFI, suggesting that an alternative AF related
-to airway management might perform differently.
-
-Both AFs measuring delay: ">60 until first intervention" and ">30min
-until first CT", showed a correlation with OFI. This is comparable to
-what Teixeira et al. [@teixeira2007preventable] demonstrated, with delay
-correlating to preventable death. Furthermore, Ghorbani et al.
-[@ghorbani2018analysis] identified delay in treatment and delay to CT as common errors in trauma care. A more recent
-study in Japan by Yamamoto et. al [@yamamoto2023immediate] showed a
-significant reduction in mortality when patients received a whole-body
-CT within 10 minutes of arrival at the ED. Notably,
-OFI in this study was not soley a reflection of mortality but also morbidity. Rather, it
-highlights the difference between hospitals, which AFs are in use, and
-how they are assessed.
-
-AFs that present with a high risk of inevitable death: "Dead
-at 30 days" and "CPR and thoracotomy" showed no correlation with OFI. This could be explained by inevitable
-mortality, thus presenting with a smaller time frame for mistakes to be
-made.
-
-##Interpretation
-
-
-
+The aim of this study was to evaluate the performance of individual AFs in predicting OFIs and 
+to assess their suitability as a screening tool for MMCs. This study showed that no AFs was significantly successful in predicting OFIs. Four AFs ("SBP<90," "dead at 30 days," "GCS<9 and not intubated," and "CPR and thoracotomy") were equivalent to random chance in their predictive ability. The highest AUC was for ">60 minutes until first intervention,". Notably, all AFs performed significantly below the accepted standard for diagnostic tests (>0.8).
 
 ## Limitations
 
-OFI, while dichotomously defined, includes a
-diverse set of outcomes. This convolutes the process of creating AFs
-that perform well in predicting OFIs. AFs would favour the
-identification of some, but not all, errors.
+OFI, while dichotomously defined, includes a diverse set of outcomes.
+This convolutes the process of creating AFs that perform well in
+predicting OFIs. AFs would favour the identification of some, but not
+all, errors.
 
 Each AF was individually related to OFI. Consequently, if an AF
 demonstrated a true positive correlation with an OFI, instances where
-the same patient case had multiple AFs introduce uncertainty
-regarding which specific AF truthfully predicted the OFI.
+the same patient case had multiple AFs introduce uncertainty regarding
+which specific AF truthfully predicted the OFI.
 
 The number of missing values varied greatly among the AFs. As stated
 above, missing values from each AF were coded as "not flagged" by an AF.
@@ -510,69 +451,99 @@ might actually meet the AF criteria, but for some reason not documented.
 This reduces the validity of some AFs that featured high amounts of
 missing data.
 
+##Interpretation
+
+Higher ISS, longer times to CT, longer times to first intervention and
+higher levels of care were correlated with OFIs, corresponding with a
+recent study conducted at Karolinska University Hospital by Albaaj et
+al. [@albaaj2023patient]. Notably, GCS at ED showed a correlation with OFI even though the median
+GCS and its IQR was identical for individuals with OFI and without. Upon
+further analysis this could be explained by the difference in
+distribution outside the IQR.
+
+The AF "GCS\<9 and not intubated" showed no significant ability to
+predict OFIs, similarly shown by Willis et al. [@willis2008interpreting]
+in 2008. An explanation for this could be that an abnormal GCS as a
+result from intoxication versus head injury for example are not
+comparable, suggesting that the AF might be more reflective of clinical
+decision rather than quality of care [@willis2008interpreting]. However,
+according to Sanddal et al. [@sanddal2011analysis] airway management was
+associated with OFI, suggesting that an alternative AF related to airway
+management might perform differently.
+
+Both AFs measuring delay: "\>60 until first intervention" and "\>30min
+until first CT", showed a correlation with OFI. Comparably, Teixeira et al. [@teixeira2007preventable] found a correlation between delay
+and preventable death. Furthermore, Ghorbani et al.
+[@ghorbani2018analysis] identified delay in treatment and delay to CT as
+common errors in trauma care. A more recent study in Japan by Yamamoto
+et. al [@yamamoto2023immediate] showed a significant reduction in
+mortality when patients received a whole-body CT within 10 minutes of
+arrival at the ED. Notably, OFI in this study was not soley a reflection
+of mortality but also morbidity. Rather, it could highlight differences in quality gaps
+between hospitals.
+
+"Dead at 30 days"
+and "CPR and thoracotomy" showed no correlation with OFI. This could be
+explained by inevitable mortality, thus presenting with a smaller time
+frame for mistakes to be made.
+
+AFs
+generally exhibited a high specificity relative to their sensitivity
+which may be attributed to the outcome being rather uncommon, whilst
+every individual AF misses the majority of OFIs. This could suggest that
+the AFs are too rigid in their criteria. On the contrary, a too
+inclusive criteria might flag several patients, without an OFI [@willis2008interpreting].
+
 ## Generalizability
 
-AFs are widely used but generalizability is complicated due to the lack
-of common grounds on what they are, what purpose they serve and how they
+AFs, although widely used, there is lack
+of consensus on what they are, what purpose they serve and how they
 shall be used [@stelfox2010quality; @stelfox2011evidence;
-@berg2022perceived].
+@berg2022perceived]. Further, AFs are static in their criteria, contrary to health care in general.
+Consequently, the utility of AFs may diminish with emerging challenges
+or upon resolution of the quality gaps they were designed for. This
+highlights the need for consistent and evidence-based review to
+determine current usefulness [@santana2014development]. However, such
+review process might present with costs greater than the potential
+benefit from AFs.
 
-Our findings suggest that AFs perform poorly in predicting an OFI. The AFs
-with performance exceeding coincidence (AUC = 0.5) might be a beneficial
-addition to an already existing QI programme or
-be used to fine-tune AFs already in use to plug hospitals' quality gaps.
-Due to the study being conducted in a single, trauma level I centre in
-Stockholm it is unrealistic to assume applicability of these findings at
-other hospitals facing unique challenges
-[@world2009guidelines]. For example, Low and middle income countries
-seem to benefit from certain AFs that high income countries do not and
-vice versa [@berg2022perceived].
+While AFs may help determining OFIs, they could overshadow other factors
+contributing to that analysis, resulting in over-reliance. AFs might
+disproportionally affect certain groups of people failing to recognise
+patient cases that fall outside the scope of AF criteria
+[@willis2008interpreting]. For example, AFs primarily focus on aspects
+of trauma care mostly relevant to medical doctors despite the
+interdisciplinary nature of trauma care. This is especially
+counterintuitive given the broad definition of OFIs. Lastly, confounding
+variables adds to the uncertainty of AFs performance. For example,
+patients receiving the same interventions at different time points may
+do so as a function of injury severity not quality of care
+[@willis2008interpreting].
 
-## Strengths
-
-As stated in the method section, some AFs were manually created from
-registry data instead of relying on the selection process by the
-specialised nurse (see table 1). This, in order to minimise
-misclassification bias.
-
-Furthermore, there has been very limited high quality evidence
-supporting the efficacy of AFs in improving trauma care
-[@evans2009audit; @stelfox2010quality] and predicting OFI
-[@sanddal2011analysis; @roy2017learning]. This study shows comparable
-results. Previous studies also focus primarily on AFs' ability to reduce
-mortality [@chadbunchachai2001comparative; @chadbunchachai2003study]. In
-this study the morbidity of patient cases is also taken into account
-using OFIs as an umbrella term that includes factors ranging from bad
-documentation to preventable death.
-
-From 2017 all trauma patients admitted to Karolinska University Hospital
-were included in the registry reducing the risk of bias in inclusion of
-patient cases.
-
-
+Due to the
+study being conducted in a single, trauma level I centre in Stockholm it
+is unrealistic to assume applicability of these findings at other
+hospitals facing unique challenges [@world2009guidelines]. It is previously known that
+low and middle income countries seem to benefit from certain AFs that
+high income countries do not and vice versa [@berg2022perceived].
 
 ## Future Studies
 
-With the ongoing academic, political, and public attention towards
-patient safety and quality of healthcare [@evans2009audit], it is
-important to discover optimal methods for monitoring and enhancing the
-care provided within trauma systems.
-
 Given the expanding field of artificial intelligence and machine
 learning, newer studies should focus on using these tools to screen for
-patient cases at risk of OFIs. This will diminish misclassification
-rates and ensure consistent and sustained high performance, attributable
+patient cases at risk of an OFI. This will diminish misclassification
+rates and ensure sustained high performance, attributable
 to an algorithm's capability to adapt and learn from the prevailing
 context of trauma care. This approach is contemporary but not
-unexplored. A preprint is currently available by Attergrim et al.
-[@attergrim2023predicting] exploring the idea of machine learning models
+unexplored. A recent preprint by Attergrim et al.
+[@attergrim2023predicting] explored the idea of machine learning models
 as a screening tool for potential OFIs. They found that machine learning
 models outperformed the AFs currently used at Karolinska University
 Hospital in predicting OFIs.
 
 Should the use of AFs remain, it is important to ensure its performance
 by routinely updating them in order to better reflect the current
-quality gaps.
+quality gaps. 
 <!--
 
 Key results
@@ -600,10 +571,9 @@ Discuss the generalisability (external validity) of the study results
 
 -->
 
-Conclusion
-==========
+# Conclusion
 
-AFs are widely used as a tool in quality improvement programmes and
+AFs are widely used as a tool in QI programmes and
 should reflect the current gap in trauma care quality. Strong evidence
 supporting their efficacy in quality improvement is scarce. In this
 study, no audit filter seemed to show promising performance in
@@ -612,6 +582,4 @@ highlight the importance of continually evaluating the relevance of AFs.
 However, this process takes time and resources and using an alternative
 to AFs is recommended.
 
-References
-==========
-
+# References
