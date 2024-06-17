@@ -1,20 +1,29 @@
 ---
-title: "Performance of Individual Audit Filters in Predicting Opportunities for Improvement
-  in Adult Trauma Patients"
-subtitle: A single-center registry-based retrospective cohort
-output: html_document
+title: Performance of Individual Audit Filters in Predicting Opportunities for Improvement
+  in Adult Trauma Patients
 author: "Josef Al-Khalili"
+output:
+  html_document: default
+  pdf_document: default
+subtitle: "A single-center registry-based retrospective cohort"
 bibliography: bibliography.bib
 csl: vancouver.csl
-editor_options: 
-  markdown: 
+editor_options:
+  markdown:
     wrap: 72
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r sourcecode, echo=FALSE, fig.align="center", warning=FALSE, message=FALSE,error=FALSE}
+source("main.R")
+library(rofi)
+library(dplyr)
+library(ggplot2)
+library(pROC)
+library(gtsummary)
+library(gt)
+library(boot)
+library(webshot2)
+library(knitr)
 ```
-
 # Abstract
 
 ## Background
@@ -70,90 +79,40 @@ To reduce trauma burden, quality improvement (QI) programs have been
 established by the World Health Organization (WHO) and the International
 Association for Trauma Surgery and Intensive Care (IATSIC)
 [@world2009guidelines]. These programs form the core of current trauma
-care systems and their development around the world
-[@American2022resources]. QI programs consist of a series of recommended
-techniques aiming to facilitate discussion and analysis of the trauma
-process in order to take corrective action for future success. The
-following techniques are commonly used: a multidisciplinary mortality
-and morbidity conference (MMC), a preventable death review panel, and
+care systems
+[@American2022resources] and commonly include multidisciplinary mortality
+and morbidity conferences (MMC), preventable death review panels, and
 the use of AFs also known as quality indicators [@world2009guidelines].
-
-Trauma care is a multidisciplinary, complex and time-critical health
-care service provided by hospitals, often trauma centres.
-[@American2022resources]. Trauma centres have a significantly lower
-mortality rate compared to non-trauma centres, and the maturity of a
-trauma centre correlates with lower mortality, demonstrating the
-importance of high-quality, specialised trauma care
-[@alharbi2021effectiveness; @mann1999systematic;
-@candefjord2020mortality]. Despite this, even established trauma care
-systems are prone to errors due to the complex nature of trauma and its
-susceptibility to delays [@nikouline2021errors; @vioque2014classifying;
-@o2013opportunities]. Studies between 1990 and 2014 have shown a pooled
-preventable death rate of 20%, with more recent studies showing a lower
-preventable death rate [@kwon2014pooled]. For example, a recent study in
+Despite QI programs, trauma care remains prone to errors [@nikouline2021errors; @vioque2014classifying;
+@o2013opportunities]. Studies have shown a pooled preventable death rate of 20% from 1990 to 2014, with more recent studies indicating lower rates [@kwon2014pooled]. For instance, a recent study in
 a Swedish Level I trauma centre found a preventable death rate of 4%
 [@ghorbani2018analysis].
 
 ### Morbidity and Mortality Conferences
-
-The MMC is a central QI technique. It is a proven framework with the
-critical components of anonymity, focusing on specific adverse events,
-recognising flawed approaches, critical analysis, improvement proposals
-and implementing such [@gregor2016morbidity].
-
-The conference participants are healthcare professionals involved in
-trauma care and its processes, but not necessarily the specific patient
-case. The selection of patient cases varies, but common themes for
-discussion are unexpected mortality, unexpected morbidity and errors
-[@orlander2003morbidity].
-
-Implemented effectively, MMCs serve as an important tool for error
-reduction without being perceived as negative feedback for individual
-care providers, but rather as an incentive for reporting. These
-conferences promote a more comprehensive, systems-based approach that
-emphasises task analysis, teamwork and quality improvement
-[@lazzara2022morbidity]. The introduction of MMC has been shown to
-increase morbidity and mortality reporting [@kong2016analysis].
+The MMC is a central QI technique focusing on anonymity, critical analysis of specific adverse events, recognizing flawed approaches, and proposing and implementing improvements [@gregor2016morbidity]. Attended by healthcare professionals involved in trauma care, MMCs discuss themes like unexpected mortality, morbidity, and errors [@orlander2003morbidity], fostering error reduction and encouraging reporting without negative feedback [@lazzara2022morbidity]. Effective MMC implementation has been shown to increase morbidity and mortality reporting [@kong2016analysis].
 
 ### Audit Filters and Opportunities for Improvement
 
-AFs, also known as quality indicators are established criteria based on
-standardised care. Any deviation from the AFs should raise the attention
+AFs are criteria based on standardized care to enhance trauma care quality. Deviation from AFs should raise the attention
 of health care professionals with the purpose of improving the quality
-of care [@American2022resources]. An AF can involve outcomes such as
-"death" or criteria related to guidelines and gold standards such as
-"the placement of two large bore intravenous lines within 15 minutes
-from arrival to a health care facility" [@world2009guidelines].
+of care [@American2022resources]. AFs can involve outcomes like "death" or adherence to guidelines, such as "placement of two large bore intravenous lines within 15 minutes of arrival." [@world2009guidelines].Studies have shown mixed results on the effectiveness of AFs in reducing trauma-related mortality. While some early studies reported mortality reduction [@chadbunchachai2001comparative;
+@chadbunchachai2003study], a 2009 review by Evans et al. [@evans2009audit] found no substantial evidence supporting AFs' effectiveness. Stelfox et al. [@stelfox2010quality] identified over 1,500 AFs but noted a lack of a common, evidence-based set for evaluating trauma care quality, despite the high perceived usefulness of AFs [@berg2022perceived].
 
-Previous studies have shown a reduction in trauma-related mortality
-after the implementation of AFs [@chadbunchachai2001comparative;
-@chadbunchachai2003study]. Per contra, newer studies seem to differ. In
-2009, an extensive review by Evans et al. [@evans2009audit] sought to
-determine if AFs could be used in improving processes in trauma care.
-They found no studies successfully providing evidence for the use of
-AFs. More than 1,500 AFs have been identified in a review by Stelfox et
-al. [@stelfox2010quality]. Notably, they did not find a common set of
-clearly defined, evidence-based, broadly accepted AFs for evaluating the
-quality of trauma care. The perceived usefulness of audit filters still
-remains high [@berg2022perceived]
-
-Opportunities for improvement (OFIs) are the endpoint of patient care.
-Following the review of individual patient cases there is a decision
-made regarding the existence of an OFI [@American2022resources]. It has
-been shown that such review processes are associated with high-quality
-trauma care [@santana2014development]. OFIs are typically associated
-with failures in initial care [@vioque2014classifying], specifically in
+Opportunities for improvement (OFIs) are decided upon review of individual patient cases [@American2022resources]. They are typically associated
+with failures in initial care [@vioque2014classifying] like
 airway management, fluid resuscitation, haemorrhage control and chest
 injury management [@sanddal2011analysis; @roy2017learning;
-@o2013opportunities].
-
-There is lacking evidence for the use of AFs for improving trauma care
+@o2013opportunities]. There is lacking evidence for the use of AFs for improving trauma care
 [@evans2009audit; @stelfox2010quality] and the focus has been on
 mortality as outcome measure [@chadbunchachai2001comparative;
-@chadbunchachai2003study]. Furthermore, the use of AFs has also been
-associated with high frequencies of false positive OFI predictions,
+@chadbunchachai2003study]. Furthermore, the use of AFs has been
+associated with high frequencies of false positives,
 ranging from 24% to 80% [@sanddal2011analysis; @roy2017learning], and
 some AFs do not appear to correlate with OFIs at all [@lewis2017delay].
+
+The aim of this study is to determine the performance of AFs in
+predicting OFIs and furthermore assess their relevance as a screening
+tool for MMCs.
 
 ```{=html}
 <!-- Explain the scientific background and rationale for the
@@ -214,8 +173,8 @@ of controls per case -->
 sources and methods of selection of participants -->
 ```
 ## Variables and data sources/measurements
-The outcome variable in this study is an OFI, as established by the MMCs
-and furthermore treated as a dichotomous variable with "Yes - At least
+The outcome variable is an OFI, as established by the MMCs
+and treated as a dichotomous variable with "Yes - At least
 one OFI identified" and "No - No OFI identified".
 The 11 AFs used at Karolinska University Hospital served as the exposure variable, as shown in Table 1. Each AF is labeled "original" or "manually created." Manually created AFs were calculated using trauma registry data, while original AFs were recorded in the quality database based on criteria beyond the available registry data.
 
@@ -234,7 +193,6 @@ of assessment methods if there is more than one group -->
 ```
 ## Bias
 Consensus decisions at MMC conferences may introduce misclassification bias. Additionally, AF flagging by specialized nurses is a manual process, potentially leading to selection bias. Healthcare professionals attending MMCs may not accurately recall key details impacting OFI decisions, introducing recall bias. Furthermore, professionals not present for specific cases might over- or underestimate OFI significance.
-<!-- Describe any efforts to address potential sources of bias -->
 
 ## Study size
 
@@ -586,3 +544,14 @@ management might perform differently.
 Notably, OFI in this study was not soley a reflection
 of mortality but also morbidity. Rather, it could highlight differences in quality gaps
 between hospitals.
+Trauma care is a multidisciplinary, complex and time-critical health
+care service provided by hospitals, often trauma centres.
+[@American2022resources]. Trauma centres have a significantly lower
+mortality rate compared to non-trauma centres, and the maturity of a
+trauma centre correlates with lower mortality, demonstrating the
+importance of high-quality, specialised trauma care
+[@alharbi2021effectiveness; @mann1999systematic;
+@candefjord2020mortality]. 
+ It has
+been shown that such review processes are associated with high-quality
+trauma care [@santana2014development].
