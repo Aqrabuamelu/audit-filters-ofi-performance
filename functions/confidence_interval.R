@@ -1,6 +1,6 @@
 confidence_interval <- function(twoVariableData){
   set.seed(123)
-  numberOfBootstraps <- 1000
+  numberOfBootstraps <- 100
   bootResults <- boot(twoVariableData,statistic = boot_strap, R = numberOfBootstraps)
   boot2 <- boot(twoVariableData,statistic = boot_strap_AUC, R = numberOfBootstraps)
   AUCCI <- boot.ci(boot2, type = "basic")
