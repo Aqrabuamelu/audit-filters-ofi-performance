@@ -3,8 +3,9 @@ title: Performance of Individual Audit Filters in Predicting Opportunities for I
   in Adult Trauma Patients
 author: "Josef Al-Khalili"
 output:
-  html_document: default
+  word_document: default
   pdf_document: default
+  html_document: default
 subtitle: "A single-center registry-based retrospective cohort"
 bibliography: bibliography.bib
 csl: vancouver.csl
@@ -92,8 +93,6 @@ rates [@kwon2014pooled]. For instance, a recent study in a Swedish Level
 I trauma centre found a preventable death rate of 4%
 [@ghorbani2018analysis].
 
-### Morbidity and Mortality Conferences
-
 The MMC is a central QI technique focusing on anonymity, critical
 analysis of specific adverse events, recognizing flawed approaches, and
 proposing and implementing improvements [@gregor2016morbidity]. Attended
@@ -103,8 +102,6 @@ like unexpected mortality, morbidity, and errors
 reporting without negative feedback [@lazzara2022morbidity]. Effective
 MMC implementation has been shown to increase morbidity and mortality
 reporting [@kong2016analysis].
-
-### Audit Filters and Opportunities for Improvement
 
 AFs are criteria based on standardized care to enhance trauma care
 quality. Deviation from AFs should raise the attention of health care
@@ -324,7 +321,7 @@ number of intubations in the emergency department was significantly
 higher
 `r inline_text(tableOne, variable = ed_intubated, level = "Yes", column = stat_2)`
 vs
-`r inline_text(tableOne, variable = ed_intubated, level = "No", column = stat_1)`,
+`r inline_text(tableOne, variable = ed_intubated, level = "Yes", column = stat_1)`,
 `r inline_text(tableOne, variable = ed_intubated, level = "No", column = "p.value")`.
 Patients with OFI had longer times to definitive treatment from hospital
 arrival compared to patients without OFI
