@@ -24,41 +24,37 @@ listOfAuditFiltersClean <- c("SBP < 90", "Dead at 30 days", "ISS > 15 and no tea
                              "> 60 min until first intervention", "> 30 min until first CT",
                              "CPR and thoracotomy", "Liver or spleen injury", 
                              "No anticoagulants within 72 hours after TBI")
+
+#1,2,3,5,6,7,8 manual
 ## viktigt att det ska vara samma ordning ^
 selectedAuditFilter <- listOfAuditFilters[1:11]
 
+tableKappa <- data.frame(Auditfilter = character(0),
+                         Sensitivity = numeric(0),
+                         Specificity = numeric(0),
+                         Kappa = numeric(0))
+tableAuditFilter <- data.frame(Auditfilter = character(0),
+                               Number = numeric(0),
+                               Missing = numeric(0),
+                               Manual = character(0))
 
-tableOfCalculatedData1 <- data.frame(Auditfilter = character(0),
-                                     Number = numeric(0),
-                                     Specificity = numeric(0),
-                                     Sensitivity = numeric(0))
+#tableOfCalculatedData1 <- data.frame(Auditfilter = character(0),
+ #                                    Specificity = numeric(0),
+ #                                    Sensitivity = numeric(0))
 
 #A table of sensitivity and specificity
-tableOfCalculatedData2 <- data.frame(Auditfilter = character(0),
-                                     AUC = numeric(0),
-                                     PValue = character(0),
-                                     PValue0.8 = character(0))
+#tableOfCalculatedData2 <- data.frame(Auditfilter = character(0),
+#                                     AUC = numeric(0),
+#                                     PValue = character(0),
+#                                     PValue0.8 = character(0))
 #A table of AUC
 noacsr::source_all_functions()
-importDataOfi <- import_data_ofi(data)
+importDataOfi <- import_data_ofi(data) #
 cleanData <- clean_data(importDataOfi)
 dataWithAuditFilters <- create_audit_filters(cleanData)
-missingValues <- missing_values(dataWithAuditFilters)
 selectedData <- select_data(dataWithAuditFilters)
-#function that selects data that I am interested in
 createFlowchart <- create_flowchart(importDataOfi)
-tableFourData <- data.frame(listOfAuditFiltersClean,
-                            missingValues)
-tableFiveData <- data.frame(Auditfilter = c("SBP > 90", "Dead at 30 days", 
-                              "ISS > 15 and no team activation", 
-                              "GCS < 9 and not intubated", 
-                              "ISS > 15 and not in ICU", 
-                              "> 60 min until first intervention", 
-                              "> 30 min until first CT",
-                              "Massive transfusion", "CPR and thoracotomy", 
-                              "Liver or spleen injury", 
-                              "No anticoagulants within 72 hours after TBI"), 
-                            Design = c("Manually created","Manually created", "Manually created","Manually created","Manually created", "Manually created", "Manually created", "Original", "Original", "Original", "Original"))
+
 tableOneData <- select(selectedData, ofi, 
                        Gender,pt_age_yrs,ISS,  
                        ed_sbp_value, ed_gcs_sum,
@@ -68,23 +64,49 @@ tableOneData <- select(selectedData, ofi,
                        )
 
 #data inclusion for my table one
-counter <- 1
+counter <- 1 #set counter for for loop
+manualOrOriginal <- character(0)
 for(auditFilter in selectedAuditFilter){
-  twoVariableData <- select(selectedData, all_of(auditFilter), ofi)
-  confidenceInterval <- confidence_interval(twoVariableData)
-  #Function that calculates confidence interval for sensitivity and specificity
-  calculateSensSpec <- calculate_sens_spec(twoVariableData)
-  #Function that calculates sensitivity and specificity
-  aucc <- boot_strap_AUC(twoVariableData)
-  #Function that calculates AUC and confidence interval for AUC
-  calculateAUC <- calculate_AUC(twoVariableData, listOfAuditFiltersClean, counter)
-  makeTableTwo <- make_table_two(calculateSensSpec,confidenceInterval, calculateAUC, listOfAuditFiltersClean, counter)
-  tableOfCalculatedData1 <- rbind(tableOfCalculatedData1,makeTableTwo)
-  makeTableThree <- make_table_three(calculateAUC,confidenceInterval, listOfAuditFiltersClean, counter)
-  tableOfCalculatedData2 <- rbind(tableOfCalculatedData2,makeTableThree)
-  # bind together the values from calculate_data function into the table defined above
+  
+  twoVariableData <- select(selectedData, auditFilter, ofi)
+  totalValues <- nrow(twoVariableData)
+  missingValue <- sum(is.na(twoVariableData[1]))
+  
+  twoVariableData[1][is.na(twoVariableData[1])] <- FALSE
+  numberOfTrue <- sum(twoVariableData[[1]])
+  print(sum(is.na(twoVariableData[1])))
+  print(missingValue)
+  if (counter %in% c(1,2,3,5,6,7,8)){
+    manualOrOriginal <- "manual"
+  } else {
+    manualOrOriginal <- "original"
+  }
+  confidenceIntervalKappa <- confidence_interval_kappa(twoVariableData)
+  confidenceIntervalSensitivitySpecificity <- confidence_interval_sens_spec(twoVariableData)
+  paste(c(round(calculateAUC, digits = 2)," (",confidenceInterval[5],"-",confidenceInterval[6],") "), collapse = "")
+  print(confidenceIntervalKappa)
+  
+  tableAuditFilterResult <- data.frame(Auditfilter = listOfAuditFiltersClean[counter],
+                                       Number = paste(c(numberOfTrue," (", round(numberOfTrue/totalValues*100, digits = 1), "%) "), collapse = ""),
+                                       Missing = paste(c(missingValue," (", round(missingValue/totalValues*100, digits = 1), "%) "), collapse = ""),
+                                       Manual = manualOrOriginal)
+  tableAuditFilter <- rbind(tableAuditFilter,tableAuditFilterResult)
+  
+  tableKappaResult <- data.frame(Auditfilter = listOfAuditFiltersClean[counter],
+                                 Sensitivity = paste(c(confidenceIntervalSensitivitySpecificity[1], " (", confidenceIntervalSensitivitySpecificity[2], "-", confidenceIntervalSensitivitySpecificity[3], ") "), collapse = ""),
+                                 Specificity = paste(c(confidenceIntervalSensitivitySpecificity[4], " (", confidenceIntervalSensitivitySpecificity[5], "-", confidenceIntervalSensitivitySpecificity[6], ") "), collapse = ""),
+                                 Kappa = paste(c(confidenceIntervalKappa[1]," (", confidenceIntervalKappa[2], "-", confidenceIntervalKappa[3], ") "), collapse = ""))
+  tableKappa <- rbind(tableKappa,tableKappaResult)
+  
+  createAuditFilterTable <- create_audit_filter_table(listOfAuditFiltersClean, missingValues)
   counter <- counter + 1
 }
+
+tableK <- gt(tableKappa)
+tableK %>% gtsave(filename = "tabk.html")
+tableAF <- gt(tableAuditFilter)
+tableAF %>% gtsave(filename = "tabAF.html")
+
 tableOne <- tableOneData %>%
   mutate(host_care_level = factor(host_care_level, levels = c("Emergency department", 
                                                               "General ward", 
@@ -119,6 +141,7 @@ tableOne <- tableOneData %>%
   add_p(test = list(all_continuous() ~ "wilcox.test")) %>%
   bold_p() 
 ############TABLE ONE#######################
+'''
 tableThree <- tableOfCalculatedData1 %>%
   gt() %>% 
   cols_label(Auditfilter = "Audit filter",
@@ -187,10 +210,11 @@ tableFive <- gt(tableFiveData) %>%
   CPR = Cardiopulmonary Resuscitation;
   TBI = Traumatic Brain Injury
   ")
+
+
   tableTwo %>% gtsave(filename = "tab_2.html")
   tableThree %>% gtsave(filename = "tab_3.html")
   tableFour %>% gtsave(filename = "tab_4.html")
   tableFive %>% gtsave(filename = "tab_5.html")
-   #tableOne %>% gtsave(filename = "tab_1.html")
-  
+   tableOne %>% gtsave(filename = "tab_1.html")
   

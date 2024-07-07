@@ -13,10 +13,12 @@ clean_data <- function(dataOFI){
   includedData[, -which(names(includedData) %in% var99)][includedData[, -which(names(includedData) %in% var99)] == 99 ] <- NA
   includedData[includedData == 999] <- NA
   includedData[includedData == 9999] <- NA
+  
   ##REMOVE 999 AND 9999
   includedData$ed_intubated <- ifelse(includedData$ed_intubated == 1, "Yes","No")
   includedData$Gender <- ifelse(includedData$Gender == "k","Female","Male")
   includedData$res_survival <- ifelse(includedData$res_survival == 1,"Yes","No")
+  print(sum(is.na(includedData$res_survival)))
   includedData$Tr_Nivå <- ifelse(includedData$Tr_Nivå == (2 | 4 | 33), "No", "Yes")
   includedData$host_care_level[includedData$host_care_level == 1] <- "Emergency department"
   includedData$host_care_level[includedData$host_care_level == 2] <- "General ward"
