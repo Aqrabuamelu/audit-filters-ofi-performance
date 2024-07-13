@@ -30,112 +30,53 @@ library(knitr)
 
 ## Background
 
-Trauma is responsible for 9% of global deaths annually and has a
-significant impact on individuals and society. Quality Improvement (QI)
-programs seek to minimize these adverse outcomes using Audit Filters
-(AFs) and interdisciplinary Morbidity and Mortality Conferences (MMC).
-AFs are based on criteria for standard care and can function as a
-screening tool of eligible patient cases for discussion at MMCs. One of
-the goals with MMCs is to determine potential Opportunities for
-Improvement (OFI).This study aimed to evaluate the performance of
-individual AFs in predicting OFIs and to assess their relevance as a
-screening tool for Morbidity and Mortality Conferences (MMC).
+Trauma audit filters, based on standards of care, serve as screening tools for patient cases to be discussed at interdisciplinary mortality and morbidity conferences. These conferences aim to identify potential opportunities for improvement in the care of trauma patients. This study aimed to assess the effectiveness of individual audit filters in predicting opportunities for improvement and their relevance as screening tools for morbidity and mortality conferences.
 
 ## Methods
 
-Register data from 8,309 patient cases were collected for analysis. The
-sensitivity, specificity and Area Under the Receiver Operating
-Characteristics Curve (AUC) was calculated to assess performance. An
-empirical bootstrapping test of AUC values was conducted to compare the
-performance of each AF to coincidence (AUC = 0.5) and minimum AUC for
-diagnostic tests (AUC = 0.8).
+We conducted a single-centre registry-based retrospective cohort study based on register data from 8,309 patient cases at the Karolinska University Hospital in Sweden. The sensitivity, specificity and Cohen’s kappa coefficient was calculated to assess performance. Bootstrapping of 1,000 iterations was used to calculate 95% confidence intervals.
 
 ## Results
 
-Four out of the 11 AFs assessed had an AUC of 0.5 (p \> 0.05). The
-remaining AFs demonstrated a correlation with OFI, with AUC ranging from
-0.51 to 0.63. The AF "\> 60 min until first intervention" exhibited the
-highest AUC (0.63, 95% CI [0.61-0.65]).
+Our analysis included 8,309 patients. Two out of the 11 audit filters had a Cohen’s kappa coefficient of 0 and one audit filter had an inverse relation to opportunities for improvement. The remaining audit filters demonstrated a correlation with opportunities for improvement, with Cohen’s kappa coefficients ranging from 0.02 to 0.12. The audit filters “> 60 min until first intervention” and “ISS > 15 and not in ICU” exhibited the highest Cohen’s kappa coefficient (0.12, 95% CI [0.10-0.15]).
 
 ## Conclusion
 
-No individual AF seemed to perform well in predicting OFI, which suggest
-rethinking the current screening method for MMCs.
+No individual audit filter performed well in predicting opportunities for improvement, which suggest reassessing the current method of screening for mortality and morbidity conferences.
 
 # Introduction
 
-Trauma, defined as a physical injury and the body's associated response,
-causes 8-9% of global deaths annually [@world2014injuries;
-@roth2018global], disproportionately affecting younger individuals in
-low- and middle-income countries, primarily due to road traffic injuries
-[@vos2020global; @roth2018global; @SweTrau2022Arsrapport]. Trauma also
-ranks highest in disability-adjusted life-years (DALYs) [@vos2020global]
-and increases the risk of mental disorders and cognitive decline
-[@kessler1995posttraumatic; @north1999psychological;
-@muscatelli2017prevalence; @newnam2014impacts; @visser2017course],
+Trauma, defined as a physical injury and the body’s associated response, causes 8-9% of global deaths annually [@world2014injuries;
+@roth2018global]and ranks highest in disability-adjusted life-years (DALYs) [@vos2020global],
 impacting individuals, communities and society at large
 [@newnam2014impacts]. Road traffic injuries alone cost approximately 2%
 of gross domestic product (GDP) in high-income countries
 [@world2014injuries].
 
-To reduce trauma burden, quality improvement (QI) programs have been
-established by the World Health Organization (WHO) and the International
-Association for Trauma Surgery and Intensive Care (IATSIC)
-[@world2009guidelines]. These programs form the core of current trauma
-care systems [@American2022resources] and commonly include
-multidisciplinary mortality and morbidity conferences (MMC), preventable
-death review panels, and the use of AFs also known as quality indicators
-[@world2009guidelines]. Despite QI programs, trauma care remains prone
-to errors [@nikouline2021errors; @vioque2014classifying;
-@o2013opportunities]. Studies have shown a pooled preventable death rate
-of 20% from 1990 to 2014, with more recent studies indicating lower
-rates [@kwon2014pooled]. For instance, a recent study in a Swedish Level
-I trauma centre found a preventable death rate of 4%
+Quality improvement programs form the core of current trauma care systems 
+[@American2022resources] and commonly include
+ techniques such as multidisciplinary mortality and morbidity conferences and preventable death review panels to improve trauma care quality
+[@world2009guidelines]. Despite these programs, trauma care remains prone to errors [@nikouline2021errors; @vioque2014classifying;
+@o2013opportunities]. Studies have shown a pooled preventable death rate of 20%, with more recent studies indicating lower rates [@kwon2014pooled]. A recent study in a Swedish Level I trauma centre found a preventable death rate of 4%
 [@ghorbani2018analysis].
 
-The MMC is a central QI technique focusing on anonymity, critical
-analysis of specific adverse events, recognizing flawed approaches, and
-proposing and implementing improvements [@gregor2016morbidity]. Attended
-by healthcare professionals involved in trauma care, MMCs discuss themes
-like unexpected mortality, morbidity, and errors
+The mortality and morbidity conferences is a central technique focusing on anonymity, critical analysis of specific adverse events and recognizing flawed approaches followed by proposing and implementing improvements [@gregor2016morbidity]. Attended by healthcare professionals involved in trauma care, mortality and morbidity conferences discuss themes such as unexpected mortality, morbidity and errors
 [@orlander2003morbidity], fostering error reduction and encouraging
-reporting without negative feedback [@lazzara2022morbidity]. Effective
-MMC implementation has been shown to increase morbidity and mortality
-reporting [@kong2016analysis].
+reporting without negative feedback [@lazzara2022morbidity]. Effective mortality and morbidity conferences implementation has been shown to increase morbidity and mortality reporting [@kong2016analysis].
 
-AFs are criteria based on standardized care to enhance trauma care
-quality. Deviation from AFs should raise the attention of health care
-professionals with the purpose of improving the quality of care
-[@American2022resources]. AFs can involve outcomes like "death" or
-adherence to guidelines, such as "placement of two large bore
-intravenous lines within 15 minutes of arrival."
-[@world2009guidelines].Studies have shown mixed results on the
-effectiveness of AFs in reducing trauma-related mortality. While some
-early studies reported mortality reduction
+Audit filters are used to identify cases for mortality and morbidity conferences. These filters are criteria based on standards of care, guidelines or outcomes and function as a screening tool for potential opportunities for improvement. Deviation from audit filters should raise the attention of health care providers with the purpose of improving the quality of care 
+[@American2022resources]. Audit filters can involve outcomes such as “death” or adherence to guidelines, such as “placement of two large bore intravenous lines within 15 minutes of arrival.”
+[@world2009guidelines].Studies have shown conflicting results on the effectiveness of audit filters in reducing trauma-related mortality. While some early studies reported a mortality reduction following the implementation of audit filters 
 [@chadbunchachai2001comparative; @chadbunchachai2003study], a 2009
-review by Evans et al. [@evans2009audit] found no substantial evidence
-supporting AFs' effectiveness. Stelfox et al. [@stelfox2010quality]
-identified over 1,500 AFs but noted a lack of a common, evidence-based
-set for evaluating trauma care quality, despite the high perceived
-usefulness of AFs [@berg2022perceived].
+review by Evans et al. [@evans2009audit]  found no high quality evidence supporting the effectiveness of audit filters. Furthermore, Stelfox et al.  [@stelfox2010quality]
+identified over 1,500 audit filters and noted a lack of a common, evidence-based set for evaluating trauma care quality. Despite the uncertainty, the perceived usefulness of audit filters remains high [@berg2022perceived].
 
-Opportunities for improvement (OFIs) are decided upon review of
-individual patient cases [@American2022resources]. They are typically
-associated with failures in initial care [@vioque2014classifying] like
-airway management, fluid resuscitation, haemorrhage control and chest
-injury management [@sanddal2011analysis; @roy2017learning;
-@o2013opportunities]. There is lacking evidence for the use of AFs for
-improving trauma care [@evans2009audit; @stelfox2010quality] and the
-focus has been on mortality as outcome measure
-[@chadbunchachai2001comparative; @chadbunchachai2003study]. Furthermore,
-the use of AFs has been associated with high frequencies of false
-positives, ranging from 24% to 80% [@sanddal2011analysis;
-@roy2017learning], and some AFs do not appear to correlate with OFIs at
-all [@lewis2017delay].
+Opportunities for improvement are decided upon review of individual patient cases and aim to reflect current trauma care quality gaps  [@American2022resources]. These opportunities are typically associated with failures in initial care [@vioque2014classifying]  like airway management, fluid resuscitation, haemorrhage control and chest injury management [@sanddal2011analysis; @roy2017learning;
+@o2013opportunities]. There is lacking evidence for the use of audit filters for improving trauma care [@evans2009audit; @stelfox2010quality], but the focus has been on mortality as outcome measure 
+[@chadbunchachai2001comparative; @chadbunchachai2003study].Moreover, the use of audit filters  has been associated with high frequencies of false positives, ranging from 24% to 80% [@sanddal2011analysis;
+@roy2017learning], and some audit filters do not appear to correlate with opportunities for improvement at all [@lewis2017delay].
 
-The aim of this study is to determine the performance of AFs in
-predicting OFIs and furthermore assess their relevance as a screening
-tool for MMCs.
+The aim of this study is to determine the performance of audit filters in predicting opportunities for improvement and assessing their relevance as a screening tool for mortality and morbidity conferences
 
 ```{=html}
 <!-- Explain the scientific background and rationale for the
@@ -148,41 +89,16 @@ should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
 
 ## Study design
 
-We conducted a registry-based study using all trauma patients included
-in both the Karolinska University Hospital trauma registry and trauma
-care quality database between 2012 and 2022 to compare the performance
-of AFs in their ability to predict OFI. This study was approved by
-Stockholm Research Ethics Review Board, approval number 2021-02541 and
-2021-03531.
-
-<!-- Present key elements of study design -->
+We conducted a single-centre registry-based retrospective cohort study  of all trauma patients included in both the Karolinska University Hospital trauma registry and trauma care quality database between 2012 and 2022 to compare the performance of audit filters in their ability to predict opportunities for improvement. This study was approved by Swedish Ethical Review Authority, approval number 2021-02541 and 2021-03531.
 
 ## Setting
 
-Karolinska University Hospital, a Trauma level I hospital, treats around
-1,500 trauma patients annually. If a patient case results in team
-activation or the patient has an Injury Severity Score (ISS) of less
-than 9 retrospectively, it is recorded in the Karolinska trauma
-registry, which reports to SweTrau. This registry includes data on vital
-signs, timings, injuries, interventions, and patient demographics as per
-the European Consensus Statement (Utstein template)
+Karolinska University Hospital manages around 1,500 trauma patients annually. The Karolinska Trauma Registry, which reports to the national trauma registry SweTrau, includes all patient cases that result in trauma team activation or who have an Injury Severity Score (ISS) of more than 9. This registry includes data on vital signs, timings, injuries, interventions, and patient demographics as per a European consensus statement
 [@ringdal2008utstein]
 
-The Karolinska trauma registry also contains a local care quality
-database with AFs and OFIs, identified by MMCs through consensus
-decisions. OFIs are assessed in multiple stages of scrutiny. Notably,
-mortality is directly referred to the MMCs in order to assess OFIs and
-deciding whether the death was preventable or potentially preventable, a
-classification also falling under the purview of OFIs. 
+The trauma centre at the Karolinska University Hospital also keeps a local care quality database with information intended for the mortality and morbidity conferences, including identified triggered audit filters and opportunities for improvement. Opportunities for improvement are assessed in multiple stages of scrutiny. Notably, mortality is directly referred to the mortality and morbidity conferences to assess opportunities for improvement.
 
-From 2013 to 2017, efforts focused on
-identifying adverse outcomes unrelated to mortality. Initially, trauma cases where individually assessed by a
-specialized trauma nurse for potential OFIs. In 2017, this procedure
-became standard practice, incorporating preliminary evaluations by
-specialized trauma nurses. Cases
-flagged by an AF or identified by the nurse as potential
-care failures underwent a second review by two specialized nurses. Potential OFIs identified in this review
-prompted review in a MMC.
+From 2013 to 2017, efforts focused on identifying adverse outcomes unrelated to mortality. Initially, trauma cases were individually assessed by a specialized trauma nurse for potential opportunities for improvement. In 2017, this procedure became standard practice, incorporating preliminary evaluations by specialized trauma nurses. Cases flagged by an audit filter or identified by the nurse as potential care failures underwent a second review by two specialized nurses. Potential opportunities for improvement identified in this review prompted review by the mortality and morbidity conference.
 
 ```{=html}
 <!-- Describe the setting, locations, and relevant dates, including
@@ -190,10 +106,7 @@ periods of recruitment, exposure, follow-up, and data collection -->
 ```
 ## Participants
 
-The study included 8,309 patients treated at Karolinska University
-Hospital from 2012 to 2022 who underwent OFI screening. Patients under
-15 and those not screened for OFIs were excluded due to differences in
-clinical management for minors.
+The study included all patients treated at Karolinska University Hospital from 2012 to 2022 who underwent screening for opportunities for improvement. Patients under 15 were excluded due to differences in clinical management.
 
 ```{=html}
 <!-- Cohort study: Give the eligibility criteria, and the sources and
@@ -213,23 +126,11 @@ of controls per case -->
 sources and methods of selection of participants -->
 ```
 ## Variables and data sources/measurements
+The outcome was opportunities for improvement, as established by the mortality and morbidity conference, and was treated dichotomously as “Yes - At least one opportunity for improvement identified” and “No - No opportunity for improvement identified”. 
 
-The outcome variable is an OFI, as established by the MMCs and treated
-as a dichotomous variable with "Yes - At least one OFI identified" and
-"No - No OFI identified". The 11 AFs used at Karolinska University
-Hospital served as the exposure variable, as shown in Table 1. Each AF
-is labeled "original" or "manually created." Manually created AFs were
-calculated using trauma registry data, while original AFs were recorded
-in the quality database based on criteria beyond the available registry
-data.
+The eleven audit filters used at the Karolinska University Hospital served as the exposure variables, as shown in Table 1. The data spanning 2012 to 2022 was retrieved from the Karolinska Trauma Registry and trauma care quality database. Patient data on vital signs, care processes and interventions, level of care and time aspects was retrieved from SweTrau while both the exposure audit filters and the outcome opportunities for improvement were retrieved from the quality database. 
 
-The data spanning 2012 to 2022 was retrieved from the Karolinska
-University Hospital trauma registry and trauma care quality database.
-Patient data on vital signs, care processes and interventions, level of
-care and time aspects was retrieved from SweTrau while both exposures
-(AFs) and outcome (OFI) were retrieved from the Karolinska University
-Hospital trauma care quality database. All data was anonymised to
-protect patient privacy.
+All data was anonymised to protect patient privacy.
 
 ```{=html}
 <!-- Clearly define all outcomes, exposures, predictors, potential
@@ -240,14 +141,7 @@ of assessment methods if there is more than one group -->
 ```
 ## Bias
 
-Consensus decisions at MMC conferences may introduce misclassification
-bias. Additionally, AF flagging by specialized nurses is a manual
-process, potentially leading to selection bias. Healthcare professionals
-attending MMCs may not accurately recall key details impacting OFI
-decisions, introducing recall bias. Furthermore, professionals not
-present for specific cases might over- or underestimate OFI
-significance.
-
+Consensus decisions at the mortality and morbidity conferences may introduce misclassification bias. Additionally, audit filters flagging by specialized nurses is a manual process, potentially leading to selection bias. Healthcare professionals attending mortality and morbidity conferences may not accurately recall key details impacting opportunities for improvement decisions, introducing recall bias. Furthermore, professionals, not present for specific cases might over- or underestimate opportunities for improvement significance.
 ```{=html}
 <!-- Explain how quantitative variables were handled in the
 analyses. If applicable, describe which groupings were chosen and why
@@ -255,158 +149,45 @@ analyses. If applicable, describe which groupings were chosen and why
 ```
 ## Statistical methods
 
-The study utilized R [@R2022language] for statistical analysis. Patient
-characteristics between cases with and without OFI were compared using
-the Wilcoxon signed-rank test for continuous variables and the
-Chi-squared test for categorical variables.
+ for statistical analysis. Patient characteristics for cases with and without opportunities for improvement were compared using the Wilcoxon signed-rank test for continuous variables and the Chi-squared test for categorical variables.
+ 
+The predictive performance of audit filters was assessed by calculating the sensitivity, specificity and Cohen’s kappa for each audit filter in predicting opportunities for improvement.
+Bootstrap resampling (1,000 iterations) was applied to estimate 95% confidence intervals for sensitivity, specificity, and Cohen’s kappa coefficient. 
 
-The predictive performance of AFs was assessed by calculating
-sensitivity and specificity for each AF in predicting OFI. Receiver
-operating characteristic (ROC) curves were constructed for binary
-classification, and the area under the curve (AUC) was computed to
-compare AF performance. [@robin2011proc].
+Missing values for audit filters were treated as negative (i.e., “not flagged”).
 
-Bootstrap resampling (1,000 iterations) was applied to estimate 95%
-confidence intervals for sensitivity, specificity, and AUC. The
-significance of each AFs' AUC was evaluated against chance (AUC = 0.5)
-and the minimum standard for diagnostic tests (AUC = 0.8)
-[@nahm2022receiver] using an empirical bootstrap test (1,000
-iterations).
-
-Missing values for AFs were treated as negative (i.e., "not flagged").
-
-```{=html}
-<!-- 
-
-(a) Describe all statistical methods, including those used to control
-for confounding
-
-(b) Describe any methods used to examine subgroups and interactions
-
-(c) Explain how missing data were addressed 
-
-(d) 
-
-Cohort study: If applicable, explain how loss to follow-up was addressed 
-
-Case-control study:If applicable, explain how matching of cases and
-controls was addressed
-
-Cross-sectional study: If applicable, describe analytical methods
-taking account of sampling strategy
-
-(e) Describe any sensitivity analyses
--->
-```
 # Results
 
 ##Participants 
-After excluding patients under 15 years old and patients not screened for OFIs, a total of 8,309 individuals were included in the
-study. 7,797 out of 8,309 (93.8%) patient cases did not have an OFI and
-512 out of 8,309 (6.2%) had an OFI. Figure 1 presents a flowchart
-showcasing the exclusion and inclusion of the patient cases from the
-trauma registry.
+After excluding patients under 15 years old and patients not screened for opportunities for improvement, a total of 8,309 individuals were included in the study. 7,797 out of 8,309 (93.8%) patient cases did not have an opportunity for improvement and 512 out of 8,309 (6.2%) had an opportunity for improvement, see Figure 1.
 
-Most trauma patients were men (n = 5,755, 69%). Patient characteristics
-varied depending on whether patients had an OFI or not. Respectively,
-the mean age was significantly higher\
-`r inline_text(tableOne, variable = pt_age_yrs, column = stat_2)` vs
-`r inline_text(tableOne, variable = pt_age_yrs, column = stat_1)`,
-`r inline_text(tableOne, variable = pt_age_yrs, column = "p.value")` and
-the ISS was significantly higher
-`r inline_text(tableOne, variable = ISS, column = stat_2)` vs
-`r inline_text(tableOne, variable = ISS, column = stat_1)`,
-`r inline_text(tableOne, variable = ISS, column = "p.value")`. The
-number of intubations in the emergency department was significantly
-higher
-`r inline_text(tableOne, variable = ed_intubated, level = "Yes", column = stat_2)`
-vs
-`r inline_text(tableOne, variable = ed_intubated, level = "Yes", column = stat_1)`,
-`r inline_text(tableOne, variable = ed_intubated, level = "No", column = "p.value")`.
-Patients with OFI had longer times to definitive treatment from hospital
-arrival compared to patients without OFI
-`r inline_text(tableOne, variable = dt_ed_emerg_proc, column = stat_2)`
-vs
+Patients with an opportunity for improvement had significantly higher mean age `r inline_text(tableOne, variable = pt_age_yrs, column = stat_2)` vs `r inline_text(tableOne, variable = pt_age_yrs, column = stat_1)`,
+`r inline_text(tableOne, variable = pt_age_yrs, column = "p.value")`, ISS `r inline_text(tableOne, variable = ISS, column = stat_2)` vs
+`r inline_text(tableOne, variable = ISS, column = stat_1)`, `r inline_text(tableOne, variable = ISS, column = "p.value")` and intubations in the emergency department (ED) `r inline_text(tableOne, variable = ed_intubated, level = "Yes", column = stat_2)`
+vs `r inline_text(tableOne, variable = ed_intubated, level = "Yes", column = stat_1)`,
+`r inline_text(tableOne, variable = ed_intubated, level = "No", column = "p.value")`. Patients with opportunity for improvement had longer times to definitive treatment from hospital arrival `r inline_text(tableOne, variable = dt_ed_emerg_proc, column = stat_2)` vs
 `r inline_text(tableOne, variable = dt_ed_emerg_proc, column = stat_1)`,
 `r inline_text(tableOne, variable = dt_ed_emerg_proc, column = "p.value")`.
-The time to the first CT was also longer in patients with OFIs compared
-to patients without
+ and longer times to first CT
 `r inline_text(tableOne, variable = dt_ed_first_ct, column = stat_2)` vs
 `r inline_text(tableOne, variable = dt_ed_first_ct, column = stat_1)`,
-`r inline_text(tableOne, variable = dt_ed_first_ct, column = "p.value")`.
-
-The number of OFIs were highest in patients admitted to the intensive
-care unit
-`r inline_text(tableOne, variable = host_care_level, level = "Intensive care unit", column = stat_2)`
-and surgical ward
-`r inline_text(tableOne, variable = host_care_level, level = "Surgical ward", column = stat_2)`.
-
-Gender `r inline_text(tableOne, variable = Gender, column = "p.value")`,
-the mean systolic blood pressure
-`r inline_text(tableOne, variable = ed_sbp_value, column = "p.value")`,
-death at 30 days
-`r inline_text(tableOne, variable = res_survival, column = "p.value")`
-and trauma team activation
-`r inline_text(tableOne, variable = Tr_Nivå, column = "p.value")` was
-not significantly correlated with OFI.
-
-Notably, there was a statistical significant correlation between GCS at
-ED and OFI (p \< 0.001).
-
-Table 2 shows the missing data for each AF. As mentioned in the method
-section, these values were interpreted as "not flagged" with an AF. The
-variables with the highest amount of missing data were "time to
-definitive treatment" (n = 5,990, 72.1%) and "time to first CT" (n =
-1,012, 12.2%). The smallest amount of missing data was found in
-"SBP\<90" (n = 13, 0.2%).
+`r inline_text(tableOne, variable = dt_ed_first_ct, column = "p.value")`. The number of opportunities for improvement were highest in patients admitted to the intensive care unit 
+`r inline_text(tableOne, variable = host_care_level, level = "Intensive care unit", column = stat_2)` compared to general ward `r inline_text(tableOne, variable = host_care_level, level = "General ward", column = stat_2)`. Gender, mean systolic blood pressure, death at 30 days and trauma team activation was not significantly correlated with opportunities for improvement (p>0.05). Notably, there was a statistically significant correlation between GCS at ED and opportunities for improvement (p < 0.001).
+The highest amount of missing data was observed for the audit filter "time to
+definitive treatment" (n = 5,990, 72.1%). The smallest amount of missing data was found in "SBP\<90" (n = 13, 0.2%).
 
 ## Performance of Individual Audit Filters
 
-The performance of each AF was determined through a calculation of
-sensitivity and specificity which is demonstrated in Table 4.
+The number of patient cases flagged by each individual audit filter varied between 107 for “GCS<9 and not intubated” and 3907 for “>30 min until CT”. The highest number of missing values was observed with “>60 min until first intervention” (n = 5990, 72.1%). The lowest number of missing values was observed with “dead at 30 days” (n = 11, 0.1%) and “ISS > 15 and not in ICU” (n = 11, 0.1%). See table 2 for missing values for each audit filter.
 
-The number of patient cases flagged by each individual AF varied between
-107 for "GCS\<9 and not intubated" and 3907 for "\>30 min until CT". The
-AF with the highest sensitivity was "\>30 min until CT" (59.2%, 95% CI
-[55.2-63.8]). The lowest sensitivity was seen in "GCS\<9 and not
-intubated" (1.2%, 95% CI [0.2-2]). The AF with the highest specificity
-was "GCS\<9 and not intubated" (98.7%, 95% CI [98.5-98.9]). The lowest
-specificity was seen in "\>30 min until CT" (53.8%, 95% CI [52.7-54.8]).
-Notably, the confidence intervals varied between sensitivity and
-specificity, with sensitivity displaying a greater interval.
+The audit filter with the highest sensitivity was “>30 min until CT” (59.2%, 95% CI [55.2-63.8]). The lowest sensitivity was seen in “GCS<9 and not intubated” (1.2%, 95% CI [0.2-2]). The audit filter with the highest specificity was “GCS<9 and not intubated” (98.7%, 95% CI [98.5-98.9]). The lowest specificity was seen in “>30 min until CT” (53.8%, 95% CI [52.7-54.8]). Notably, the confidence intervals varied between sensitivity and specificity, with sensitivity displaying  wider intervals. See Table 4 for the performance of all audit filters using sensitivity and specificity.
 
-Table 5 summarises the performance of each individual AF in identifying
-OFIs in trauma care by AUC. Four of the 11 AFs, "SBP\<90", "dead at 30
-days", "GCS\<9 and not intubated" and "CPR and thoracotomy" showed a
-performance in predicting OFIs equal to that of coincidence (AUC = 0.5).
-The highest AUC was seen in "\>60 min until first intervention" (0.63,
-95% CI [0.61-0.65]). All AFs showed significantly lower AUC compared to
-the minimum standard for diagnostic tests (AUC = 0.8) (p \< 0.001).
+Two of the eleven audit filters, “GCS < 9 and not intubated” and “CPR and thoracotomy”, had a Cohen’s kappa coefficient of 0. The highest Cohen’s kappa was seen for the audit filter “>60 min until first intervention” and “ISS > 15 and not in ICU” (0.12, 95% CI [0.10-0.15]). All audit filters showed none to slight correlation with opportunities for improvement. See table 5 for the performance of all audit filters using Cohen’s kappa coefficient. 
 
-Table 2: Comparison of missing values for each AF. Missing values is
-shown as a number and percentage of the total number of patient cases
-included in the study (n = 8309).\
-`r tableTwo` Table 3: Patient characteristics of individuals with and
-without an OFI. Missing values are shown only when they exist.
-`r tableOne` Table 4: Comparison of performance for each AF in
-predicting OFIs. Performance is defined by sensitivity (%) and
-specificity (%). A 95% confidence interval is shown together with each
-performance indicator. The number of cases flagged by each filter is
-displayed.\
-`r tableThree` Table 5: Comparison of performance for each AF in
-predicting OFIs. Performance is defined by the area under the receiver
-operating characteristics curve. P-values show the significance of AUC
-compared to coincidence (AUC = 0.5) and to the minimum standard for
-diagnostic tests (AUC = 0.8) [@nahm2022receiver]. The p-values were
-calculated using an empirical bootstrap test. Furthermore, a 95%
-confidence interval was used. `r tableFour`
 
 ```{r fig1, echo=FALSE, fig.align="center", warning=FALSE, message=FALSE, error=FALSE}
 knitr::include_graphics("ofi-flowchart.pdf")
 ```
-
-Figure 1: Flowchart of the patient selection process. Shows the patients
-excluded and included in this study.
 
 ```{=html}
 <!-- 
@@ -484,152 +265,46 @@ You can also mix text and code, so called inline code, like this:
 
 # Discussion
 
-The aim of this study was to evaluate the performance of individual AFs
-in predicting OFIs and to assess their suitability as a screening tool
-for MMCs. This study showed that no AFs was significantly successful in
-predicting OFIs. Four AFs ("SBP\<90," "dead at 30 days," "GCS\<9 and not
-intubated," and "CPR and thoracotomy") were equivalent to random chance
-in their predictive ability. The highest AUC was for "\>60 minutes until
-first intervention,". Notably, all AFs performed significantly below the
-accepted standard for diagnostic tests (\>0.8).
+The aim of this study was to evaluate the performance of individual audit filters in predicting opportunities for improvement and to assess their suitability as a screening tool for mortality and morbidity conferences. This study showed that audit filters had “no” to “slight” ability to predict opportunities for improvement. Two audit filters, “GCS<9 and not intubated” and “CPR and thoracotomy”, showed no predictive ability. The highest Cohen’s kappa coefficient was seen for the audit filter “>60 min until first intervention” and “ISS > 15 and not in ICU”, but it was still low.
 
 ## Limitations
 
-OFI, while dichotomously defined, includes a diverse set of outcomes.
-This convolutes the process of creating AFs that perform well in
-predicting OFIs. AFs would favour the identification of some, but not
-all, errors.
+Opportunity for improvement, while binarily defined, includes a diverse set of outcomes. This complicates the process of creating audit filters that perform well in predicting opportunities for improvement. Audit filters would favour the identification of some, but not all, errors.
 
-Each AF was individually related to OFI. Consequently, if an AF
-demonstrated a true positive correlation with an OFI, instances where
-the same patient case had multiple AFs introduce uncertainty regarding
-which specific AF truthfully predicted the OFI.
+Each audit filter was individually related to opportunities for improvement. Consequently, if an audit filter demonstrated a true positive correlation with an opportunity for improvement, instances where the same patient case had multiple audit filters introduce uncertainty regarding which specific audit filter truthfully predicted the opportunity for improvement.
 
-The number of missing values varied greatly among the AFs. As stated
-above, missing values from each AF were coded as "not flagged" by an AF.
-This means that some instances where patient cases were not flagged,
-might actually meet the AF criteria, but for some reason not documented.
-This reduces the validity of some AFs that featured high amounts of
-missing data.
+The number of missing values varied greatly among the audit filters. As stated above, missing values from each audit filter were coded as “not flagged” by an audit filter. This means that instances where patient cases were not flagged might meet the audit filter criteria, but were not documented. This reduces the validity of audit filters that feature high amounts of missing data.
 
-##Interpretation Higher ISS, longer times to CT, longer times to first
-intervention, and higher levels of care correlated with OFIs, consistent
-with a recent study by Albaaj et al. [@albaaj2023patient]. Notably, GCS
-at the ED also showed a correlation with OFIs despite identical median
-GCS values, likely due to distribution differences outside the IQR.
+##Interpretation
+Higher ISS, longer times to CT, longer times to first intervention, and higher levels of care correlated with opportunities for improvement, consistent with a recent Swedish study by Albaaj et al.[@albaaj2023patient]. Notably, GCS at the ED also showed a correlation with opportunities for improvement despite identical median GCS values, likely due to distribution differences outside the interquartile range (IQR).
 
-The AF "GCS\<9 and not intubated" showed no significant ability to
-predict OFIs, similarly shown by Willis et al.
-[@willis2008interpreting]. Possibly because the AF might be more
-reflective of clinical decision rather than quality of care
-[@willis2008interpreting]. For instance, An abnormal GCS resulting from
-intoxication is managed differently than one caused by a head injury.
+The audit filter “GCS<9 and not intubated” showed no significant ability to predict opportunities for improvement, similarly shown by Willis et al. 
+[@willis2008interpreting]. Possibly because the audit filter might be more reflective of clinical decisions rather than quality of care 
+[@willis2008interpreting]. For instance, an abnormal GCS because of intoxication is managed differently to an abnormal GCS due to head injury.
 
-Both delay-related AFs: "\>60 until first intervention" and "\>30min
-until first CT", showed a correlation with OFI. Comparably, Teixeira et
-al. [@teixeira2007preventable] linked delays to preventable death and
-Ghorbani et al. [@ghorbani2018analysis] identified treatment and CT
-delays as common errors in trauma care. A recent study in Japan by
-Yamamoto et. al [@yamamoto2023immediate] found reduced mortality with
-whole-body CT scans within 10 minutes of ED arrival.
+Both delay-related audit filters: “>60 min until first intervention” and “>30min until first CT”, showed a slight correlation with opportunity for improvement. Comparably, Teixeira et al.[@teixeira2007preventable] linked delays to preventable death andidentified delay to treatment and delays to CT as common errors in trauma care. A recent study in Japan by Yamamoto et. al [@yamamoto2023immediate] observed significantly reduced mortality with whole-body CT scans within 10 minutes of arrival to the ED.
 
-"Dead at 30 days" and "CPR and thoracotomy" showed no correlation with
-OFI. This could be explained by inevitable mortality, thus presenting
-with a smaller time frame for mistakes to be made.
+“CPR and thoracotomy” showed no correlation with opportunities for improvement. This could be explained by non-preventable mortality, thus presenting a smaller time frame for mistakes to be made. A similar explanation could be given to the inverse relation between “Dead at 30 days” and opportunities for improvement.
 
-AFs generally exhibited a high specificity relative to their sensitivity
-which may be attributed to the outcome being rather uncommon, whilst
-every individual AF misses the majority of OFIs. This could suggest that
-the AFs are too rigid in their criteria. On the contrary, a too
-inclusive criteria might flag several patients, without an OFI
-[@willis2008interpreting].
+Audit filters generally exhibited a high specificity relative to their sensitivity which may be attributed to the outcome being rather uncommon, whilst every individual audit filter misses the majority of opportunities for improvement. This could suggest that the audit filters are too rigid in their criteria. On the contrary, too inclusive criteria might flag several patients, without opportunities for improvement [@willis2008interpreting].
 
 ## Generalizability
 
-AFs are widely used, but lack consensus on which to use, purpose, and
-application [@stelfox2010quality; @stelfox2011evidence;
-@berg2022perceived]. They have static criteria and may not adapt to
-evolving healthcare challenges, or upon resolution of the quality gaps
-they were designed for, reducing their utility over time. This
-underscores the need for regular evidence-based reviews of AF
-performance [@santana2014development]. However, these reviews might be
-cost-prohibitive
+Audit filters are widely used, but lack consensus on which to use, purpose, and application [@stelfox2010quality; @stelfox2011evidence;
+@berg2022perceived]. They have static criteria and may therefore not adapt to evolving healthcare challenges, or upon resolution of the quality gaps they were designed for, reducing their utility over time. This underscores the need for regular evidence-based reviews of audit filter performance [@santana2014development]. However, these reviews might be cost-prohibitive.
 
-While AFs can help identify an OFI, they might overshadow other
-contributing factors, leading to over-reliance and potentially failing
-to recognize cases outside their scope. [@willis2008interpreting]. For
-example, AFs often focus on aspects relevant to doctors, despite the
-interdisciplinary nature of trauma care. Lastly, Confounding variables,
-such as different treatment times based on injury severity, add to the
-uncertainty of AFs' effectiveness. [@willis2008interpreting].
+While audit filters can help identify an opportunity for improvement, they might overshadow other contributing factors, leading to over-reliance and potentially failing to recognize cases outside their scope. [@willis2008interpreting].For example, audit filters often focus on aspects relevant to doctors, despite the interdisciplinary nature of trauma care. Lastly, confounding variables, such as different treatment times based on injury severity, add to the uncertainty of audit filters’ effectiveness. [@willis2008interpreting].
 
-Due to the study being conducted in a single, trauma level I centre in
-Stockholm it is unrealistic to assume applicability of these findings at
-other hospitals facing unique challenges [@world2009guidelines]. For
-instance AFs that benefit low and middle income may not benefit high
-income countries and vice versa [@berg2022perceived].
+Due to the study being conducted in a single trauma centre in Stockholm it is unrealistic to assume applicability of these findings at other hospitals facing unique challenges [@world2009guidelines]. For instance, audit filters that benefit low and middle income may not benefit high income countries and vice versa [@berg2022perceived].
 
 ## Future Studies
 
-Given the expanding field of artificial intelligence and machine
-learning, new studies should focus on using these tools to screen for
-patient cases at risk of an OFI. This will reduce misclassification and
-maintain high performance, attributable to an algorithm's capability to
-adapt. A recent preprint by Attergrim et al. [@attergrim2023predicting]
-found that machine learning models outperformed the AFs currently used
-at Karolinska University Hospital in predicting OFIs. Should the use of
-AFs remain, they must be routinely updated to reflect current quality
-gaps. <!--
-
-Key results
------------
-Summarise key results with reference to study objectives
-
-Limitations
------------
-
-Discuss limitations of the study, taking into account sources of
-potential bias or imprecision.  Discuss both direction and magnitude
-of any potential bias
-
-Interpretation
---------------
-
-Give a cautious overall interpretation of results considering
-objectives, limitations, multiplicity of analyses, results from
-similar studies, and other relevant evidence
-
-Generalisability
-----------------
-
-Discuss the generalisability (external validity) of the study results
-
--->
 
 # Conclusion
 
-AFs are widely used as a tool in QI programmes and should reflect the
-current gap in trauma care quality. Strong evidence supporting their
-efficacy in quality improvement is scarce. In this study, no audit
-filter seemed to show promising performance in predicting OFIs with AUC
-ranging from 0.5 to 0.63. These results highlight the importance of
-continually evaluating the relevance of AFs. However, this process takes
-time and resources and using an alternative to AFs is recommended.
+Audit filters are widely used as a tool in quality improvement programmes and should reflect the current gap in trauma care quality. In this study, no audit filter showed a significant performance in predicting opportunities for improvement, with Cohen’s kappa coefficient ranging from -0.01 to 0.12. These results highlight the importance of continually evaluating the relevance of audit filters. 
+
+# Acknowledgements
+The authors thank all professionals taking part in the monthly mortality and morbidity conferences.
 
 # References
-
-Keep? However, according to Sanddal et al. [@sanddal2011analysis] airway
-management was associated with OFI, suggesting that an alternative AF
-related to airway management might perform differently.
-
-Notably, OFI in this study was not soley a reflection of mortality but
-also morbidity. Rather, it could highlight differences in quality gaps
-between hospitals. Trauma care is a multidisciplinary, complex and
-time-critical health care service provided by hospitals, often trauma
-centres. [@American2022resources]. Trauma centres have a significantly
-lower mortality rate compared to non-trauma centres, and the maturity of
-a trauma centre correlates with lower mortality, demonstrating the
-importance of high-quality, specialised trauma care
-[@alharbi2021effectiveness; @mann1999systematic;
-@candefjord2020mortality]. It has been shown that such review processes
-are associated with high-quality trauma care [@santana2014development].

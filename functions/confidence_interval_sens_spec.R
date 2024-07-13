@@ -1,6 +1,6 @@
 confidence_interval_sens_spec <- function(twoVariableData){
   set.seed(123) #Setting the seed for bootstrap
-  numberOfBootstraps <- 1000 #Determining number of bootstrap iterations
+  numberOfBootstraps <- 5 #Determining number of bootstrap iterations
   bootResults <- boot(twoVariableData,statistic = bootstrap_sens_spec, R = numberOfBootstraps) #bootstrapping 
   sensitivityCI <- boot.ci(bootResults, type = "basic", index = 1)  # Sensitivity CI
   specificityCI <- boot.ci(bootResults, type = "basic", index = 2) #calculating confidence interval from bootstrap

@@ -53,6 +53,7 @@ importDataOfi <- import_data_ofi(data) #
 cleanData <- clean_data(importDataOfi)
 dataWithAuditFilters <- create_audit_filters(cleanData)
 selectedData <- select_data(dataWithAuditFilters)
+
 createFlowchart <- create_flowchart(importDataOfi)
 
 tableOneData <- select(selectedData, ofi, 
@@ -71,18 +72,20 @@ for(auditFilter in selectedAuditFilter){
   twoVariableData <- select(selectedData, auditFilter, ofi)
   totalValues <- nrow(twoVariableData)
   missingValue <- sum(is.na(twoVariableData[1]))
-  
-  twoVariableData[1][is.na(twoVariableData[1])] <- FALSE
-  numberOfTrue <- sum(twoVariableData[[1]])
-  print(sum(is.na(twoVariableData[1])))
-  print(missingValue)
+  #print(missingValue)
+  #print(twoVariableData)
+  twoVariableDataNaOmit <- na.omit(twoVariableData)
+  #twoVariableData[1][is.na(twoVariableData[1])] <- FALSE #turning Na values false.
+  numberOfTrue <- sum(twoVariableDataNaOmit[[1]])
+  #print(sum(is.na(twoVariableDataNaOmit[1])))
+  #print(missingValue)
   if (counter %in% c(1,2,3,5,6,7,8)){
     manualOrOriginal <- "manual"
   } else {
     manualOrOriginal <- "original"
   }
-  confidenceIntervalKappa <- confidence_interval_kappa(twoVariableData)
-  confidenceIntervalSensitivitySpecificity <- confidence_interval_sens_spec(twoVariableData)
+  confidenceIntervalKappa <- confidence_interval_kappa(twoVariableDataNaOmit)
+  confidenceIntervalSensitivitySpecificity <- confidence_interval_sens_spec(twoVariableDataNaOmit)
   paste(c(round(calculateAUC, digits = 2)," (",confidenceInterval[5],"-",confidenceInterval[6],") "), collapse = "")
   print(confidenceIntervalKappa)
   
@@ -141,7 +144,8 @@ tableOne <- tableOneData %>%
   add_p(test = list(all_continuous() ~ "wilcox.test")) %>%
   bold_p() 
 ############TABLE ONE#######################
-'''
+
+'
 tableThree <- tableOfCalculatedData1 %>%
   gt() %>% 
   cols_label(Auditfilter = "Audit filter",
@@ -217,4 +221,6 @@ tableFive <- gt(tableFiveData) %>%
   tableFour %>% gtsave(filename = "tab_4.html")
   tableFive %>% gtsave(filename = "tab_5.html")
    tableOne %>% gtsave(filename = "tab_1.html")
+   
+'
   
