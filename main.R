@@ -18,16 +18,16 @@ listOfAuditFilters <- c("AF_sap_less90","AF_death_30d","AF_iss_15_ej_TE",
                         "AF_mass_transf", "AF_gcs_less9_ej_intubTE", 
                         "AF_iss_15_ej_iva", "AF_mer_60_min_interv",
                         "AF_mer_30min_DT", "AF_hlr_thorak", 
-                        "AF_lever_och_mjaltskada", "AF_ej_trombrof_TBI_72h")
+                        "AF_lever_och_mjaltskada", "AF_ej_trombrof_TBI_72h", "AF_all")
 listOfAuditFiltersClean <- c("SBP < 90", "Dead at 30 days", "ISS > 15 and no team activation", 
                              "Massive transfusion", "GCS < 9 and not intubated", "ISS > 15 and not in ICU", 
                              "> 60 min until first intervention", "> 30 min until first CT",
                              "CPR and thoracotomy", "Liver or spleen injury", 
-                             "No anticoagulants within 72 hours after TBI")
+                             "No anticoagulants within 72 hours after TBI", "All")
 
 #1,2,3,5,6,7,8 manual
 ## viktigt att det ska vara samma ordning ^
-selectedAuditFilter <- listOfAuditFilters[1:11]
+selectedAuditFilter <- listOfAuditFilters[1:12]
 
 tableKappa <- data.frame(Auditfilter = character(0),
                          Sensitivity = numeric(0),
