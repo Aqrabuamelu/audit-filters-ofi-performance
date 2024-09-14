@@ -1,12 +1,12 @@
 library(rofi)
 library(dplyr)
 library(ggplot2)
-library(pROC)
 library(gtsummary)
 library(gt)
 library(boot)
 library(magrittr)
-library(Gmisc, quietly = TRUE)
+library(knitr)
+#library(Gmisc, quietly = TRUE)
 library(glue)
 library(htmlTable)
 library(grid)
@@ -17,37 +17,27 @@ library(DiagrammeR)
 listOfAuditFilters <- c("AF_sap_less90","AF_death_30d","AF_iss_15_ej_TE",
                         "AF_mass_transf", "AF_gcs_less9_ej_intubTE", 
                         "AF_iss_15_ej_iva", "AF_mer_60_min_interv",
-                        "AF_mer_30min_DT", "AF_hlr_thorak", 
+                        "AF_mer_30min_DT", 
                         "AF_lever_och_mjaltskada", "AF_ej_trombrof_TBI_72h", "AF_all")
 listOfAuditFiltersClean <- c("SBP < 90", "Dead at 30 days", "ISS > 15 and no team activation", 
                              "Massive transfusion", "GCS < 9 and not intubated", "ISS > 15 and not in ICU", 
-                             "> 60 min until first intervention", "> 30 min until first CT",
-                             "CPR and thoracotomy", "Liver or spleen injury", 
+                             "> 60 min until first intervention", "> 30 min until first CT", "Liver or spleen injury", 
                              "No anticoagulants within 72 hours after TBI", "All")
-
-#1,2,3,5,6,7,8 manual
 ## viktigt att det ska vara samma ordning ^
-selectedAuditFilter <- listOfAuditFilters[1:12]
+DefOfAbbreviations <- "Definition of abbreviations: SBP = Systolic Blood Pressure; ISS = Injury Severity Score; GCS = Glascow Coma Scale; ICU = Intensive Care Unit; CT = Computer Tomography; ED = Emergency Department; CPR = Cardiopulmonary Resuscitation; TBI = Traumatic Brain Injury"
+
+selectedAuditFilter <- listOfAuditFilters[1:11]
 
 tableKappa <- data.frame(Auditfilter = character(0),
                          Sensitivity = numeric(0),
                          Specificity = numeric(0),
                          Kappa = numeric(0))
 tableAuditFilter <- data.frame(Auditfilter = character(0),
+                               Total = numeric(0),
                                Number = numeric(0),
                                Missing = numeric(0),
                                Manual = character(0))
 
-#tableOfCalculatedData1 <- data.frame(Auditfilter = character(0),
- #                                    Specificity = numeric(0),
- #                                    Sensitivity = numeric(0))
-
-#A table of sensitivity and specificity
-#tableOfCalculatedData2 <- data.frame(Auditfilter = character(0),
-#                                     AUC = numeric(0),
-#                                     PValue = character(0),
-#                                     PValue0.8 = character(0))
-#A table of AUC
 noacsr::source_all_functions()
 importDataOfi <- import_data_ofi(data) #
 cleanData <- clean_data(importDataOfi)
@@ -70,28 +60,38 @@ manualOrOriginal <- character(0)
 for(auditFilter in selectedAuditFilter){
   
   twoVariableData <- select(selectedData, auditFilter, ofi)
-  totalValues <- nrow(twoVariableData)
-  missingValue <- sum(is.na(twoVariableData[1]))
-  #print(missingValue)
-  #print(twoVariableData)
   twoVariableDataNaOmit <- na.omit(twoVariableData)
-  #twoVariableData[1][is.na(twoVariableData[1])] <- FALSE #turning Na values false.
+  if(auditFilter == "AF_iss_15_ej_TE"){
+    totalValuesIncluded <- sum(selectedData$ISS_over_15_T, na.rm = TRUE)
+    missingValue <- sum(selectedData$ISS_over_15_T_M)
+  } else if(auditFilter == "AF_gcs_less9_ej_intubTE"){
+    totalValuesIncluded <- sum(selectedData$GCS_under_9, na.rm = TRUE)
+    missingValue <- sum(selectedData$GCS_under_9_M)
+  } else if(auditFilter == "AF_ej_trombrof_TBI_72h"){
+    totalValuesIncluded <- sum(selectedData$TBI, na.rm = TRUE)
+    missingValue <- sum(selectedData$TBI_M)
+  }else if(auditFilter == "AF_iss_15_ej_iva"){
+    totalValuesIncluded <- sum(selectedData$ISS_over_15, na.rm = TRUE)
+    missingValue <- sum(selectedData$ISS_over_15_M)
+  }else{
+    totalValuesIncluded <- nrow(twoVariableDataNaOmit)
+    missingValue <- sum(is.na(twoVariableData[1]))
+  }
   numberOfTrue <- sum(twoVariableDataNaOmit[[1]])
-  #print(sum(is.na(twoVariableDataNaOmit[1])))
-  #print(missingValue)
-  if (counter %in% c(1,2,3,5,6,7,8)){
+  
+  if (counter %in% c(1,2,3,5,6,7,8,10)){
     manualOrOriginal <- "manual"
-  } else {
+  } else if (counter %in% c(4,9)){
     manualOrOriginal <- "original"
+  } else{
+    manualOrOriginal <- " "
   }
   confidenceIntervalKappa <- confidence_interval_kappa(twoVariableDataNaOmit)
   confidenceIntervalSensitivitySpecificity <- confidence_interval_sens_spec(twoVariableDataNaOmit)
-  paste(c(round(calculateAUC, digits = 2)," (",confidenceInterval[5],"-",confidenceInterval[6],") "), collapse = "")
-  print(confidenceIntervalKappa)
-  
   tableAuditFilterResult <- data.frame(Auditfilter = listOfAuditFiltersClean[counter],
-                                       Number = paste(c(numberOfTrue," (", round(numberOfTrue/totalValues*100, digits = 1), "%) "), collapse = ""),
-                                       Missing = paste(c(missingValue," (", round(missingValue/totalValues*100, digits = 1), "%) "), collapse = ""),
+                                       Total = paste(c(totalValuesIncluded," (", round(totalValuesIncluded/8309 * 100, digits = 1), "%) "), collapse = ""),
+                                       Number = paste(c(numberOfTrue," (", round(numberOfTrue/totalValuesIncluded*100, digits = 1), "%) "), collapse = ""),
+                                       Missing = paste(c(missingValue," (", round(missingValue/8309 * 100, digits = 1), "%) "), collapse = ""),
                                        Manual = manualOrOriginal)
   tableAuditFilter <- rbind(tableAuditFilter,tableAuditFilterResult)
   
@@ -101,13 +101,26 @@ for(auditFilter in selectedAuditFilter){
                                  Kappa = paste(c(confidenceIntervalKappa[1]," (", confidenceIntervalKappa[2], "-", confidenceIntervalKappa[3], ") "), collapse = ""))
   tableKappa <- rbind(tableKappa,tableKappaResult)
   
-  createAuditFilterTable <- create_audit_filter_table(listOfAuditFiltersClean, missingValues)
   counter <- counter + 1
 }
 
-tableK <- gt(tableKappa)
+tableK <- gt(tableKappa)  %>% 
+  cols_label(Auditfilter = "Audit filter",
+             Specificity = "Specificity (%)",
+             Sensitivity = "Sensitivity (%)",
+             Kappa = "Cohen's Kappa") %>%
+  cols_align(align = "left") %>%
+  tab_source_note(DefOfAbbreviations)
+
 tableK %>% gtsave(filename = "tabk.html")
-tableAF <- gt(tableAuditFilter)
+tableAF <- gt(tableAuditFilter) %>%
+  cols_label(Auditfilter = "Audit filter",
+             Total = "Sub population",
+             Number = "Flagged",
+             Missing = "Missing (%)",
+             Manual = "Manual") %>%
+  cols_align(align = "left") %>%
+  tab_source_note(DefOfAbbreviations)
 tableAF %>% gtsave(filename = "tabAF.html")
 
 tableOne <- tableOneData %>%
@@ -143,84 +156,5 @@ tableOne <- tableOneData %>%
   bold_labels() %>%
   add_p(test = list(all_continuous() ~ "wilcox.test")) %>%
   bold_p() 
-############TABLE ONE#######################
 
-'
-tableThree <- tableOfCalculatedData1 %>%
-  gt() %>% 
-  cols_label(Auditfilter = "Audit filter",
-             Number = "(N)",
-             Specificity = "Specificity (%)",
-             Sensitivity = "Sensitivity (%)") %>%
-  cols_align(align = "left") %>%
-  tab_source_note("Definition of abbreviations:
-  OFI = Opportunity for Improvement;
-  SBP = Systolic Blood Pressure;
-  ISS = Injury Severity Score;
-  GCS = Glascow Coma Scale;
-  ICU = Intensive Care Unit;
-  CT = Computer Tomopgraphy;
-  ED = Emergency Department; 
-  CPR = Cardiopulmonary Resuscitation;
-  TBI = Traumatic Brain Injury
-                  ")
-############TABLE TWO#######################
-tableFour <- gt(tableOfCalculatedData2) %>% 
-  cols_label(PValue = "p-value (AUC = 0.5)",
-             PValue0.8 = "p-value (AUC = 0.8)",
-             Auditfilter = "Audit filter") %>%
-  cols_align(align = "left") %>%
-  tab_source_note("Definition of abbreviations: 
-  OFI = Opportunity for Improvement; 
-  AUC = Area under the receiver operating characteristic curve;
-  SBP = Systolic Blood Pressure;
-  ISS = Injury Severity Score;
-  GCS = Glascow Coma Scale;
-  ICU = Intensive Care Unit;
-  CT = Computer Tomography;
-  ED = Emergency Department; 
-  CPR = Cardiopulmonary Resuscitation;
-  TBI = Traumatic Brain Injury
-  ")
-############TABLE THREE#######################
-tableTwo <- gt(tableFourData) %>%
-  cols_label(listOfAuditFiltersClean = "Audit filters",
-             missingValues = "Missing values n (%)") %>%
-  cols_align(align = "left") %>%
-  tab_source_note("Definition of abbreviations: 
-  OFI = Opportunity for Improvement; 
-  SBP = Systolic Blood Pressure;
-  ISS = Injury Severity Score;
-  GCS = Glascow Coma Scale;
-  ICU = Intensive Care Unit;
-  CT = Computer Tomography;
-  ED = Emergency Department; 
-  CPR = Cardiopulmonary Resuscitation;
-  TBI = Traumatic Brain Injury
-  ")
-############TABLE FOUR#######################
-tableFive <- gt(tableFiveData) %>%
-  cols_label(Auditfilter = "Audit filter",
-             Design = "Manually created/original") %>%
-  cols_align(align = "left") %>%
-  tab_source_note("Definition of abbreviations: 
-  OFI = Opportunity for Improvement; 
-  SBP = Systolic Blood Pressure;
-  ISS = Injury Severity Score;
-  GCS = Glascow Coma Scale;
-  ICU = Intensive Care Unit;
-  CT = Computer Tomography;
-  ED = Emergency Department; 
-  CPR = Cardiopulmonary Resuscitation;
-  TBI = Traumatic Brain Injury
-  ")
-
-
-  tableTwo %>% gtsave(filename = "tab_2.html")
-  tableThree %>% gtsave(filename = "tab_3.html")
-  tableFour %>% gtsave(filename = "tab_4.html")
-  tableFive %>% gtsave(filename = "tab_5.html")
-   tableOne %>% gtsave(filename = "tab_1.html")
-   
-'
   

@@ -380,2755 +380,320 @@ cohort</h3>
 </div>
 
 
+<pre><code>## [1] 11</code></pre>
 <div id="abstract" class="section level1">
 <h1>Abstract</h1>
 <div id="background" class="section level2">
 <h2>Background</h2>
-<p>Trauma is responsible for 9% of global deaths annually and has a
-significant impact on individuals and society. Quality Improvement (QI)
-programs seek to minimize these adverse outcomes using Audit Filters
-(AFs) and interdisciplinary Morbidity and Mortality Conferences (MMC).
-AFs are based on criteria for standard care and can function as a
-screening tool of eligible patient cases for discussion at MMCs. One of
-the goals with MMCs is to determine potential Opportunities for
-Improvement (OFI).This study aimed to evaluate the performance of
-individual AFs in predicting OFIs and to assess their relevance as a
-screening tool for Morbidity and Mortality Conferences (MMC).</p>
+<p>Trauma audit filters, based on standards of care, serve as screening
+tools for patient cases to be assessed at interdisciplinary mortality
+and morbidity conferences. These conferences aim to identify potential
+opportunities for improvement in the care of trauma patients. This study
+aimed to assess the effectiveness of individual audit filters in
+predicting opportunities for improvement and their relevance as
+screening tools for morbidity and mortality conferences.</p>
 </div>
 <div id="methods" class="section level2">
 <h2>Methods</h2>
-<p>Register data from 8,309 patient cases were collected for analysis.
-The sensitivity, specificity and Area Under the Receiver Operating
-Characteristics Curve (AUC) was calculated to assess performance. An
-empirical bootstrapping test of AUC values was conducted to compare the
-performance of each AF to coincidence (AUC = 0.5) and minimum AUC for
-diagnostic tests (AUC = 0.8).</p>
+<p>We conducted a single-centre registry-based retrospective cohort
+study based on register data from the Karolinska University Hospital in
+Sweden collected between 2013 and 2022. Performance was measured using
+sensitivity, specificity and Cohen’s kappa coefficient for ten audit
+filters. Bootstrapping of 1,000 iterations calculated 95% confidence
+intervals.</p>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>
-<p>Four out of the 11 AFs assessed had an AUC of 0.5 (p &gt; 0.05). The
-remaining AFs demonstrated a correlation with OFI, with AUC ranging from
-0.51 to 0.63. The AF “&gt; 60 min until first intervention” exhibited
-the highest AUC (0.63, 95% CI [0.61-0.65]).</p>
+<p>Our analysis included 8,309 patients. Audit filters showed a Cohen’s
+kappa coefficient ranging from -0.07 for “GCS &lt; 9 and not intubated”
+and 0.08 for “Massive transfusion”. The Cohen’s kappa coefficient for
+all audit filters combined was 0.04 (95% CI[0.03-0.04]).</p>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>No individual AF seemed to perform well in predicting OFI, which
-suggest rethinking the current screening method for MMCs.</p>
+<p>No individual audit filter performed well in predicting opportunities
+for improvement, which suggests reassessing the current method of
+screening for mortality and morbidity conferences.</p>
 </div>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>Trauma, defined as a physical injury and the body’s associated
-response, causes 8-9% of global deaths annually <span class="citation">(1,2)</span>, disproportionately affecting younger
-individuals in low- and middle-income countries, primarily due to road
-traffic injuries <span class="citation">(2–4)</span>. Trauma also ranks
-highest in disability-adjusted life-years (DALYs) <span class="citation">(3)</span> and increases the risk of mental disorders
-and cognitive decline <span class="citation">(5–9)</span>, impacting
-individuals, communities and society at large <span class="citation">(8)</span>. Road traffic injuries alone cost
-approximately 2% of gross domestic product (GDP) in high-income
-countries <span class="citation">(1)</span>.</p>
-<p>To reduce trauma burden, quality improvement (QI) programs have been
-established by the World Health Organization (WHO) and the International
-Association for Trauma Surgery and Intensive Care (IATSIC) <span class="citation">(10)</span>. These programs form the core of current
-trauma care systems <span class="citation">(11)</span> and commonly
-include multidisciplinary mortality and morbidity conferences (MMC),
-preventable death review panels, and the use of AFs also known as
-quality indicators <span class="citation">(10)</span>. Despite QI
-programs, trauma care remains prone to errors <span class="citation">(12–14)</span>. Studies have shown a pooled preventable
-death rate of 20% from 1990 to 2014, with more recent studies indicating
-lower rates <span class="citation">(15)</span>. For instance, a recent
-study in a Swedish Level I trauma centre found a preventable death rate
-of 4% <span class="citation">(16)</span>.</p>
-<div id="morbidity-and-mortality-conferences" class="section level3">
-<h3>Morbidity and Mortality Conferences</h3>
-<p>The MMC is a central QI technique focusing on anonymity, critical
-analysis of specific adverse events, recognizing flawed approaches, and
-proposing and implementing improvements <span class="citation">(17)</span>. Attended by healthcare professionals
-involved in trauma care, MMCs discuss themes like unexpected mortality,
-morbidity, and errors <span class="citation">(18)</span>, fostering
-error reduction and encouraging reporting without negative feedback
-<span class="citation">(19)</span>. Effective MMC implementation has
-been shown to increase morbidity and mortality reporting <span class="citation">(20)</span>.</p>
-</div>
-<div id="audit-filters-and-opportunities-for-improvement" class="section level3">
-<h3>Audit Filters and Opportunities for Improvement</h3>
-<p>AFs are criteria based on standardized care to enhance trauma care
-quality. Deviation from AFs should raise the attention of health care
-professionals with the purpose of improving the quality of care <span class="citation">(11)</span>. AFs can involve outcomes like “death” or
-adherence to guidelines, such as “placement of two large bore
-intravenous lines within 15 minutes of arrival.” <span class="citation">(10)</span>.Studies have shown mixed results on the
-effectiveness of AFs in reducing trauma-related mortality. While some
-early studies reported mortality reduction <span class="citation">(21,22)</span>, a 2009 review by Evans et al. <span class="citation">(23)</span> found no substantial evidence supporting
-AFs’ effectiveness. Stelfox et al. <span class="citation">(24)</span>
-identified over 1,500 AFs but noted a lack of a common, evidence-based
-set for evaluating trauma care quality, despite the high perceived
-usefulness of AFs <span class="citation">(25)</span>.</p>
-<p>Opportunities for improvement (OFIs) are decided upon review of
-individual patient cases <span class="citation">(11)</span>. They are
-typically associated with failures in initial care <span class="citation">(13)</span> like airway management, fluid
-resuscitation, haemorrhage control and chest injury management <span class="citation">(14,26,27)</span>. There is lacking evidence for the
-use of AFs for improving trauma care <span class="citation">(23,24)</span> and the focus has been on mortality as
-outcome measure <span class="citation">(21,22)</span>. Furthermore, the
-use of AFs has been associated with high frequencies of false positives,
-ranging from 24% to 80% <span class="citation">(26,27)</span>, and some
-AFs do not appear to correlate with OFIs at all <span class="citation">(28)</span>.</p>
-<p>The aim of this study is to determine the performance of AFs in
-predicting OFIs and furthermore assess their relevance as a screening
-tool for MMCs.</p>
-<!-- Explain the scientific background and rationale for the
-investigation being reported. End by stating the aim or specific
-objectives, including any prespecified hypotheses. The introduction
-should not be longer than 1-1.5 pages, typically 4-5 paragraphs, each
-6-8 lines long. Support every statement with a citation -->
-</div>
+response, causes 8-9% of global deaths annually <span class="citation">(1,2)</span> and ranks highest in disability-adjusted
+life-years (DALYs) between ages 10-49 years <span class="citation">(3)</span>, impacting individuals, communities and
+society at large <span class="citation">(4,5)</span>. Road traffic
+injuries alone cost approximately 2% of gross domestic product (GDP) in
+high-income countries <span class="citation">(1)</span>. Despite
+advancements in trauma care, preventable deaths <span class="citation">(6–9)</span> and errors persist <span class="citation">(8–11)</span>. To adress this, quality improvement
+programs <span class="citation">(12)</span>, commonly including
+mortality and morbidity conferences <span class="citation">(13)</span>
+have been implemented. The conferences have shown to foster error
+reduction and encourage reporting <span class="citation">(14)</span>
+without negative feedback <span class="citation">(15)</span>.</p>
+<p>Audit filters are a set of criteria used to identify cases for
+mortality and morbidity conferences aiming to pinpoint potential
+opportunities for improvement <span class="citation">(12)</span>. Audit
+filters can involve outcomes such as “death” or adherence to guidelines,
+such as “delay to treatment” <span class="citation">(13)</span>.
+Opportunities for improvement are typically associated with failures in
+initial care <span class="citation">(9)</span> like airway management,
+fluid resuscitation, haemorrhage control and chest injury management
+<span class="citation">(11,16,17)</span>. There seems to be a lack of
+common, evidence-based set of audit filters for evaluating trauma care
+quality <span class="citation">(18)</span>, and while early studies
+reported mortality reduction <span class="citation">(19,20)</span>,
+newer studies differ <span class="citation">(21,22)</span>. Moreover,
+the use of audit filters has been associated with high frequencies of
+false positives, ranging from 24% to 80% in different contexts <span class="citation">(7,16,17)</span>. Few studies have focused
+non-mortality outcome measures, for evaluating performance of audit
+filters but the evidence still remain vague <span class="citation">(23,24)</span> and some audit filters do not appear to
+correlate with opportunities for improvement at all <span class="citation">(25)</span>. However, the perceived usefulness of audit
+filters remains high <span class="citation">(26)</span>.</p>
+<p>The aim of this study is to determine the performance of individual
+audit filters used at Karolinska University hospital in predicting
+opportunities for improvement and assessing their relevance as a
+screening tool for mortality and morbidity conferences</p>
 </div>
 <div id="methods-1" class="section level1">
 <h1>Methods</h1>
 <div id="study-design" class="section level2">
 <h2>Study design</h2>
-<!-- Present key elements of study design -->
+<p>We conducted a single-centre registry-based retrospective cohort
+study of all trauma patients included in both the Karolinska University
+Hospital trauma registry and trauma care quality database between 2012
+and 2022 to compare the performance of audit filters in their ability to
+predict opportunities for improvement. This study was approved by
+Swedish Ethical Review Authority, approval number 2021-02541 and
+2021-03531.</p>
 </div>
 <div id="setting" class="section level2">
 <h2>Setting</h2>
-<p>Karolinska University Hospital, a Trauma level I hospital, treats
-around 1,500 trauma patients annually. If a patient case results in team
-activation or the patient has an Injury Severity Score (ISS) of less
-than 9 retrospectively, it is added to the Karolinska trauma registry
-which reports to SweTrau. The registry includes data on vital signs,
-times, injuries, and interventions as well as patient demographics
-according to the European Consensus Statement, the Utstein template
-<span class="citation">(29)</span></p>
-<p>The Karolinska trauma registry also contains a local care quality
-database with specific AFs and OFIs that are determined in MMC
-conferences through consensus decisions. OFIs are assessed in multiple
-stages, characterised by escalating levels of scrutiny. Notably,
-instances of mortality are directly referred to the multidisciplinary
-conference, where, in addition to assessing OFIs, a decision is made
-regarding whether the death was preventable or potentially preventable,
-a classification also falling under the purview of OFIs.</p>
-<p>From 2013 to 2017, efforts focused on identifying adverse outcomes
-unrelated to mortality. The review process was refined and formalized,
-with trauma cases initially assessed by a specialized trauma nurse for
-potential OFIs. In 2017, this procedure became standard practice,
-incorporating preliminary evaluations by specialized trauma nurses.
-Trauma quality data screened for AFs and cases flagged for possible care
-failures underwent secondary review by two specialized nurses. Potential
-OFIs identified in this review prompted a comprehensive evaluation of
-the trauma patient’s case.</p>
-<!-- Describe the setting, locations, and relevant dates, including
-periods of recruitment, exposure, follow-up, and data collection -->
+<p>Karolinska University Hospital manages around 1,500 trauma patients
+annually. The Karolinska Trauma Registry, which reports to the national
+trauma registry SweTrau <span class="citation">(27)</span>, includes all
+patients that result in trauma team activation or who have an Injury
+Severity Score (ISS) of more than 9. This registry includes data on
+vital signs, timings, injuries, interventions, and patient demographics
+as per the European consensus statement <span class="citation">(28)</span></p>
+<p>The trauma centre at the Karolinska University Hospital also keeps a
+local care quality database with information intended for the mortality
+and morbidity conferences, including identified triggered audit filters
+and opportunities for improvement. Opportunities for improvement are
+assessed in multiple stages of scrutiny. Notably, mortality is directly
+referred to the mortality and morbidity conferences to assess
+opportunities for improvement.</p>
+<p>During the study period, the screening of patient cases for potential
+opportunities for improvement was formalised. Prior to 2017, not all
+patient cases were subjected to an initial evaluation by a specialised
+nurse. However, following 2017 all patient cases underwent screening.
+Importantly, audit filters and an initial evaluation by a specialised
+nurse has consistently functioned as the screening tool for mortality
+and morbidity conferences to identify potential opportunities for
+improvement.</p>
 </div>
 <div id="participants" class="section level2">
 <h2>Participants</h2>
-<p>The study included 8,309 patients treated at Karolinska University
-Hospital from 2012 to 2022 who underwent OFI screening. Patients under
-15 and those not screened for OFIs were excluded due to differences in
-clinical management for minors.</p>
-<!-- Cohort study: Give the eligibility criteria, and the sources and
-methods of selection of participants. Describe methods of
-follow-up. For matched studies, give matching criteria and number of
-exposed and unexposed -->
-<!-- Case-control study: Give the eligibility criteria, and the
-sources and + methods of case ascertainment and control
-selection. Give the rationale for the choice of cases and
-controls. For matched studies, give matching criteria and the number
-of controls per case -->
-<!-- Cross-sectional study: Give the eligibility criteria, and the
-sources and methods of selection of participants -->
+<p>The study included all patients treated at Karolinska University
+Hospital from 2013 to 2022 who underwent screening for opportunities for
+improvement. Patients under 15 were excluded due to differences in
+clinical management.</p>
 </div>
 <div id="variables-and-data-sourcesmeasurements" class="section level2">
 <h2>Variables and data sources/measurements</h2>
-<p>The outcome variable is an OFI, as established by the MMCs and
-treated as a dichotomous variable with “Yes - At least one OFI
-identified” and “No - No OFI identified”. The 11 AFs used at Karolinska
-University Hospital served as the exposure variable, as shown in Table
-1. Each AF is labeled “original” or “manually created.” Manually created
-AFs were calculated using trauma registry data, while original AFs were
-recorded in the quality database based on criteria beyond the available
-registry data.</p>
-<p>The data spanning 2012 to 2022 was retrieved from the Karolinska
-University Hospital trauma registry and trauma care quality database.
-Patient data on vital signs, care processes and interventions, level of
-care and time aspects was retrieved from SweTrau while both exposures
-(AFs) and outcome (OFI) were retrieved from the Karolinska University
-Hospital trauma care quality database. All data was anonymised to
-protect patient privacy.</p>
-<!-- Clearly define all outcomes, exposures, predictors, potential
-confounders, and effect modifiers. Give diagnostic criteria, if
-applicable. For each variable of interest, give sources of data and
-details of methods of assessment (measurement). Describe comparability
-of assessment methods if there is more than one group -->
-</div>
-<div id="bias" class="section level2">
-<h2>Bias</h2>
-<p>Consensus decisions at MMC conferences may introduce
-misclassification bias. Additionally, AF flagging by specialized nurses
-is a manual process, potentially leading to selection bias. Healthcare
-professionals attending MMCs may not accurately recall key details
-impacting OFI decisions, introducing recall bias. Furthermore,
-professionals not present for specific cases might over- or
-underestimate OFI significance.</p>
-</div>
-<div id="study-size" class="section level2">
-<h2>Study size</h2>
-<!-- Explain how the study size was arrived at -->
-</div>
-<div id="quantitative-variables" class="section level2">
-<h2>Quantitative variables</h2>
-<!-- Explain how quantitative variables were handled in the
-analyses. If applicable, describe which groupings were chosen and why
--->
+<p>The outcome was opportunities for improvement, as established by the
+mortality and morbidity conference, and was treated dichotomously as
+“Yes - At least one opportunity for improvement identified” and “No - No
+opportunity for improvement identified”.</p>
+<p>The ten audit filters used at the Karolinska University Hospital
+served as the exposure variables. Patient cases were flagged based on
+registered data instead of relying on the manual process by the
+specialised nurses. The relevant cohort for each audit filter was
+selected. For instance, with the audit filter “GCS &lt; 9 and not
+intubated” we selected the patient cases with GCS below nine and
+examined the intubation status for each case. See table 1 for the
+relevant cohort size for each audit filter and whether they where
+created with registry data or used as registered by the specialised
+nurse.</p>
+<p>The data was retrieved from the Karolinska Trauma Registry and trauma
+care quality database. Patient data on vital signs, care processes and
+interventions, level of care and time aspects was retrieved from SweTrau
+while both the exposure, audit filters and the outcome, opportunities
+for improvement were retrieved from the quality database.</p>
+<p>All data was anonymised to protect patient privacy.</p>
 </div>
 <div id="statistical-methods" class="section level2">
 <h2>Statistical methods</h2>
-<p>The study utilized R <span class="citation">(30)</span> for
-statistical analysis. Patient characteristics between cases with and
-without OFI were compared using the Wilcoxon signed-rank test for
-continuous variables and the Chi-squared test for categorical
-variables.</p>
-<p>The predictive performance of AFs was assessed by calculating
-sensitivity and specificity for each AF in predicting OFI. Receiver
-operating characteristic (ROC) curves were constructed for binary
-classification, and the area under the curve (AUC) was computed to
-compare AF performance. <span class="citation">(31)</span>.</p>
-<p>Bootstrap resampling (1,000 iterations) was applied to estimate 95%
-confidence intervals for sensitivity, specificity, and AUC. The
-significance of each AF’s AUC was evaluated against chance (AUC = 0.5)
-and the minimum standard for diagnostic tests (AUC = 0.8) <span class="citation">(32)</span> using an empirical bootstrap test (1,000
-iterations).</p>
-<p>Missing values for AFs were treated as negative (i.e., “not
-flagged”).</p>
-<!-- 
-
-(a) Describe all statistical methods, including those used to control
-for confounding
-
-(b) Describe any methods used to examine subgroups and interactions
-
-(c) Explain how missing data were addressed 
-
-(d) 
-
-Cohort study: If applicable, explain how loss to follow-up was addressed 
-
-Case-control study:If applicable, explain how matching of cases and
-controls was addressed
-
-Cross-sectional study: If applicable, describe analytical methods
-taking account of sampling strategy
-
-(e) Describe any sensitivity analyses
--->
+<p>We used R <span class="citation">(29)</span> for statistical
+analysis. Patient characteristics for cases with and without
+opportunities for improvement were compared using the Wilcoxon
+signed-rank test for continuous variables and the Chi-squared test for
+categorical variables. The predictive performance of audit filters was
+assessed by calculating the sensitivity, specificity and Cohen’s kappa
+for each audit filter in predicting opportunities for improvement.
+Bootstrapping with 1,000 iterations was applied to estimate 95%
+confidence intervals for all performance metrics. We selected cohorts
+relevant to each filter: For “ISS &gt; 15 and no team activation” and
+“ISS &gt; 15 and not in ICU” we examined patients with an ISS greater
+than 15. For “GCS &lt; 9 and not intubated,” we focused on patients with
+a GCS less than 9. Lastly, for “No anticoagulants within 72 hours after
+TBI” we identified patients with head trauma as defined by the presence
+of at least one head injury according to available AIS codes. Missing
+values were numbered but ignored in the analysis.</p>
 </div>
 </div>
 <div id="results-1" class="section level1">
 <h1>Results</h1>
-<p>##Participants After excluding patients under 15 years old and
-patients not screened for OFIs, a total of 8,309 individuals were
-included in the study. 7,797 out of 8,309 (93.8%) patient cases did not
-have an OFI and 512 out of 8,309 (6.2%) had an OFI. Figure 1 presents a
-flowchart showcasing the exclusion and inclusion of the patient cases
-from the trauma registry.</p>
-<p>Most trauma patients were men (n = 5,755, 69%). Patient
-characteristics varied depending on whether patients had an OFI or not.
-Respectively, the mean age was significantly higher<br />
-49 (30, 67) vs 42 (27, 61), p&lt;0.001 and the ISS was significantly
-higher 17 (10, 25) vs 9 (1, 17), p&lt;0.001. The number of intubations
-in the emergency department was significantly higher 82 (16%) vs 7,149
-(92%), NA. Patients with OFI had longer times to definitive treatment
-from hospital arrival compared to patients without OFI 144 (90, 289) vs
-102 (49, 251), p&lt;0.001. The time to the first CT was also longer in
-patients with OFIs compared to patients without 39 (25, 70) vs 33 (21,
-65), p&lt;0.001.</p>
-<p>The number of OFIs were highest in patients admitted to the intensive
-care unit 171 (33%) and surgical ward 146 (29%).</p>
-<p>Gender p=0.2, the mean systolic blood pressure p&gt;0.9, death at 30
-days p=0.6 and trauma team activation p=0.3 was not significantly
-correlated with OFI.</p>
-<p>Notably, there was a statistical significant correlation between GCS
-at ED and OFI (p &lt; 0.001).</p>
-<p>Table 2 shows the missing data for each AF. As mentioned in the
-method section, these values were interpreted as “not flagged” with an
-AF. The variables with the highest amount of missing data were “time to
-definitive treatment” (n = 5,990, 72.1%) and “time to first CT” (n =
-1,012, 12.2%). The smallest amount of missing data was found in
-“SBP&lt;90” (n = 13, 0.2%).</p>
+<p>After excluding patients under 15 years old and patients not screened
+for opportunities for improvement, a total of 8,309 individuals were
+included in the study. Out of 8,309, (n = 7,797, 93.8%) patient cases
+did not have an opportunity for improvement and (n = 512, 6.2%) had an
+opportunity for improvement, see Figure 1.</p>
+<p>Patients with an opportunity for improvement had significantly higher
+mean age 49 (30, 67) vs 42 (27, 61), p&lt;0.001, ISS 17 (10, 25) vs 9
+(1, 17), p&lt;0.001 and intubations in the emergency department (ED) 82
+(16%) vs 646 (8.3%), p&lt;0.001. Patients with opportunity for
+improvement had longer times to definitive treatment from hospital
+arrival 144 (90, 289) vs 102 (49, 251), p&lt;0.001. and longer times to
+first CT 39 (25, 70) vs 33 (21, 65), p&lt;0.001. The number of
+opportunities for improvement were highest in patients admitted to the
+intensive care unit 171 (33%) compared to general ward 123 (24%).
+Gender, mean systolic blood pressure, death at 30 days and trauma team
+activation was not significantly correlated with opportunities for
+improvement (p&gt;0.05). Notably, there was a statistically significant
+correlation between GCS at ED and opportunities for improvement (p &lt;
+0.001). The highest amount of missing data was observed for the audit
+filter “time to first major intervention” (n = 5,990, 72.1%).See Table 2
+for details of selected patient characteristics.</p>
 <div id="performance-of-individual-audit-filters" class="section level2">
 <h2>Performance of Individual Audit Filters</h2>
-<p>The performance of each AF was determined through a calculation of
-sensitivity and specificity which is demonstrated in Table 4.</p>
-<p>The number of patient cases flagged by each individual AF varied
-between 107 for “GCS&lt;9 and not intubated” and 3907 for “&gt;30 min
-until CT”. The AF with the highest sensitivity was “&gt;30 min until CT”
-(59.2%, 95% CI [55.2-63.8]). The lowest sensitivity was seen in
-“GCS&lt;9 and not intubated” (1.2%, 95% CI [0.2-2]). The AF with the
-highest specificity was “GCS&lt;9 and not intubated” (98.7%, 95% CI
-[98.5-98.9]). The lowest specificity was seen in “&gt;30 min until CT”
-(53.8%, 95% CI [52.7-54.8]). Notably, the confidence intervals varied
-between sensitivity and specificity, with sensitivity displaying a
-greater interval.</p>
-<p>Table 5 summarises the performance of each individual AF in
-identifying OFIs in trauma care by AUC. Four of the 11 AFs, “SBP&lt;90”,
-“dead at 30 days”, “GCS&lt;9 and not intubated” and “CPR and
-thoracotomy” showed a performance in predicting OFIs equal to that of
-coincidence (AUC = 0.5). The highest AUC was seen in “&gt;60 min until
-first intervention” (0.63, 95% CI [0.61-0.65]). All AFs showed
-significantly lower AUC compared to the minimum standard for diagnostic
-tests (AUC = 0.8) (p &lt; 0.001).</p>
-Table 2: Comparison of missing values for each AF. Missing values is
-shown as a number and percentage of the total number of patient cases
-included in the study (n = 8309).<br />
-`
-<div id="ahqrlznavf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ahqrlznavf table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#ahqrlznavf thead, #ahqrlznavf tbody, #ahqrlznavf tfoot, #ahqrlznavf tr, #ahqrlznavf td, #ahqrlznavf th {
-border-style: none;
-}
-#ahqrlznavf p {
-margin: 0;
-padding: 0;
-}
-#ahqrlznavf .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#ahqrlznavf .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#ahqrlznavf .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#ahqrlznavf .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#ahqrlznavf .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#ahqrlznavf .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ahqrlznavf .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#ahqrlznavf .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#ahqrlznavf .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#ahqrlznavf .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#ahqrlznavf .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#ahqrlznavf .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#ahqrlznavf .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#ahqrlznavf .gt_group_heading {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#ahqrlznavf .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#ahqrlznavf .gt_from_md > :first-child {
-margin-top: 0;
-}
-#ahqrlznavf .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#ahqrlznavf .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#ahqrlznavf .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahqrlznavf .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#ahqrlznavf .gt_row_group_first td {
-border-top-width: 2px;
-}
-#ahqrlznavf .gt_row_group_first th {
-border-top-width: 2px;
-}
-#ahqrlznavf .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahqrlznavf .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#ahqrlznavf .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#ahqrlznavf .gt_last_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ahqrlznavf .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahqrlznavf .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#ahqrlznavf .gt_last_grand_summary_row_top {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#ahqrlznavf .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#ahqrlznavf .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ahqrlznavf .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#ahqrlznavf .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahqrlznavf .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#ahqrlznavf .gt_sourcenote {
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ahqrlznavf .gt_left {
-text-align: left;
-}
-#ahqrlznavf .gt_center {
-text-align: center;
-}
-#ahqrlznavf .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#ahqrlznavf .gt_font_normal {
-font-weight: normal;
-}
-#ahqrlznavf .gt_font_bold {
-font-weight: bold;
-}
-#ahqrlznavf .gt_font_italic {
-font-style: italic;
-}
-#ahqrlznavf .gt_super {
-font-size: 65%;
-}
-#ahqrlznavf .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#ahqrlznavf .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#ahqrlznavf .gt_indent_1 {
-text-indent: 5px;
-}
-#ahqrlznavf .gt_indent_2 {
-text-indent: 10px;
-}
-#ahqrlznavf .gt_indent_3 {
-text-indent: 15px;
-}
-#ahqrlznavf .gt_indent_4 {
-text-indent: 20px;
-}
-#ahqrlznavf .gt_indent_5 {
-text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Audit filters">
-Audit filters
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Missing values n (%)">
-Missing values n (%)
-</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-SBP &lt; 90
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-13 (0.2)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-Dead at 30 days
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-11 (0.1)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-ISS &gt; 15 and no team activation
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-21 (0.3)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-Massive transfusion
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-978 (11.8)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-GCS &lt; 9 and not intubated
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-866 (10.4)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-ISS &gt; 15 and not in ICU
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-11 (0.1)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-&gt; 60 min until first intervention
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-5990 (72.1)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-&gt; 30 min until first CT
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-1012 (12.2)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-CPR and thoracotomy
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-404 (4.9)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-Liver or spleen injury
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-1929 (23.2)
-</td>
-</tr>
-<tr>
-<td headers="listOfAuditFiltersClean" class="gt_row gt_left">
-No anticoagulants within 72 hours after TBI
-</td>
-<td headers="missingValues" class="gt_row gt_left">
-2986 (35.9)
-</td>
-</tr>
-</tbody>
-<tfoot class="gt_sourcenotes">
-<tr>
-<td class="gt_sourcenote" colspan="2">
-Definition of abbreviations: OFI = Opportunity for Improvement; SBP =
-Systolic Blood Pressure; ISS = Injury Severity Score; GCS = Glascow Coma
-Scale; ICU = Intensive Care Unit; CT = Computer Tomography; ED =
-Emergency Department; CPR = Cardiopulmonary Resuscitation; TBI =
-Traumatic Brain Injury
-</td>
-</tr>
-</tfoot>
-</table>
-</div>
-<p>`{=html} Table 3: Patient characteristics of individuals with and
-without an OFI. Missing values are shown only when they exist.</p>
-<div id="xdpztrmmxa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xdpztrmmxa table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#xdpztrmmxa thead, #xdpztrmmxa tbody, #xdpztrmmxa tfoot, #xdpztrmmxa tr, #xdpztrmmxa td, #xdpztrmmxa th {
-border-style: none;
-}
-#xdpztrmmxa p {
-margin: 0;
-padding: 0;
-}
-#xdpztrmmxa .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#xdpztrmmxa .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#xdpztrmmxa .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#xdpztrmmxa .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#xdpztrmmxa .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#xdpztrmmxa .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#xdpztrmmxa .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#xdpztrmmxa .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#xdpztrmmxa .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#xdpztrmmxa .gt_group_heading {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#xdpztrmmxa .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#xdpztrmmxa .gt_from_md > :first-child {
-margin-top: 0;
-}
-#xdpztrmmxa .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#xdpztrmmxa .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#xdpztrmmxa .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#xdpztrmmxa .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#xdpztrmmxa .gt_row_group_first td {
-border-top-width: 2px;
-}
-#xdpztrmmxa .gt_row_group_first th {
-border-top-width: 2px;
-}
-#xdpztrmmxa .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#xdpztrmmxa .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#xdpztrmmxa .gt_last_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#xdpztrmmxa .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_last_grand_summary_row_top {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#xdpztrmmxa .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#xdpztrmmxa .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#xdpztrmmxa .gt_sourcenote {
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#xdpztrmmxa .gt_left {
-text-align: left;
-}
-#xdpztrmmxa .gt_center {
-text-align: center;
-}
-#xdpztrmmxa .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#xdpztrmmxa .gt_font_normal {
-font-weight: normal;
-}
-#xdpztrmmxa .gt_font_bold {
-font-weight: bold;
-}
-#xdpztrmmxa .gt_font_italic {
-font-style: italic;
-}
-#xdpztrmmxa .gt_super {
-font-size: 65%;
-}
-#xdpztrmmxa .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#xdpztrmmxa .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#xdpztrmmxa .gt_indent_1 {
-text-indent: 5px;
-}
-#xdpztrmmxa .gt_indent_2 {
-text-indent: 10px;
-}
-#xdpztrmmxa .gt_indent_3 {
-text-indent: 15px;
-}
-#xdpztrmmxa .gt_indent_4 {
-text-indent: 20px;
-}
-#xdpztrmmxa .gt_indent_5 {
-text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings gt_spanner_row">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id></th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="&lt;strong&gt;OFI&lt;/strong&gt;">
-        <span class="gt_column_spanner"><strong>OFI</strong></span>
-      </th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="&lt;strong&gt;Overall&lt;/strong&gt; (N = 8309)&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>Overall</strong> (N = 8309)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;No&lt;/strong&gt;, (N = 7797)&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>No</strong>, (N = 7797)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Yes&lt;/strong&gt;, (N = 512)&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>Yes</strong>, (N = 512)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Gender</td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.2</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Female</td>
-<td headers="stat_1" class="gt_row gt_center">2,411 (31%)</td>
-<td headers="stat_2" class="gt_row gt_center">143 (28%)</td>
-<td headers="stat_0" class="gt_row gt_center">2,554 (31%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Male</td>
-<td headers="stat_1" class="gt_row gt_center">5,386 (69%)</td>
-<td headers="stat_2" class="gt_row gt_center">369 (72%)</td>
-<td headers="stat_0" class="gt_row gt_center">5,755 (69%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Age</td>
-<td headers="stat_1" class="gt_row gt_center">42 (27, 61)</td>
-<td headers="stat_2" class="gt_row gt_center">49 (30, 67)</td>
-<td headers="stat_0" class="gt_row gt_center">43 (27, 61)</td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ISS</td>
-<td headers="stat_1" class="gt_row gt_center">9 (1, 17)</td>
-<td headers="stat_2" class="gt_row gt_center">17 (10, 25)</td>
-<td headers="stat_0" class="gt_row gt_center">9 (2, 17)</td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">11</td>
-<td headers="stat_2" class="gt_row gt_center">0</td>
-<td headers="stat_0" class="gt_row gt_center">11</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ED Systolic Blood Pressure</td>
-<td headers="stat_1" class="gt_row gt_center">135 (120, 150)</td>
-<td headers="stat_2" class="gt_row gt_center">135 (120, 151)</td>
-<td headers="stat_0" class="gt_row gt_center">135 (120, 150)</td>
-<td headers="p.value" class="gt_row gt_center">&gt;0.9</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">155</td>
-<td headers="stat_2" class="gt_row gt_center">15</td>
-<td headers="stat_0" class="gt_row gt_center">170</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ED GCS</td>
-<td headers="stat_1" class="gt_row gt_center">15.00 (14.00, 15.00)</td>
-<td headers="stat_2" class="gt_row gt_center">15.00 (14.00, 15.00)</td>
-<td headers="stat_0" class="gt_row gt_center">15.00 (14.00, 15.00)</td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">816</td>
-<td headers="stat_2" class="gt_row gt_center">50</td>
-<td headers="stat_0" class="gt_row gt_center">866</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Time to first CT</td>
-<td headers="stat_1" class="gt_row gt_center">33 (21, 65)</td>
-<td headers="stat_2" class="gt_row gt_center">39 (25, 70)</td>
-<td headers="stat_0" class="gt_row gt_center">33 (21, 66)</td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">967</td>
-<td headers="stat_2" class="gt_row gt_center">45</td>
-<td headers="stat_0" class="gt_row gt_center">1,012</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Intubated at ED</td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    No</td>
-<td headers="stat_1" class="gt_row gt_center">7,149 (92%)</td>
-<td headers="stat_2" class="gt_row gt_center">430 (84%)</td>
-<td headers="stat_0" class="gt_row gt_center">7,579 (91%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Yes</td>
-<td headers="stat_1" class="gt_row gt_center">646 (8.3%)</td>
-<td headers="stat_2" class="gt_row gt_center">82 (16%)</td>
-<td headers="stat_0" class="gt_row gt_center">728 (8.8%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">2</td>
-<td headers="stat_2" class="gt_row gt_center">0</td>
-<td headers="stat_0" class="gt_row gt_center">2</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Dead at 30 days</td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    No</td>
-<td headers="stat_1" class="gt_row gt_center">7,102 (91%)</td>
-<td headers="stat_2" class="gt_row gt_center">469 (92%)</td>
-<td headers="stat_0" class="gt_row gt_center">7,571 (91%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Yes</td>
-<td headers="stat_1" class="gt_row gt_center">686 (8.8%)</td>
-<td headers="stat_2" class="gt_row gt_center">41 (8.0%)</td>
-<td headers="stat_0" class="gt_row gt_center">727 (8.8%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">9</td>
-<td headers="stat_2" class="gt_row gt_center">2</td>
-<td headers="stat_0" class="gt_row gt_center">11</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Time to definitive treatment</td>
-<td headers="stat_1" class="gt_row gt_center">102 (49, 251)</td>
-<td headers="stat_2" class="gt_row gt_center">144 (90, 289)</td>
-<td headers="stat_0" class="gt_row gt_center">107 (53, 260)</td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">5,748</td>
-<td headers="stat_2" class="gt_row gt_center">242</td>
-<td headers="stat_0" class="gt_row gt_center">5,990</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Highest level of care</td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">&lt;0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Emergency department</td>
-<td headers="stat_1" class="gt_row gt_center">1,478 (19%)</td>
-<td headers="stat_2" class="gt_row gt_center">22 (4.3%)</td>
-<td headers="stat_0" class="gt_row gt_center">1,500 (18%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    General ward</td>
-<td headers="stat_1" class="gt_row gt_center">2,955 (38%)</td>
-<td headers="stat_2" class="gt_row gt_center">123 (24%)</td>
-<td headers="stat_0" class="gt_row gt_center">3,078 (37%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Surgical ward</td>
-<td headers="stat_1" class="gt_row gt_center">1,449 (19%)</td>
-<td headers="stat_2" class="gt_row gt_center">146 (29%)</td>
-<td headers="stat_0" class="gt_row gt_center">1,595 (19%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Specialist ward/Intermediate ward</td>
-<td headers="stat_1" class="gt_row gt_center">343 (4.4%)</td>
-<td headers="stat_2" class="gt_row gt_center">50 (9.8%)</td>
-<td headers="stat_0" class="gt_row gt_center">393 (4.7%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Intensive care unit</td>
-<td headers="stat_1" class="gt_row gt_center">1,572 (20%)</td>
-<td headers="stat_2" class="gt_row gt_center">171 (33%)</td>
-<td headers="stat_0" class="gt_row gt_center">1,743 (21%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Trauma team activation </td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td>
-<td headers="stat_2" class="gt_row gt_center"><br /></td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center">0.3</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    No</td>
-<td headers="stat_1" class="gt_row gt_center">5,040 (65%)</td>
-<td headers="stat_2" class="gt_row gt_center">342 (67%)</td>
-<td headers="stat_0" class="gt_row gt_center">5,382 (65%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Yes</td>
-<td headers="stat_1" class="gt_row gt_center">2,748 (35%)</td>
-<td headers="stat_2" class="gt_row gt_center">169 (33%)</td>
-<td headers="stat_0" class="gt_row gt_center">2,917 (35%)</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">9</td>
-<td headers="stat_2" class="gt_row gt_center">1</td>
-<td headers="stat_0" class="gt_row gt_center">10</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%); Median (IQR)</td>
-    </tr>
-    <tr>
-      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test; Wilcoxon rank sum test</td>
-    </tr>
-  </tfoot>
-</table>
-</div>
-Table 4: Comparison of performance for each AF in predicting OFIs.
-Performance is defined by sensitivity (%) and specificity (%). A 95%
-confidence interval is shown together with each performance indicator.
-The number of cases flagged by each filter is displayed.<br />
-`
-<div id="ljzmlytzkf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ljzmlytzkf table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#ljzmlytzkf thead, #ljzmlytzkf tbody, #ljzmlytzkf tfoot, #ljzmlytzkf tr, #ljzmlytzkf td, #ljzmlytzkf th {
-border-style: none;
-}
-#ljzmlytzkf p {
-margin: 0;
-padding: 0;
-}
-#ljzmlytzkf .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#ljzmlytzkf .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#ljzmlytzkf .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#ljzmlytzkf .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#ljzmlytzkf .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#ljzmlytzkf .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#ljzmlytzkf .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#ljzmlytzkf .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#ljzmlytzkf .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#ljzmlytzkf .gt_group_heading {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#ljzmlytzkf .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#ljzmlytzkf .gt_from_md > :first-child {
-margin-top: 0;
-}
-#ljzmlytzkf .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#ljzmlytzkf .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#ljzmlytzkf .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ljzmlytzkf .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#ljzmlytzkf .gt_row_group_first td {
-border-top-width: 2px;
-}
-#ljzmlytzkf .gt_row_group_first th {
-border-top-width: 2px;
-}
-#ljzmlytzkf .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ljzmlytzkf .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#ljzmlytzkf .gt_last_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ljzmlytzkf .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_last_grand_summary_row_top {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#ljzmlytzkf .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ljzmlytzkf .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#ljzmlytzkf .gt_sourcenote {
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#ljzmlytzkf .gt_left {
-text-align: left;
-}
-#ljzmlytzkf .gt_center {
-text-align: center;
-}
-#ljzmlytzkf .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#ljzmlytzkf .gt_font_normal {
-font-weight: normal;
-}
-#ljzmlytzkf .gt_font_bold {
-font-weight: bold;
-}
-#ljzmlytzkf .gt_font_italic {
-font-style: italic;
-}
-#ljzmlytzkf .gt_super {
-font-size: 65%;
-}
-#ljzmlytzkf .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#ljzmlytzkf .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#ljzmlytzkf .gt_indent_1 {
-text-indent: 5px;
-}
-#ljzmlytzkf .gt_indent_2 {
-text-indent: 10px;
-}
-#ljzmlytzkf .gt_indent_3 {
-text-indent: 15px;
-}
-#ljzmlytzkf .gt_indent_4 {
-text-indent: 20px;
-}
-#ljzmlytzkf .gt_indent_5 {
-text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Audit filter">
-Audit filter
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="(N)">
-(N)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Specificity (%)">
-Specificity (%)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Sensitivity (%)">
-Sensitivity (%)
-</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-SBP &lt; 90
-</td>
-<td headers="Number" class="gt_row gt_left">
-501
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-94.1 (93.6-94.6)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-8 (5.6-10.1)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-Dead at 30 days
-</td>
-<td headers="Number" class="gt_row gt_left">
-727
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-91.2 (90.5-91.9)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-8 (5.7-9.8)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-ISS &gt; 15 and no team activation
-</td>
-<td headers="Number" class="gt_row gt_left">
-1951
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-77.7 (76.6-78.7)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-41.2 (37.4-45.6)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-Massive transfusion
-</td>
-<td headers="Number" class="gt_row gt_left">
-337
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-96.3 (95.8-96.7)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-9.4 (6.8-12)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-GCS &lt; 9 and not intubated
-</td>
-<td headers="Number" class="gt_row gt_left">
-107
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-98.7 (98.5-98.9)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-1.2 (0.1-2)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-ISS &gt; 15 and not in ICU
-</td>
-<td headers="Number" class="gt_row gt_left">
-1295
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-85.7 (85-86.6)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-35.4 (31-38.9)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-&gt; 60 min until first intervention
-</td>
-<td headers="Number" class="gt_row gt_left">
-1668
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-81.5 (80.6-82.5)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-43.9 (39.4-47.8)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-&gt; 30 min until first CT
-</td>
-<td headers="Number" class="gt_row gt_left">
-3907
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-53.8 (52.7-55.2)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-59.2 (55.3-63.3)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-CPR and thoracotomy
-</td>
-<td headers="Number" class="gt_row gt_left">
-149
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-98.2 (97.9-98.6)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-2 (0.7-3.1)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-Liver or spleen injury
-</td>
-<td headers="Number" class="gt_row gt_left">
-398
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-95.5 (95.1-96.1)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-9.4 (7.2-12.1)
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-No anticoagulants within 72 hours after TBI
-</td>
-<td headers="Number" class="gt_row gt_left">
-241
-</td>
-<td headers="Specificity" class="gt_row gt_left">
-97.3 (96.8-97.7)
-</td>
-<td headers="Sensitivity" class="gt_row gt_left">
-5.7 (3.2-7.5)
-</td>
-</tr>
-</tbody>
-<tfoot class="gt_sourcenotes">
-<tr>
-<td class="gt_sourcenote" colspan="4">
-Definition of abbreviations: OFI = Opportunity for Improvement; SBP =
-Systolic Blood Pressure; ISS = Injury Severity Score; GCS = Glascow Coma
-Scale; ICU = Intensive Care Unit; CT = Computer Tomopgraphy; ED =
-Emergency Department; CPR = Cardiopulmonary Resuscitation; TBI =
-Traumatic Brain Injury
-</td>
-</tr>
-</tfoot>
-</table>
-</div>
-<code>{=html} Table 5: Comparison of performance for each AF in predicting OFIs. Performance is defined by the area under the receiver operating characteristics curve. P-values show the significance of AUC compared to coincidence (AUC = 0.5) and to the minimum standard for diagnostic tests (AUC = 0.8) [@nahm2022receiver]. The p-values were calculated using an empirical bootstrap test. Furthermore, a 95% confidence interval was used.</code>
-<div id="zchjqdrzba" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zchjqdrzba table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#zchjqdrzba thead, #zchjqdrzba tbody, #zchjqdrzba tfoot, #zchjqdrzba tr, #zchjqdrzba td, #zchjqdrzba th {
-border-style: none;
-}
-#zchjqdrzba p {
-margin: 0;
-padding: 0;
-}
-#zchjqdrzba .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#zchjqdrzba .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#zchjqdrzba .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#zchjqdrzba .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#zchjqdrzba .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#zchjqdrzba .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#zchjqdrzba .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#zchjqdrzba .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#zchjqdrzba .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#zchjqdrzba .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#zchjqdrzba .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#zchjqdrzba .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#zchjqdrzba .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#zchjqdrzba .gt_group_heading {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#zchjqdrzba .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#zchjqdrzba .gt_from_md > :first-child {
-margin-top: 0;
-}
-#zchjqdrzba .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#zchjqdrzba .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#zchjqdrzba .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#zchjqdrzba .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#zchjqdrzba .gt_row_group_first td {
-border-top-width: 2px;
-}
-#zchjqdrzba .gt_row_group_first th {
-border-top-width: 2px;
-}
-#zchjqdrzba .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#zchjqdrzba .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#zchjqdrzba .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#zchjqdrzba .gt_last_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#zchjqdrzba .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#zchjqdrzba .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#zchjqdrzba .gt_last_grand_summary_row_top {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#zchjqdrzba .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#zchjqdrzba .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#zchjqdrzba .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#zchjqdrzba .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#zchjqdrzba .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#zchjqdrzba .gt_sourcenote {
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#zchjqdrzba .gt_left {
-text-align: left;
-}
-#zchjqdrzba .gt_center {
-text-align: center;
-}
-#zchjqdrzba .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#zchjqdrzba .gt_font_normal {
-font-weight: normal;
-}
-#zchjqdrzba .gt_font_bold {
-font-weight: bold;
-}
-#zchjqdrzba .gt_font_italic {
-font-style: italic;
-}
-#zchjqdrzba .gt_super {
-font-size: 65%;
-}
-#zchjqdrzba .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#zchjqdrzba .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#zchjqdrzba .gt_indent_1 {
-text-indent: 5px;
-}
-#zchjqdrzba .gt_indent_2 {
-text-indent: 10px;
-}
-#zchjqdrzba .gt_indent_3 {
-text-indent: 15px;
-}
-#zchjqdrzba .gt_indent_4 {
-text-indent: 20px;
-}
-#zchjqdrzba .gt_indent_5 {
-text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Audit filter">
-Audit filter
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="AUC">
-AUC
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="p-value (AUC = 0.5)">
-p-value (AUC = 0.5)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="p-value (AUC = 0.8)">
-p-value (AUC = 0.8)
-</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-SBP &lt; 90
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.51 (0.499-0.524)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-0.07
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-Dead at 30 days
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.5 (0.482-0.508)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-0.52
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-ISS &gt; 15 and no team activation
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.59 (0.571-0.613)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-Massive transfusion
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.53 (0.518-0.541)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-GCS &lt; 9 and not intubated
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.5 (0.493-0.504)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-0.73
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-ISS &gt; 15 and not in ICU
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.61 (0.585-0.629)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-&gt; 60 min until first intervention
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.63 (0.604-0.65)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-&gt; 30 min until first CT
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.56 (0.544-0.593)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-CPR and thoracotomy
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.5 (0.494-0.507)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-0.78
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-Liver or spleen injury
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.52 (0.506-0.537)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-<tr>
-<td headers="Auditfilter" class="gt_row gt_left">
-No anticoagulants within 72 hours after TBI
-</td>
-<td headers="AUC" class="gt_row gt_left">
-0.51 (0.504-0.525)
-</td>
-<td headers="PValue" class="gt_row gt_left">
-&lt;0.001
-</td>
-<td headers="PValue0.8" class="gt_row gt_left">
-&lt;0.001
-</td>
-</tr>
-</tbody>
-<tfoot class="gt_sourcenotes">
-<tr>
-<td class="gt_sourcenote" colspan="4">
-Definition of abbreviations: OFI = Opportunity for Improvement; AUC =
-Area under the receiver operating characteristic curve; SBP = Systolic
-Blood Pressure; ISS = Injury Severity Score; GCS = Glascow Coma Scale;
-ICU = Intensive Care Unit; CT = Computer Tomography; ED = Emergency
-Department; CPR = Cardiopulmonary Resuscitation; TBI = Traumatic Brain
-Injury
-</td>
-</tr>
-</tfoot>
-</table>
-</div>
-<p>`{=html}</p>
-<embed src="data:application/pdf;base64,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bmRvYmoKMTAgMCBvYmoKICAgNDEwCmVuZG9iagoxMSAwIG9iago8PCAvVHlwZSAvRm9udERlc2NyaXB0b3IKICAgL0ZvbnROYW1lIC9FVUlRVEYrTmltYnVzU2Fucy1SZWd1bGFyCiAgIC9Gb250RmFtaWx5IChOaW1idXMgU2FucykKICAgL0ZsYWdzIDQKICAgL0ZvbnRCQm94IFsgLTIxMCAtMjk5IDEwMzIgMTA3NSBdCiAgIC9JdGFsaWNBbmdsZSAwCiAgIC9Bc2NlbnQgNzI5CiAgIC9EZXNjZW50IC0yNzEKICAgL0NhcEhlaWdodCAxMDc1CiAgIC9TdGVtViA4MAogICAvU3RlbUggODAKICAgL0ZvbnRGaWxlMyA3IDAgUgo+PgplbmRvYmoKNiAwIG9iago8PCAvVHlwZSAvRm9udAogICAvU3VidHlwZSAvVHlwZTEKICAgL0Jhc2VGb250IC9FVUlRVEYrTmltYnVzU2Fucy1SZWd1bGFyCiAgIC9GaXJzdENoYXIgMzIKICAgL0xhc3RDaGFyIDE0OQogICAvRm9udERlc2NyaXB0b3IgMTEgMCBSCiAgIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCiAgIC9XaWR0aHMgWyAyNzggMCAwIDAgMCAwIDAgMCAzMzMgMzMzIDAgMCAwIDAgMCAwIDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDAgNTU2IDU1NiA1NTYgMCAwIDAgNTg0IDAgMCAwIDAgMCAwIDAgNjY3IDYxMSAwIDAgMjc4IDAgMCAwIDAgNzIyIDc3OCAwIDAgNzIyIDAgNjExIDcyMiAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgNTU2IDAgNTAwIDU1NiA1NTYgMjc4IDU1NiA1NTYgMjIyIDAgMCAyMjIgODMzIDU1NiA1NTYgMCAwIDMzMyA1MDAgMjc4IDU1NiAwIDAgNTAwIDUwMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAzNTAgXQogICAgL1RvVW5pY29kZSA5IDAgUgo+PgplbmRvYmoKMSAwIG9iago8PCAvVHlwZSAvUGFnZXMKICAgL0tpZHMgWyAyIDAgUiBdCiAgIC9Db3VudCAxCj4+CmVuZG9iagoxMiAwIG9iago8PCAvUHJvZHVjZXIgKGNhaXJvIDEuMTYuMCAoaHR0cHM6Ly9jYWlyb2dyYXBoaWNzLm9yZykpCiAgIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNDA2MTgyMDQ1MzUrMDInMDApCj4+CmVuZG9iagoxMyAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZwogICAvUGFnZXMgMSAwIFIKPj4KZW5kb2JqCnhyZWYKMCAxNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMTE2NDAgMDAwMDAgbiAKMDAwMDAwMDg5NyAwMDAwMCBuIAowMDAwMDAwNzg4IDAwMDAwIG4gCjAwMDAwMDAwMTUgMDAwMDAgbiAKMDAwMDAwMDc2NiAwMDAwMCBuIAowMDAwMDExMTA2IDAwMDAwIG4gCjAwMDAwMDExMTUgMDAwMDAgbiAKMDAwMDAxMDI5NSAwMDAwMCBuIAowMDAwMDEwMzE4IDAwMDAwIG4gCjAwMDAwMTA4MDYgMDAwMDAgbiAKMDAwMDAxMDgyOSAwMDAwMCBuIAowMDAwMDExNzA1IDAwMDAwIG4gCjAwMDAwMTE4MjIgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSAxNAogICAvUm9vdCAxMyAwIFIKICAgL0luZm8gMTIgMCBSCj4+CnN0YXJ0eHJlZgoxMTg3NQolJUVPRgo=" style="display: block; margin: auto;" type="application/pdf"></embed>
-<p>Figure 1: Flowchart of the patient selection process. Shows the
-patients excluded and included in this study.</p>
-<!-- 
-
-Participants
-------------
-
-(a) Report numbers of individuals at each stage of study—eg numbers
-potentially eligible, examined for eligibility, confirmed eligible,
-included in the study, completing follow-up, and analysed
-
-(b) Give reasons for non-participation at each stage
-
-(c) Consider use of a flow diagram
-
-Descriptive data
-----------------
-
-(a) Give characteristics of study participants (eg demographic,
-clinical, social) and information on exposures and potential
-confounders
-
-(b) Indicate number of participants with missing data for each
-variable of interest
-
-(c) Cohort study — Summarise follow-up time (eg, average and total
-amount)
-
-Outcome data
-------------
-
-Cohort study — Report numbers of outcome events or summary measures
-over time
-
-Case-control study — Report numbers in each exposure category, or
-summary measures of exposure
-
-Cross-sectional study — Report numbers of outcome events or summary
-measures
-
-Main results
-------------
-
-(a) Give unadjusted estimates and, if applicable, confounder-adjusted
-estimates and their precision (eg, 95% confidence interval). Make
-clear which confounders were adjusted for and why they were included
-
-(b) Report category boundaries when continuous variables were
-categorized
-
-(c) If relevant, consider translating estimates of relative risk into
-absolute risk for a meaningful time period
-
-Other analyses 
---------------
-
-Report other analyses done—eg analyses of subgroups and interactions,
-and sensitivity analyses 
--->
-<p>You can include code in this document like this:</p>
-<pre><code>## The datasets swetrau, swetrau.20210602.20230228, atgarder, atgarder.20210602.20230228, problem, fmp, fmp.20210602.20230228, kvalgranskning2014.2017 have been imported.</code></pre>
-<p>You can also embed plots:</p>
-<p><img src="data:image/png;base64,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" width="672" /></p>
-<p>You can also mix text and code, so called inline code, like this:
-7.</p>
+<p>The number of patient cases flagged by each individual audit filter
+varied between (n = 107, 27.4%) for “GCS &lt; 9 and not intubated” and
+(n = 3907, 53.5%) for “&gt;30 min until CT”. The highest number of
+missing values was observed with “&gt; 60 min until first intervention”
+(n = 5990, 72,1%). The lowest number of missing values was observed with
+“dead at 30 days” and “ISS &gt; 15 and not in ICU” (n = 11, 0.1%). See
+table 1 for missing values for each audit filter. The largest cohort was
+observed with “Dead at 30 days” (n = 8298, 99.9%) and the smallest
+cohort was observed with “GCS &lt; 9 and not intubated” (n = 390, 4.7%).
+In total 5977 out of 8309 (71.9%) patient cases were flagged by at least
+one audit filter.</p>
+<p>The audit filter with the highest sensitivity was “&gt; 60 min until
+first intervention” (83.3%, 95% CI [79.2-87.5]). The lowest sensitivity
+was seen in “SBP &lt; 90” (8%, 95% CI [5.6-10.2]) and “Dead at 30 days”
+(8%, 95% CI [5.6-10.2]). The audit filter with the highest specificity
+was “Massive transfusion” (95.8%, 95% CI [95.4-96.3]). The lowest
+specificity was seen in “ISS &gt; 15 and no team activation” (21.6%, 95%
+CI [19.9-23.2]). The sensitivity for all audit filters combined was
+92.6% (95% CI [90.5-95]) and the specificity was 29.4% (95% CI
+[28.4-30.5]).</p>
+<p>The highest Cohen’s kappa was seen for the audit filter “Massive
+transfusion” (0.08, 95% CI [0.05-0.12]). The smallest Cohen’s kappa was
+seen in “GCS &lt; 9 and not intubated” (-0.07, 95% CI [-0.14-0]. The
+Cohen´s kappa for all audit filters combined was 0.04 (95% CI
+[0.03-0.04]. See table 3 for the performance of all audit filters using
+sensitivity, specificity and Cohen’s kappa coefficient.</p>
+<embed src="data:application/pdf;base64,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bmRvYmoKMTAgMCBvYmoKICAgNDEwCmVuZG9iagoxMSAwIG9iago8PCAvVHlwZSAvRm9udERlc2NyaXB0b3IKICAgL0ZvbnROYW1lIC9FVUlRVEYrTmltYnVzU2Fucy1SZWd1bGFyCiAgIC9Gb250RmFtaWx5IChOaW1idXMgU2FucykKICAgL0ZsYWdzIDQKICAgL0ZvbnRCQm94IFsgLTIxMCAtMjk5IDEwMzIgMTA3NSBdCiAgIC9JdGFsaWNBbmdsZSAwCiAgIC9Bc2NlbnQgNzI5CiAgIC9EZXNjZW50IC0yNzEKICAgL0NhcEhlaWdodCAxMDc1CiAgIC9TdGVtViA4MAogICAvU3RlbUggODAKICAgL0ZvbnRGaWxlMyA3IDAgUgo+PgplbmRvYmoKNiAwIG9iago8PCAvVHlwZSAvRm9udAogICAvU3VidHlwZSAvVHlwZTEKICAgL0Jhc2VGb250IC9FVUlRVEYrTmltYnVzU2Fucy1SZWd1bGFyCiAgIC9GaXJzdENoYXIgMzIKICAgL0xhc3RDaGFyIDE0OQogICAvRm9udERlc2NyaXB0b3IgMTEgMCBSCiAgIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCiAgIC9XaWR0aHMgWyAyNzggMCAwIDAgMCAwIDAgMCAzMzMgMzMzIDAgMCAwIDAgMCAwIDU1NiA1NTYgNTU2IDU1NiA1NTYgNTU2IDAgNTU2IDU1NiA1NTYgMCAwIDAgNTg0IDAgMCAwIDAgMCAwIDAgNjY3IDYxMSAwIDAgMjc4IDAgMCAwIDAgNzIyIDc3OCAwIDAgNzIyIDAgNjExIDcyMiAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgNTU2IDAgNTAwIDU1NiA1NTYgMjc4IDU1NiA1NTYgMjIyIDAgMCAyMjIgODMzIDU1NiA1NTYgMCAwIDMzMyA1MDAgMjc4IDU1NiAwIDAgNTAwIDUwMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAzNTAgXQogICAgL1RvVW5pY29kZSA5IDAgUgo+PgplbmRvYmoKMSAwIG9iago8PCAvVHlwZSAvUGFnZXMKICAgL0tpZHMgWyAyIDAgUiBdCiAgIC9Db3VudCAxCj4+CmVuZG9iagoxMiAwIG9iago8PCAvUHJvZHVjZXIgKGNhaXJvIDEuMTYuMCAoaHR0cHM6Ly9jYWlyb2dyYXBoaWNzLm9yZykpCiAgIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNDA4MTExNTQ3NTkrMDInMDApCj4+CmVuZG9iagoxMyAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZwogICAvUGFnZXMgMSAwIFIKPj4KZW5kb2JqCnhyZWYKMCAxNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMTE2NDAgMDAwMDAgbiAKMDAwMDAwMDg5NyAwMDAwMCBuIAowMDAwMDAwNzg4IDAwMDAwIG4gCjAwMDAwMDAwMTUgMDAwMDAgbiAKMDAwMDAwMDc2NiAwMDAwMCBuIAowMDAwMDExMTA2IDAwMDAwIG4gCjAwMDAwMDExMTUgMDAwMDAgbiAKMDAwMDAxMDI5NSAwMDAwMCBuIAowMDAwMDEwMzE4IDAwMDAwIG4gCjAwMDAwMTA4MDYgMDAwMDAgbiAKMDAwMDAxMDgyOSAwMDAwMCBuIAowMDAwMDExNzA1IDAwMDAwIG4gCjAwMDAwMTE4MjIgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSAxNAogICAvUm9vdCAxMyAwIFIKICAgL0luZm8gMTIgMCBSCj4+CnN0YXJ0eHJlZgoxMTg3NQolJUVPRgo=" style="display: block; margin: auto;" type="application/pdf"></embed>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <p>The aim of this study was to evaluate the performance of individual
-AFs in predicting OFIs and to assess their suitability as a screening
-tool for MMCs. This study showed that no AFs was significantly
-successful in predicting OFIs. Four AFs (“SBP&lt;90,” “dead at 30 days,”
-“GCS&lt;9 and not intubated,” and “CPR and thoracotomy”) were equivalent
-to random chance in their predictive ability. The highest AUC was for
-“&gt;60 minutes until first intervention,”. Notably, all AFs performed
-significantly below the accepted standard for diagnostic tests
-(&gt;0.8).</p>
-<div id="limitations" class="section level2">
-<h2>Limitations</h2>
-<p>OFI, while dichotomously defined, includes a diverse set of outcomes.
-This convolutes the process of creating AFs that perform well in
-predicting OFIs. AFs would favour the identification of some, but not
-all, errors.</p>
-<p>Each AF was individually related to OFI. Consequently, if an AF
-demonstrated a true positive correlation with an OFI, instances where
-the same patient case had multiple AFs introduce uncertainty regarding
-which specific AF truthfully predicted the OFI.</p>
-<p>The number of missing values varied greatly among the AFs. As stated
-above, missing values from each AF were coded as “not flagged” by an AF.
-This means that some instances where patient cases were not flagged,
-might actually meet the AF criteria, but for some reason not documented.
-This reduces the validity of some AFs that featured high amounts of
-missing data.</p>
-<p>##Interpretation Higher ISS, longer times to CT, longer times to
-first intervention, and higher levels of care correlated with OFIs,
-consistent with a recent study by Albaaj et al. <span class="citation">(33)</span>. Notably, GCS at the ED also showed a
-correlation with OFIs despite identical median GCS values, likely due to
-distribution differences outside the IQR.</p>
-<p>The AF “GCS&lt;9 and not intubated” showed no significant ability to
-predict OFIs, similarly shown by Willis et al. <span class="citation">(34)</span>. Possibly because the AF might be more
-reflective of clinical decision rather than quality of care <span class="citation">(34)</span>. For instance, An abnormal GCS resulting
-from intoxication is managed differently than one caused by a head
-injury.</p>
-<p>Both delay-related AFs: “&gt;60 until first intervention” and
-“&gt;30min until first CT”, showed a correlation with OFI. Comparably,
-Teixeira et al. <span class="citation">(35)</span> linked delays to
-preventable death and Ghorbani et al. <span class="citation">(16)</span>
-identified treatment and CT delays as common errors in trauma care. A
-recent study in Japan by Yamamoto et. al <span class="citation">(36)</span> found reduced mortality with whole-body CT
-scans within 10 minutes of ED arrival.</p>
-<p>“Dead at 30 days” and “CPR and thoracotomy” showed no correlation
-with OFI. This could be explained by inevitable mortality, thus
-presenting with a smaller time frame for mistakes to be made.</p>
-<p>AFs generally exhibited a high specificity relative to their
-sensitivity which may be attributed to the outcome being rather
-uncommon, whilst every individual AF misses the majority of OFIs. This
-could suggest that the AFs are too rigid in their criteria. On the
-contrary, a too inclusive criteria might flag several patients, without
-an OFI <span class="citation">(34)</span>.</p>
+audit filters in predicting opportunities for improvement and to
+determine their suitability as a screening tool for mortality and
+morbidity conferences. The findings revealed that neither individual
+audit filters nor combined were effective in predicting opportunities
+for improvement. As a result, the development of a new screening method
+to better identify potential opportunities for improvement is
+advised.</p>
+<p>Higher ISS, longer times to CT, longer times to first intervention,
+and higher levels of care correlated with opportunities for improvement,
+consistent with a recent Swedish study by Albaaj et al. <span class="citation">(30)</span>. Notably, GCS at the ED also showed a
+correlation with opportunities for improvement despite identical median
+GCS values, likely due to distribution differences outside the
+interquartile range (IQR).</p>
+<p>Previous studies suggest poor performance of audit filters for
+improving trauma care <span class="citation">(18,21–25)</span>. This
+study adds to that evidence by showing that audit filters perform poorly
+in predicting opportunities for improvement encompassing mortality and
+non-mortality associated outcomes. Some audit filters might be more
+reflective of clinical decisions rather than quality of care <span class="citation">(24)</span>. For instance, an abnormal GCS because of
+intoxication is managed differently to an abnormal GCS due to head
+injury, hence the poor performance of “GCS &lt; 9 and not intubated”,
+similarly shown by Willis et al. <span class="citation">(22)</span>.
+This could also function as a good explanation for the poor performance
+of the delay-related audit filters: “&gt;60 min until first
+intervention” and “&gt;30min until first CT”. Similarly, Lewis et al.
+<span class="citation">(25)</span> showed that delay to operating room
+was not associated with opportunities for improvement. Contrary,
+Teixeira et al. <span class="citation">(8)</span> identified delay to
+treatment and delays to CT as common errors in trauma care. A recent
+study in Japan by Yamamoto et. al <span class="citation">(31)</span>
+observed significantly reduced mortality with whole-body CT scans within
+10 minutes of arrival to the ED. If anything, this highlights the unique
+opportunities for improvement in different hospitals. Audit filters vary
+greatly in terms of expected mortality. Some audit filters such as
+“Massive transfusion” and “Dead at 30 days” have a high expected
+mortality. In such cases reduced time frame for any potential
+opportunity for improvement to occur could explain their lack of
+predictive ability. When audit filters where combined it presented with
+a low specificity relative to its sensitivity which corresponds to
+previous studies showcasing high amounts of false positives <span class="citation">(7,16,17)</span>. When observing individual audit
+filters the sensitivity and specificity varied heavily, suggesting some
+audit filters being too rigid, missing the majority of opportunities for
+improvement while some where too inclusive, causing high levels of false
+positives <span class="citation">(22)</span>.</p>
+<p>There were some limitations with the study. Firstly, due to the study
+being conducted in a single trauma centre in Stockholm it is unrealistic
+to assume applicability of these findings at other hospitals facing
+unique challenges <span class="citation">(13)</span>. For instance,
+audit filters that benefit low and middle income may not benefit high
+income countries and vice versa <span class="citation">(26)</span>.
+Secondly, instances where the same patient case had multiple audit
+filters introduce uncertainty regarding which specific audit filter
+truthfully predicted an opportunity for improvement. Thirdly, the number
+of missing values differed significantly among the audit filters,
+resulting in varying degrees of validity for each filter. Furthermore,
+in the absence of registry data, some audit filter could not be
+calculated from registry data and where instead collected from the
+review done by the specialised nurse, introducing selection bias. This
+became apparent where some patient cases were incorrectly flagged as
+“not flagged”, despite not being part of the relevant cohort. For
+example, a patient with ISS under 15 might still be marked as “not
+flagged” under the audit filter “ISS &gt; 15 and not in the ICU” even
+though they do not meet the criteria for that cohort.</p>
+<p>Audit filters inherently pose limitations for quality improvement in
+trauma care. They have static criteria which limit their adaptability to
+emerging healthcare challenges and resolved quality gaps, reducing their
+utility over time. Therefore, regular evidence-based reviews are needed
+to ensure performance <span class="citation">(32)</span>, though such
+reviews may be cost-prohibitive. Furthermore, they might overshadow
+other contributing factors to opportunities for improvement <span class="citation">(22)</span>. Secondly, Opportunity for improvement,
+while binary defined, includes a diverse set of outcomes. This further
+complicates the process of creating audit filters that perform well in
+predicting opportunities for improvement. Audit filters would favour the
+identification of some, but not all, errors. Consequently, Future
+studies should look into alternative methods to identify potential
+opportunities for improvements.</p>
+<p>In summary, audit filters are widely used as a tool in quality
+improvement programmes and should reflect the current gap in trauma care
+quality. Evidence regarding the usefulness of audit filters for quality
+improvement in trauma care remain ambivalent. In this study, no
+individual audit filter or combined were successful in predicting
+opportunities for improvement. Given these results, future studies
+should focus on new tools with higher predictive ability and consider
+non-mortality associated outcomes as quality measure.</p>
 </div>
-<div id="generalizability" class="section level2">
-<h2>Generalizability</h2>
-<p>AFs are widely used, but lack consensus on which to use, purpose, and
-application <span class="citation">(24,25,37)</span>. They have static
-criteria and may not adapt to evolving healthcare challenges, or upon
-resolution of the quality gaps they were designed for, reducing their
-utility over time. This underscores the need for regular evidence-based
-reviews of AF performance <span class="citation">(38)</span>. However,
-these reviews might be cost-prohibitive</p>
-<p>While AFs can help identify an OFI, they might overshadow other
-contributing factors, leading to over-reliance and potentially failing
-to recognize cases outside their scope. <span class="citation">(34)</span>. For example, AFs often focus on aspects
-relevant to doctors, despite the interdisciplinary nature of trauma
-care. Lastly, Confounding variables, such as different treatment times
-based on injury severity, add to the uncertainty of AFs’ effectiveness.
-<span class="citation">(34)</span>.</p>
-<p>Due to the study being conducted in a single, trauma level I centre
-in Stockholm it is unrealistic to assume applicability of these findings
-at other hospitals facing unique challenges <span class="citation">(10)</span>. For instance AFs that benefit low and
-middle income may not benefit high income countries and vice versa <span class="citation">(25)</span>.</p>
+<div id="acknowledgements" class="section level1">
+<h1>Acknowledgements</h1>
+<p>The authors thank all professionals taking part in the monthly
+mortality and morbidity conferences.</p>
 </div>
-<div id="future-studies" class="section level2">
-<h2>Future Studies</h2>
-<p>Given the expanding field of artificial intelligence and machine
-learning, new studies should focus on using these tools to screen for
-patient cases at risk of an OFI. This will reduce misclassification and
-maintain high performance, attributable to an algorithm’s capability to
-adapt. A recent preprint by Attergrim et al. <span class="citation">(39)</span> found that machine learning models
-outperformed the AFs currently used at Karolinska University Hospital in
-predicting OFIs. Should the use of AFs remain, they must be routinely
-updated to reflect current quality gaps. <!--
-
-Key results
------------
-Summarise key results with reference to study objectives
-
-Limitations
------------
-
-Discuss limitations of the study, taking into account sources of
-potential bias or imprecision.  Discuss both direction and magnitude
-of any potential bias
-
-Interpretation
---------------
-
-Give a cautious overall interpretation of results considering
-objectives, limitations, multiplicity of analyses, results from
-similar studies, and other relevant evidence
-
-Generalisability
-----------------
-
-Discuss the generalisability (external validity) of the study results
-
---></p>
-</div>
-</div>
-<div id="conclusion-1" class="section level1">
-<h1>Conclusion</h1>
-<p>AFs are widely used as a tool in QI programmes and should reflect the
-current gap in trauma care quality. Strong evidence supporting their
-efficacy in quality improvement is scarce. In this study, no audit
-filter seemed to show promising performance in predicting OFIs with AUC
-ranging from 0.5 to 0.63. These results highlight the importance of
-continually evaluating the relevance of AFs. However, this process takes
-time and resources and using an alternative to AFs is recommended.</p>
-</div>
-<div id="references" class="section level1">
-<h1>References</h1>
-<p>Keep? However, according to Sanddal et al. <span class="citation">(26)</span> airway management was associated with OFI,
-suggesting that an alternative AF related to airway management might
-perform differently.</p>
-<p>Notably, OFI in this study was not soley a reflection of mortality
-but also morbidity. Rather, it could highlight differences in quality
-gaps between hospitals. Trauma care is a multidisciplinary, complex and
-time-critical health care service provided by hospitals, often trauma
-centres. <span class="citation">(11)</span>. Trauma centres have a
-significantly lower mortality rate compared to non-trauma centres, and
-the maturity of a trauma centre correlates with lower mortality,
-demonstrating the importance of high-quality, specialised trauma care
-<span class="citation">(40–42)</span>. It has been shown that such
-review processes are associated with high-quality trauma care <span class="citation">(38)</span>.</p>
+<div id="references" class="section level1 unnumbered">
+<h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-world2014injuries" class="csl-entry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Organization WH et al. Injuries and violence:
-The facts 2014. 2014; </div>
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">World Health Organization et al. Injuries and
+violence: The facts 2014. 2014; </div>
 </div>
 <div id="ref-roth2018global" class="csl-entry">
 <div class="csl-left-margin">2. </div><div class="csl-right-inline">Roth
@@ -3143,98 +708,94 @@ for the global burden of disease study 2017. The Lancet [Internet].
 T, Lim SS, Abbafati C, Abbas KM, Abbasi M, Abbasifard M, et al. Global
 burden of 369 diseases and injuries in 204 countries and territories,
 1990–2019: A systematic analysis for the global burden of disease study
-2019. The Lancet [Internet]. 2020;396(10258):1204–22. Available from: <a href="https://www.thelancet.com/action/showPdf?pii=S0140-6736%2820%2930925-9">https://www.thelancet.com/action/showPdf?pii=S0140-6736%2820%2930925-9</a></div>
-</div>
-<div id="ref-SweTrau2022Arsrapport" class="csl-entry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">SweTrau ST. Arsrapport - 2022. 2022. </div>
-</div>
-<div id="ref-kessler1995posttraumatic" class="csl-entry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline">Kessler RC, Sonnega A, Bromet E, Hughes M,
-Nelson CB. Posttraumatic stress disorder in the national comorbidity
-survey. Archives of general psychiatry. 1995;52(12):1048–60. </div>
-</div>
-<div id="ref-north1999psychological" class="csl-entry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">North N. The psychological effects of spinal
-cord injury: A review. Spinal cord. 1999;37(10):671–9. </div>
-</div>
-<div id="ref-muscatelli2017prevalence" class="csl-entry">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline">Muscatelli S, Spurr H, O’Hara NN, O’Hara LM,
-Sprague SA, Slobogean GP. Prevalence of depression and posttraumatic
-stress disorder after acute orthopaedic trauma: A systematic review and
-meta-analysis. Journal of orthopaedic trauma. 2017;31(1):47–55. </div>
+2019. The Lancet. 2020;396(10258):1204–22. </div>
 </div>
 <div id="ref-newnam2014impacts" class="csl-entry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline">Newnam S, Collie A, Vogel A, Keleher H. The
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Newnam S, Collie A, Vogel A, Keleher H. The
 impacts of injury at the individual, community and societal levels: A
 systematic meta-review. Public health. 2014;128(7):587–618. </div>
 </div>
-<div id="ref-visser2017course" class="csl-entry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline">Visser E, Gosens T, Den Oudsten BL, De Vries J.
-The course, prediction, and treatment of acute and posttraumatic stress
-in trauma patients: A systematic review. Journal of Trauma and Acute
-Care Surgery. 2017;82(6):1158–83. </div>
+<div id="ref-david2022measuring" class="csl-entry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">David SD, Aroke A, Roy N, Solomon H, Lundborg
+CS, Wärnberg MG. Measuring socioeconomic outcomes in trauma patients up
+to one year post-discharge: A systematic review and meta-analysis.
+Injury [Internet]. 2022;53(2):272–85. Available from: <a href="https://www.injuryjournal.com/article/S0020-1383(21)00880-9/pdf">https://www.injuryjournal.com/article/S0020-1383(21)00880-9/pdf</a></div>
 </div>
-<div id="ref-world2009guidelines" class="csl-entry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline">Organization WH et al. Guidelines for trauma
-quality improvement programmes. World Health Organization; 2009. </div>
+<div id="ref-kwon2014pooled" class="csl-entry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Kwon
+A, Garbett N, Kloecker G. Pooled preventable death rates in trauma
+patients: Meta analysis and systematic review since 1990. European
+Journal of Trauma and Emergency Surgery. 2014;40:279–85. </div>
 </div>
-<div id="ref-American2022resources" class="csl-entry">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline">surgeons A college of et al. Resources for
-optimal care of the injured patient (2022 standards) [Internet].
-American college of surgeons; 2022. Available from: <a href="https://emlrc.org/wp-content/uploads/2022_VRC_Injured-Patient-StandardsManual_Final.pdf-ACS.pdf">https://emlrc.org/wp-content/uploads/2022_VRC_Injured-Patient-StandardsManual_Final.pdf-ACS.pdf</a></div>
+<div id="ref-ghorbani2018analysis" class="csl-entry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Ghorbani P, Strömmer L. Analysis of preventable
+deaths and errors in trauma care in a scandinavian trauma level-i
+centre. Acta Anaesthesiologica Scandinavica. 2018;62(8):1146–53. </div>
 </div>
-<div id="ref-nikouline2021errors" class="csl-entry">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline">Nikouline A, Quirion A, Jung JJ, Nolan B.
-Errors in adult trauma resuscitation: A systematic review. Canadian
-Journal of Emergency Medicine. 2021;23(4):537–46. </div>
+<div id="ref-teixeira2007preventable" class="csl-entry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Teixeira PG, Inaba K, Hadjizacharia P, Brown C,
+Salim A, Rhee P, et al. Preventable or potentially preventable mortality
+at a mature trauma center. Journal of Trauma and Acute Care Surgery.
+2007;63(6):1338–47. </div>
 </div>
 <div id="ref-vioque2014classifying" class="csl-entry">
-<div class="csl-left-margin">13. </div><div class="csl-right-inline">Vioque SM, Kim PK, McMaster J, Gallagher J,
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Vioque SM, Kim PK, McMaster J, Gallagher J,
 Allen SR, Holena DN, et al. Classifying errors in preventable and
 potentially preventable trauma deaths: A 9-year review using the joint
 commission’s standardized methodology. The American Journal of Surgery.
 2014;208(2):187–94. </div>
 </div>
+<div id="ref-nikouline2021errors" class="csl-entry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Nikouline A, Quirion A, Jung JJ, Nolan B.
+Errors in adult trauma resuscitation: A systematic review. Canadian
+Journal of Emergency Medicine. 2021;23(4):537–46. </div>
+</div>
 <div id="ref-o2013opportunities" class="csl-entry">
-<div class="csl-left-margin">14. </div><div class="csl-right-inline">O’reilly D, Mahendran K, West A, Shirley P,
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">O’reilly D, Mahendran K, West A, Shirley P,
 Walsh M, Tai N. Opportunities for improvement in the management of
 patients who die from haemorrhage after trauma. Journal of British
 Surgery. 2013;100(6):749–55. </div>
 </div>
-<div id="ref-kwon2014pooled" class="csl-entry">
-<div class="csl-left-margin">15. </div><div class="csl-right-inline">Kwon A, Garbett N, Kloecker G. Pooled
-preventable death rates in trauma patients: Meta analysis and systematic
-review since 1990. European Journal of Trauma and Emergency Surgery.
-2014;40:279–85. </div>
+<div id="ref-American2022resources" class="csl-entry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">American college of surgeons and others.
+Resources for optimal care of the injured patient (2022 standards)
+[Internet]. American college of surgeons; 2022. Available from: <a href="https://emlrc.org/wp-content/uploads/2022_VRC_Injured-Patient-StandardsManual_Final.pdf-ACS.pdf">https://emlrc.org/wp-content/uploads/2022_VRC_Injured-Patient-StandardsManual_Final.pdf-ACS.pdf</a></div>
 </div>
-<div id="ref-ghorbani2018analysis" class="csl-entry">
-<div class="csl-left-margin">16. </div><div class="csl-right-inline">Ghorbani P, Strömmer L. Analysis of preventable
-deaths and errors in trauma care in a scandinavian trauma level-i
-centre. Acta Anaesthesiologica Scandinavica. 2018;62(8):1146–53. </div>
+<div id="ref-world2009guidelines" class="csl-entry">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">World Health Organization et al. Guidelines for
+trauma quality improvement programmes. World Health Organization; 2009.
 </div>
-<div id="ref-gregor2016morbidity" class="csl-entry">
-<div class="csl-left-margin">17. </div><div class="csl-right-inline">Gregor A, Taylor D. Morbidity and mortality
-conference: Its purpose reclaimed and grounded in theory. Teaching and
-learning in medicine. 2016;28(4):439–47. </div>
 </div>
-<div id="ref-orlander2003morbidity" class="csl-entry">
-<div class="csl-left-margin">18. </div><div class="csl-right-inline">Orlander JD, Fincke BG. Morbidity and mortality
-conference: A survey of academic internal medicine departments. Journal
-of general internal medicine. 2003;18:656–8. </div>
+<div id="ref-kong2016analysis" class="csl-entry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Kong VY, Clarke DL. Analysis of 5 years of
+morbidity and mortality conferences in a metropolitan south african
+trauma service. South African Medical Journal. 2016;106(7):695–8. </div>
 </div>
 <div id="ref-lazzara2022morbidity" class="csl-entry">
-<div class="csl-left-margin">19. </div><div class="csl-right-inline">Lazzara EH, Salisbury M, Hughes AM, Rogers JE,
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Lazzara EH, Salisbury M, Hughes AM, Rogers JE,
 King HB, Salas E. The morbidity and mortality conference: Opportunities
 for enhancing patient safety. Journal of Patient Safety.
 2022;18(1):e275–81. </div>
 </div>
-<div id="ref-kong2016analysis" class="csl-entry">
-<div class="csl-left-margin">20. </div><div class="csl-right-inline">Kong VY, Clarke DL. Analysis of 5 years of
-morbidity and mortality conferences in a metropolitan south african
-trauma service. South African Medical Journal. 2016;106(7):695–8. </div>
+<div id="ref-sanddal2011analysis" class="csl-entry">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Sanddal TL, Esposito TJ, Whitney JR, Hartford
+D, Taillac PP, Mann NC, et al. Analysis of preventable trauma deaths and
+opportunities for trauma care improvement in utah. Journal of Trauma and
+Acute Care Surgery. 2011;70(4):970–7. </div>
+</div>
+<div id="ref-roy2017learning" class="csl-entry">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">Roy
+N, Kizhakke Veetil D, Khajanchi MU, Kumar V, Solomon H, Kamble J, et al.
+Learning from 2523 trauma deaths in india-opportunities to prevent
+in-hospital deaths. BMC health services research. 2017;17:1–8. </div>
+</div>
+<div id="ref-stelfox2010quality" class="csl-entry">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline">Stelfox HT, Bobranska-Artiuch B, Nathens A,
+Straus SE. Quality indicators for evaluating trauma care: A scoping
+review. Archives of Surgery. 2010;145(3):286–95. </div>
 </div>
 <div id="ref-chadbunchachai2001comparative" class="csl-entry">
-<div class="csl-left-margin">21. </div><div class="csl-right-inline">Chadbunchachai W, Sriwiwat S, Kulleab S,
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">Chadbunchachai W, Sriwiwat S, Kulleab S,
 Saranrittichai S, Chumsri J, Jaikwang P. The comparative study for
 quality of trauma treatment before and after the revision of trauma
 audit filter, khon kaen hospital 1998. Journal of the Medical
@@ -3242,131 +803,82 @@ Association of Thailand= Chotmaihet Thangphaet [Internet].
 2001;84(6):782–90. Available from: <a href="https://frontpage.eurekamag.com/011484126.pdf">https://frontpage.eurekamag.com/011484126.pdf</a></div>
 </div>
 <div id="ref-chadbunchachai2003study" class="csl-entry">
-<div class="csl-left-margin">22. </div><div class="csl-right-inline">Chadbunchachai W, Saranrittichai S, Sriwiwat S,
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">Chadbunchachai W, Saranrittichai S, Sriwiwat S,
 Chumsri J, Kulleab S, Jaikwang P. Study on performance following key
 performance indicators for trauma care: Khon kaen hospital 2000. Journal
 of the Medical Association of Thailand= Chotmaihet Thangphaet.
 2003;86(1):1–7. </div>
 </div>
 <div id="ref-evans2009audit" class="csl-entry">
-<div class="csl-left-margin">23. </div><div class="csl-right-inline">Evans C, Howes D, Pickett W, Dagnone L. Audit
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">Evans C, Howes D, Pickett W, Dagnone L. Audit
 filters for improving processes of care and clinical outcomes in trauma
 systems. Cochrane database of systematic reviews [Internet]. 2009;(4).
 Available from: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7197044/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7197044/</a></div>
 </div>
-<div id="ref-stelfox2010quality" class="csl-entry">
-<div class="csl-left-margin">24. </div><div class="csl-right-inline">Stelfox HT, Bobranska-Artiuch B, Nathens A,
-Straus SE. Quality indicators for evaluating trauma care: A scoping
-review. Archives of Surgery. 2010;145(3):286–95. </div>
+<div id="ref-willis2008interpreting" class="csl-entry">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">Willis CD, Stoelwinder JU, Cameron PA.
+Interpreting process indicators in trauma care: Construct validity
+versus confounding by indication. International Journal for Quality in
+Health Care. 2008;20(5):331–8. </div>
+</div>
+<div id="ref-di2008acscot" class="csl-entry">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline">Di
+Bartolomeo S, Valent F, Sanson G, Nardi G, Gambale G, Barbone F. Are the
+ACSCOT filters associated with outcome? Examining morbidity and
+mortality in a european setting. Injury. 2008;39(9):1001–6. </div>
+</div>
+<div id="ref-glance2012association" class="csl-entry">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline">Glance LG, Dick AW, Mukamel DB, Osler TM.
+Association between trauma quality indicators and outcomes for injured
+patients. Archives of surgery. 2012;147(4):308–15. </div>
+</div>
+<div id="ref-lewis2017delay" class="csl-entry">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline">Lewis PR, Badiee J, Sise MJ, Calvo RY, Brill
+JB, Wallace JD, et al. <span>“Delay to operating room”</span> fails to
+identify adverse outcomes at a level i trauma center. Journal of Trauma
+and Acute Care Surgery. 2017;82(2):334–7. </div>
 </div>
 <div id="ref-berg2022perceived" class="csl-entry">
-<div class="csl-left-margin">25. </div><div class="csl-right-inline">Berg J, Alvesson HM, Roy N, Ekelund U, Bains L,
+<div class="csl-left-margin">26. </div><div class="csl-right-inline">Berg J, Alvesson HM, Roy N, Ekelund U, Bains L,
 Chatterjee S, et al. Perceived usefulness of trauma audit filters in
 urban india: A mixed-methods multicentre delphi study comparing filters
 from the WHO and low and middle-income countries. BMJ open.
 2022;12(6):e059948. </div>
 </div>
-<div id="ref-sanddal2011analysis" class="csl-entry">
-<div class="csl-left-margin">26. </div><div class="csl-right-inline">Sanddal TL, Esposito TJ, Whitney JR, Hartford
-D, Taillac PP, Mann NC, et al. Analysis of preventable trauma deaths and
-opportunities for trauma care improvement in utah. Journal of Trauma and
-Acute Care Surgery. 2011;70(4):970–7. </div>
-</div>
-<div id="ref-roy2017learning" class="csl-entry">
-<div class="csl-left-margin">27. </div><div class="csl-right-inline">Roy
-N, Kizhakke Veetil D, Khajanchi MU, Kumar V, Solomon H, Kamble J, et al.
-Learning from 2523 trauma deaths in india-opportunities to prevent
-in-hospital deaths. BMC health services research. 2017;17:1–8. </div>
-</div>
-<div id="ref-lewis2017delay" class="csl-entry">
-<div class="csl-left-margin">28. </div><div class="csl-right-inline">Lewis PR, Badiee J, Sise MJ, Calvo RY, Brill
-JB, Wallace JD, et al. <span>“Delay to operating room”</span> fails to
-identify adverse outcomes at a level i trauma center. Journal of Trauma
-and Acute Care Surgery. 2017;82(2):334–7. </div>
+<div id="ref-SweTrau" class="csl-entry">
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">Svenska traumaregistret SweTrau [Internet].
+Available from: <a href="https://rcsyd.se/swetrau/">https://rcsyd.se/swetrau/</a></div>
 </div>
 <div id="ref-ringdal2008utstein" class="csl-entry">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline">Ringdal KG, Coats TJ, Lefering R, Di Bartolomeo
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">Ringdal KG, Coats TJ, Lefering R, Di Bartolomeo
 S, Steen PA, Røise O, et al. The utstein template for uniform reporting
 of data following major trauma: A joint revision by SCANTEM, TARN,
 DGU-TR and RITG. Scandinavian journal of trauma, resuscitation and
 emergency medicine. 2008;16:1–19. </div>
 </div>
 <div id="ref-R2022language" class="csl-entry">
-<div class="csl-left-margin">30. </div><div class="csl-right-inline">R
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">R
 Core Team. R: A language and environment for statistical computing
 [Internet]. Vienna, Austria: R Foundation for Statistical Computing;
 2022. Available from: <a href="https://www.R-project.org/">https://www.R-project.org/</a></div>
 </div>
-<div id="ref-robin2011proc" class="csl-entry">
-<div class="csl-left-margin">31. </div><div class="csl-right-inline">Robin X, Turck N, Hainard A, Tiberti N, Lisacek
-F, Sanchez J-C, et al. pROC: An open-source package for r and s+ to
-analyze and compare ROC curves. BMC bioinformatics. 2011;12(1):1–8.
-</div>
-</div>
-<div id="ref-nahm2022receiver" class="csl-entry">
-<div class="csl-left-margin">32. </div><div class="csl-right-inline">Nahm FS. Receiver operating characteristic
-curve: Overview and practical use for clinicians. Korean journal of
-anesthesiology. 2022;75(1):25–36. </div>
-</div>
 <div id="ref-albaaj2023patient" class="csl-entry">
-<div class="csl-left-margin">33. </div><div class="csl-right-inline">Albaaj H, Attergrim J, Strömmer L, Brattström
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Albaaj H, Attergrim J, Strömmer L, Brattström
 O, Jacobsson M, Wihlke G, et al. Patient and process factors associated
 with opportunities for improvement in trauma care: A registry-based
 study. Scandinavian Journal of Trauma, Resuscitation and Emergency
 Medicine. 2023;31(1):87. </div>
 </div>
-<div id="ref-willis2008interpreting" class="csl-entry">
-<div class="csl-left-margin">34. </div><div class="csl-right-inline">Willis CD, Stoelwinder JU, Cameron PA.
-Interpreting process indicators in trauma care: Construct validity
-versus confounding by indication. International Journal for Quality in
-Health Care. 2008;20(5):331–8. </div>
-</div>
-<div id="ref-teixeira2007preventable" class="csl-entry">
-<div class="csl-left-margin">35. </div><div class="csl-right-inline">Teixeira PG, Inaba K, Hadjizacharia P, Brown C,
-Salim A, Rhee P, et al. Preventable or potentially preventable mortality
-at a mature trauma center. Journal of Trauma and Acute Care Surgery.
-2007;63(6):1338–47. </div>
-</div>
 <div id="ref-yamamoto2023immediate" class="csl-entry">
-<div class="csl-left-margin">36. </div><div class="csl-right-inline">Yamamoto R, Suzuki M, Funabiki T, Sasaki J.
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">Yamamoto R, Suzuki M, Funabiki T, Sasaki J.
 Immediate CT after hospital arrival and decreased in-hospital mortality
 in severely injured trauma patients. BJS open [Internet].
 2023;7(1):zrac133. Available from: <a href="https://academic.oup.com/bjsopen/article/7/1/zrac133/6995386?login=false">https://academic.oup.com/bjsopen/article/7/1/zrac133/6995386?login=false</a></div>
 </div>
-<div id="ref-stelfox2011evidence" class="csl-entry">
-<div class="csl-left-margin">37. </div><div class="csl-right-inline">Stelfox HT, Straus SE, Nathens A,
-Bobranska-Artiuch B. Evidence for quality indicators to evaluate adult
-trauma care: A systematic review. Critical care medicine.
-2011;39(4):846–59. </div>
-</div>
 <div id="ref-santana2014development" class="csl-entry">
-<div class="csl-left-margin">38. </div><div class="csl-right-inline">Santana MJ, Stelfox HT, et al. Development and
+<div class="csl-left-margin">32. </div><div class="csl-right-inline">Santana MJ, Stelfox HT, et al. Development and
 evaluation of evidence-informed quality indicators for adult injury
 care. Annals of surgery. 2014;259(1):186–92. </div>
-</div>
-<div id="ref-attergrim2023predicting" class="csl-entry">
-<div class="csl-left-margin">39. </div><div class="csl-right-inline">Attergrim J, Szolnoky K, Strömmer L, Brattström
-O, Whilke G, Jacobsson M, et al. Predicting opportunities for
-improvement in trauma using machine learning: A registry based study.
-medRxiv. 2023;2023–01. </div>
-</div>
-<div id="ref-alharbi2021effectiveness" class="csl-entry">
-<div class="csl-left-margin">40. </div><div class="csl-right-inline">Alharbi RJ, Shrestha S, Lewis V, Miller C. The
-effectiveness of trauma care systems at different stages of development
-in reducing mortality: A systematic review and meta-analysis. World
-Journal of Emergency Surgery. 2021;16:1–12. </div>
-</div>
-<div id="ref-mann1999systematic" class="csl-entry">
-<div class="csl-left-margin">41. </div><div class="csl-right-inline">Mann NC, Mullins RJ, MacKenzie EJ, Jurkovich
-GJ, Mock CN. Systematic review of published evidence regarding trauma
-system effectiveness. Journal of Trauma and Acute Care Surgery.
-1999;47(3):S25–33. </div>
-</div>
-<div id="ref-candefjord2020mortality" class="csl-entry">
-<div class="csl-left-margin">42. </div><div class="csl-right-inline">Candefjord S, Asker L, Caragounis E-C.
-Mortality of trauma patients treated at trauma centers compared to
-non-trauma centers in sweden: A retrospective study. European journal of
-trauma and emergency surgery. 2020;1–12. </div>
 </div>
 </div>
 </div>
