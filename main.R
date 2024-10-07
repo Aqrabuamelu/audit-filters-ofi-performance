@@ -26,7 +26,7 @@ listOfAuditFiltersClean <- c("SBP < 90", "Dead at 30 days", "ISS > 15 and no tea
 ## viktigt att det ska vara samma ordning ^
 DefOfAbbreviations <- "Definition of abbreviations: SBP = Systolic Blood Pressure; ISS = Injury Severity Score; GCS = Glascow Coma Scale; ICU = Intensive Care Unit; CT = Computer Tomography; ED = Emergency Department; CPR = Cardiopulmonary Resuscitation; TBI = Traumatic Brain Injury"
 
-selectedAuditFilter <- listOfAuditFilters[1:11]
+selectedAuditFilter <- listOfAuditFilters[1]
 
 tableKappa <- data.frame(Auditfilter = character(0),
                          Sensitivity = numeric(0),
