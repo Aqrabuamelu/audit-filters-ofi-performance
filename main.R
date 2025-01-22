@@ -26,12 +26,13 @@ listOfAuditFiltersClean <- c("SBP < 90", "Dead at 30 days", "ISS > 15 and no tea
 ## viktigt att det ska vara samma ordning ^
 DefOfAbbreviations <- "Definition of abbreviations: SBP = Systolic Blood Pressure; ISS = Injury Severity Score; GCS = Glascow Coma Scale; ICU = Intensive Care Unit; CT = Computer Tomography; ED = Emergency Department; CPR = Cardiopulmonary Resuscitation; TBI = Traumatic Brain Injury"
 
-selectedAuditFilter <- listOfAuditFilters[1]
+selectedAuditFilter <- listOfAuditFilters[1:11]
 
 tableKappa <- data.frame(Auditfilter = character(0),
                          Sensitivity = numeric(0),
                          Specificity = numeric(0),
-                         Kappa = numeric(0))
+                         PPV = numeric(0),
+                         NPV = numeric(0))
 tableAuditFilter <- data.frame(Auditfilter = character(0),
                                Total = numeric(0),
                                Number = numeric(0),
@@ -98,7 +99,8 @@ for(auditFilter in selectedAuditFilter){
   tableKappaResult <- data.frame(Auditfilter = listOfAuditFiltersClean[counter],
                                  Sensitivity = paste(c(confidenceIntervalSensitivitySpecificity[1], " (", confidenceIntervalSensitivitySpecificity[2], "-", confidenceIntervalSensitivitySpecificity[3], ") "), collapse = ""),
                                  Specificity = paste(c(confidenceIntervalSensitivitySpecificity[4], " (", confidenceIntervalSensitivitySpecificity[5], "-", confidenceIntervalSensitivitySpecificity[6], ") "), collapse = ""),
-                                 Kappa = paste(c(confidenceIntervalKappa[1]," (", confidenceIntervalKappa[2], "-", confidenceIntervalKappa[3], ") "), collapse = ""))
+                                 PPV = paste(c(confidenceIntervalSensitivitySpecificity[7], " (", confidenceIntervalSensitivitySpecificity[8], "-", confidenceIntervalSensitivitySpecificity[9], ") "), collapse = ""),
+                                 NPV = paste(c(confidenceIntervalSensitivitySpecificity[10], " (", confidenceIntervalSensitivitySpecificity[11], "-", confidenceIntervalSensitivitySpecificity[12], ") "), collapse = ""))
   tableKappa <- rbind(tableKappa,tableKappaResult)
   
   counter <- counter + 1
@@ -108,7 +110,8 @@ tableK <- gt(tableKappa)  %>%
   cols_label(Auditfilter = "Audit filter",
              Specificity = "Specificity (%)",
              Sensitivity = "Sensitivity (%)",
-             Kappa = "Cohen's Kappa") %>%
+             PPV = "PPV (%)",
+             NPV = "NPV (%)") %>%
   cols_align(align = "left") %>%
   tab_source_note(DefOfAbbreviations)
 
